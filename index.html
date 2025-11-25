@@ -2,19 +2,19 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Kapuzenschal – Rosa Santangelo</title>
+  <title>Kapuzenschal – ROSA SANTANGELO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Font: Cormorant Garamond -->
+  <!-- Google Font: Cormorant Garamond für Überschriften & Brand -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #f5eee7;   
-      --bg-card: #f2e5d7;   
-      --bg-strip: #c8b6a4;  
-      --accent: #b07b5c;    
-      --accent-dark: #946149;
+      --bg-main: #f5eee7;   /* Grundhintergrund, sandig */
+      --bg-card: #f2e5d7;   /* Kartenhintergrund */
+      --bg-strip: #d0c2b3;  /* breiter Streifen / Sektion */
+      --accent: #b07b5c;    /* warmes Braun */
+      --accent-dark: #8f5f43;
       --text: #3b2b26;
       --muted: #7b6456;
       --white: #ffffff;
@@ -27,7 +27,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg-main);
       color: var(--text);
       line-height: 1.5;
@@ -49,17 +49,18 @@
     }
 
     /* HEADER */
+
     header {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(245,238,231,0.96);
+      background: rgba(245, 238, 231, 0.96);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid rgba(0,0,0,0.05);
     }
@@ -67,20 +68,20 @@
     .logo-wrap {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
 
     .logo-wrap img {
-      height: 130px; /* Dein Wunsch */
+      height: 130px;  /* Wunschgröße */
       width: auto;
       display: block;
     }
 
     .logo-text {
-      font-size: 28px;
-      letter-spacing: 0.02em;
+      font-size: 26px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase; /* ALLES groß */
       font-weight: 500;
-      color: var(--text);
     }
 
     nav {
@@ -90,16 +91,33 @@
       font-size: 15px;
     }
 
-    nav a:hover {
-      color: var(--accent);
+    nav a {
+      position: relative;
+      padding-bottom: 2px;
     }
 
-    /* HERO */
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO – großer Bereich oben */
+
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
-      padding: 40px 0 60px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 36px;
+      padding: 40px 0 52px;
       align-items: center;
     }
 
@@ -111,30 +129,43 @@
     }
 
     .hero-title {
-      font-size: clamp(36px, 4vw, 48px);
-      line-height: 1.1;
+      font-size: clamp(34px, 4vw, 46px);
+      line-height: 1.08;
       margin-top: 10px;
     }
 
     .hero-sub {
-      margin-top: 14px;
       font-size: 16px;
-      max-width: 420px;
+      margin-top: 14px;
+      max-width: 460px;
+    }
+
+    .hero-badges {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .badge {
       border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.08);
       padding: 6px 14px;
       font-size: 12px;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.8);
     }
 
-    .hero-badges {
-      margin-top: 12px;
+    .hero-actions {
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    .hero-note {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .btn {
@@ -147,151 +178,299 @@
       font-size: 14px;
       cursor: pointer;
       background: transparent;
-      transition: 0.2s;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
     }
 
     .btn-primary {
       background: var(--accent);
-      color: white;
+      color: var(--white);
     }
 
     .btn-primary:hover {
       background: var(--accent-dark);
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
 
     .btn-secondary:hover {
-      background: rgba(176,123,92,0.1);
-      transform: translateY(-2px);
+      background: rgba(176,123,92,0.08);
+      transform: translateY(-1px);
     }
 
-    .hero-actions {
-      margin-top: 16px;
-      display: flex;
-      gap: 12px;
-    }
-
-    .hero-image {
-      border-radius: 28px;
+    .hero-image-frame {
+      border-radius: 30px;
       overflow: hidden;
-      padding: 20px;
-      background: linear-gradient(135deg, #c69a7a, #b2795e);
+      background: #d4c3b1;
       position: relative;
-      height: 320px;
     }
 
-    .hero-image::before {
-      content: "Hier wird später ein großes Foto des Kapuzenschals eingeblendet.";
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-image-placeholder {
       position: absolute;
-      inset: 30px;
+      inset: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.6);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff7ef;
       text-align: center;
-      padding: 0 12px;
+      padding: 10px;
+      color: #fdf5ed;
+      font-size: 14px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.35), rgba(0,0,0,0.1));
     }
 
     /* SECTIONS */
+
     section {
-      padding: 40px 0;
+      padding: 34px 0;
+    }
+
+    .section-header {
+      margin-bottom: 20px;
     }
 
     .section-title {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .section-subtitle {
-      font-size: 15px;
-      max-width: 600px;
-      color: var(--muted);
-    }
-
-    .features-grid {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .feature-card {
-      background: white;
-      border-radius: 16px;
-      padding: 18px;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .feature-card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 20px;
+      font-size: 24px;
       margin-bottom: 6px;
     }
 
-    /* Produktdetails */
-    .product-details {
+    .section-subtitle {
+      font-size: 14px;
+      max-width: 620px;
+      color: var(--muted);
+    }
+
+    /* PRODUKT-KARTEN für 4 Farben */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      padding: 12px 14px 14px;
+      font-size: 13px;
+    }
+
+    .product-color {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .product-article {
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .product-card .btn {
+      margin-top: 8px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Produktdetails (Beschreibung + Materialien) */
+
+    .details-grid {
       margin-top: 26px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
       gap: 22px;
       font-size: 14px;
     }
 
-    .product-details h3 {
+    .details-grid h3 {
       font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
       text-transform: uppercase;
-      font-size: 17px;
+      letter-spacing: 0.12em;
       margin-bottom: 8px;
     }
 
     .color-list,
     .material-list {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
       margin-top: 4px;
     }
 
-    /* Bestellung */
-    .price-card {
-      margin-top: 26px;
-      background: var(--bg-card);
-      border-radius: 20px;
-      padding: 24px;
+    .color-list li,
+    .material-list li {
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    /* Streifen-Sektion */
+
+    .strip {
+      background: var(--bg-strip);
+      border-radius: 26px;
+      padding: 26px 22px 24px;
+      margin-top: 10px;
       display: grid;
-      gap: 20px;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 22px;
+      color: #f7f2ed;
+    }
+
+    .strip-main {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .strip-sub {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* Preis & Bestellung */
+
+    .price-card {
+      background: var(--bg-card);
+      border-radius: 22px;
+      padding: 22px 20px 24px;
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 22px;
+      margin-top: 18px;
     }
 
     .price-amount {
-      font-size: 28px;
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .steps {
+      margin-top: 10px;
+      font-size: 13px;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .payment-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .payment-list span {
       font-weight: 600;
     }
 
+    /* Kontaktbox */
+
     .contact-box {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 22px;
+      padding: 18px 18px 20px;
       max-width: 480px;
       border: 1px solid rgba(0,0,0,0.06);
+      font-size: 14px;
+      margin-top: 12px;
     }
 
+    .contact-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* FOOTER */
+
     .footer {
-      padding: 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 20px 28px;
       font-size: 12px;
       color: var(--muted);
-      text-align: center;
-      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(0,0,0,0.05);
     }
+
+    /* RESPONSIVE */
 
     @media (max-width: 900px) {
       .hero,
-      .product-details,
+      .details-grid,
+      .strip,
       .price-card {
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        padding-top: 26px;
+      }
+
       .logo-wrap img {
         height: 110px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      nav {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .page {
+        padding: 0 14px 32px;
+      }
+
+      section {
+        padding: 26px 0;
+      }
+
+      .hero {
+        gap: 24px;
+      }
+
+      .price-card {
+        padding: 18px 14px 20px;
       }
     }
 
@@ -302,12 +481,13 @@
 
 <header>
   <div class="logo-wrap">
-    <img src="logo-kapuzenschal.png" alt="Logo" />
-    <div class="logo-text">Rosa Santangelo</div>
+    <!-- Logo-Datei: Bitte sicherstellen, dass sie im Repo so heißt -->
+    <img src="rosa-santangelo-logo.png" alt="ROSA SANTANGELO Logo" />
+    <div class="logo-text">ROSA SANTANGELO</div>
   </div>
-
   <nav>
     <a href="#produkt">Produkt</a>
+    <a href="#farben">Farben</a>
     <a href="#bestellen">Bestellen</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
@@ -318,107 +498,219 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="hero-kicker">HANDGEMACHT • WARM • ZEITLOS</div>
+      <div class="hero-kicker">HANDGEMACHT · WARM · ZEITLOS</div>
       <h1 class="hero-title">Der Kapuzenschal für deinen Alltag.</h1>
-      <p class="hero-sub">Weicher Strick, warm, bequem und stilvoll – perfekt für Spaziergänge, Spielplatz, Alltag und kalte Tage.</p>
-
+      <p class="hero-sub">
+        Ein Schal und eine Kapuze in einem – weicher Strick, warm und bequem. Für Spaziergänge, Alltag, Spielplatz
+        oder Stadiontage.
+      </p>
       <div class="hero-badges">
         <div class="badge">Einheitsgröße</div>
         <div class="badge">4 Farben</div>
-        <div class="badge">Handmade</div>
+        <div class="badge">Limitierte Stückzahl</div>
       </div>
-
       <div class="hero-actions">
-        <a href="#bestellen" class="btn btn-primary">Jetzt bestellen</a>
-        <a href="#produkt" class="btn btn-secondary">Mehr erfahren</a>
+        <a href="#bestellen" class="btn btn-primary">Jetzt Kapuzenschal bestellen</a>
+        <a href="#farben" class="btn btn-secondary">Farben ansehen</a>
+      </div>
+      <div class="hero-note">
+        Aktuell ein Modell in vier Farbtönen: Braun, Grau, Beige und Sand.
       </div>
     </div>
 
-    <div class="hero-image"></div>
+    <div class="hero-image-frame">
+      <!-- Nutze z.B. den Sand-Schal als großes Hero-Bild -->
+      <img src="kapuzenschal-sand.jpg" alt="Kapuzenschal Sand" />
+      <!-- falls noch kein Bild, einfach diesen Text lassen -->
+      <!--
+      <div class="hero-image-placeholder">
+        Hier kann später ein stimmungsvolles Foto platziert werden – z. B. ein Tragefoto des Kapuzenschals.
+      </div>
+      -->
+    </div>
   </section>
 
-  <!-- PRODUKT -->
+  <!-- PRODUKT-INFOS -->
   <section id="produkt">
-    <h2 class="section-title">Was den Kapuzenschal besonders macht</h2>
-    <p class="section-subtitle">Ein Schal und eine Kapuze in einem – handgemacht, weich und warm.</p>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Weich & warm</h3>
-        Perfekt für Wind, Kälte und leichte Regenschauer.
-      </div>
-      <div class="feature-card">
-        <h3>Viele Styles</h3>
-        Locker, offen oder eng getragen – passt sich dem Outfit an.
-      </div>
-      <div class="feature-card">
-        <h3>Handmade</h3>
-        Jeder Schal wird einzeln gefertigt – keine Massenware.
-      </div>
+    <div class="section-header">
+      <h2 class="section-title">Was den Kapuzenschal besonders macht</h2>
+      <p class="section-subtitle">
+        Der Kapuzenschal verbindet die Wärme eines Schals mit dem Schutz einer Kapuze. Ein unkompliziertes
+        Accessoire für jeden Tag – einfach überwerfen, wohlfühlen, losgehen.
+      </p>
     </div>
 
-    <!-- PRODUKTDETAILS -->
-    <div class="product-details">
+    <!-- Vier Produktkarten nebeneinander -->
+    <section id="farben">
+      <div class="section-header">
+        <h3 class="section-title" style="font-size:20px;">Vier Farben – ein Lieblingsstück</h3>
+        <p class="section-subtitle">
+          Wähle direkt deine Farbe. Jeder Schal hat eine eigene Artikelnummer, damit die Bestellung einfach bleibt.
+        </p>
+      </div>
 
+      <div class="product-grid">
+        <!-- Sand -->
+        <article class="product-card">
+          <img src="kapuzenschal-sand.jpg" alt="Kapuzenschal Sand" />
+          <div class="product-info">
+            <div class="product-color">Sand</div>
+            <div class="product-article">Art.-Nr.: 2025123459</div>
+            <div class="small">Weicher, heller Sandton – ruhig und zeitlos.</div>
+            <!-- mailto später anpassen -->
+            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Sand">
+              Sand bestellen
+            </a>
+          </div>
+        </article>
+
+        <!-- Beige -->
+        <article class="product-card">
+          <img src="kapuzenschal-beige.jpg" alt="Kapuzenschal Beige" />
+          <div class="product-info">
+            <div class="product-color">Beige</div>
+            <div class="product-article">Art.-Nr.: 2025123458</div>
+            <div class="small">Warmer Beigeton – passt sich vielen Outfits an.</div>
+            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Beige">
+              Beige bestellen
+            </a>
+          </div>
+        </article>
+
+        <!-- Braun -->
+        <article class="product-card">
+          <img src="kapuzenschal-braun.jpg" alt="Kapuzenschal Braun" />
+          <div class="product-info">
+            <div class="product-color">Braun</div>
+            <div class="product-article">Art.-Nr.: 2025123457</div>
+            <div class="small">Tiefes Dunkelbraun – ruhig, klar, bewusst.</div>
+            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Braun">
+              Braun bestellen
+            </a>
+          </div>
+        </article>
+
+        <!-- Grau (Foto kannst du später ergänzen) -->
+        <article class="product-card">
+          <!-- Platzhalter – später eigenes Bild hochladen und Dateinamen anpassen -->
+          <img src="kapuzenschal-grau.jpg" alt="Kapuzenschal Grau" />
+          <div class="product-info">
+            <div class="product-color">Grau</div>
+            <div class="product-article">Art.-Nr.: 2025123456</div>
+            <div class="small">Neutrales Grau – schlicht, minimalistisch, kombinierbar.</div>
+            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Grau">
+              Grau bestellen
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Details: Beschreibung & Materialien -->
+    <div class="details-grid">
       <div>
         <h3>Beschreibung & Passform</h3>
-        Kapuzenschal aus weichem Strick.<br>
-        Accessoire-Stil: Balaclava.<br><br>
+        <p>Kapuzenschal aus weichem Strick.</p>
+        <p>Accessoire-Stil: Balaclava / Kapuzenschal.</p>
 
-        <h3>Farben & Artikelnummern</h3>
+        <h3 style="margin-top:14px;">Farben & Artikelnummern</h3>
         <ul class="color-list">
-          <li><b>Grau</b> – 2025123456</li>
-          <li><b>Braun</b> – 2025123457</li>
-          <li><b>Beige</b> – 2025123458</li>
-          <li><b>Sand</b> – 2025123459</li>
+          <li><strong>Grau</strong> – 2025123456</li>
+          <li><strong>Braun</strong> – 2025123457</li>
+          <li><strong>Beige</strong> – 2025123458</li>
+          <li><strong>Sand</strong> – 2025123459</li>
         </ul>
       </div>
 
       <div>
         <h3>Materialien</h3>
-        Polyester 83 %<br>
-        Polyacryl 14 %<br>
-        Elasthan 3 %<br><br>
-
-        <p class="small">
-          Pflegeleicht, elastisch und angenehm weich auf der Haut.
+        <ul class="material-list">
+          <li>Polyester 83 %</li>
+          <li>Polyacryl 14 %</li>
+          <li>Elasthan 3 %</li>
+        </ul>
+        <p class="small" style="margin-top:8px;">
+          Der Kapuzenschal ist elastisch, formstabil und angenehm weich auf der Haut – und bleibt trotzdem pflegeleicht.
         </p>
       </div>
-
     </div>
+
+    <!-- Breiter Streifen / Statement -->
+    <div class="strip" style="margin-top:28px;">
+      <div class="strip-main">
+        „Ein Teil, das dich warm hält, ohne laut zu sein.“
+      </div>
+      <div class="strip-sub">
+        Der Kapuzenschal lässt sich zu Mänteln, Jacken und Hoodies kombinieren, ohne den Look zu überladen.
+        Sanfte Naturtöne, weicher Strick und eine ruhige Silhouette machen ihn zum Begleiter, den man gerne jeden Tag trägt.
+      </div>
+    </div>
+
   </section>
 
-  <!-- BESTELLEN -->
+  <!-- PREIS & BESTELLEN -->
   <section id="bestellen">
-    <h2 class="section-title">Preis & Bestellung</h2>
+    <div class="section-header">
+      <h2 class="section-title">Preis & Bestellung</h2>
+      <p class="section-subtitle">
+        Bestelle deinen Kapuzenschal ganz unkompliziert per E-Mail. Du wählst deine Farbe, wir bestätigen dir
+        Verfügbarkeit, Preis und Zahlungsart.
+      </p>
+    </div>
 
     <div class="price-card">
       <div>
-        <div class="price-amount">Kapuzenschal – 39,00 €</div>
-        <p class="small">inkl. MwSt., zzgl. Versand</p>
+        <div class="price-amount">Kapuzenschal – XX,XX €</div>
+        <div class="small">
+          inkl. MwSt., zzgl. Versand. Den genauen Betrag und die Versandkosten teilen wir dir in der Bestätigung mit.
+        </div>
+
+        <div class="small" style="margin-top:10px;">So läuft deine Bestellung ab:</div>
+        <ol class="steps">
+          <li>Du schreibst uns, welche Farbe(n) du möchtest.</li>
+          <li>Wir bestätigen dir Verfügbarkeit und Gesamtpreis.</li>
+          <li>Du bezahlst per PayPal oder Überweisung.</li>
+          <li>Wir verschicken deinen Kapuzenschal so schnell wie möglich.</li>
+        </ol>
       </div>
 
       <div>
-        <a href="#kontakt" class="btn btn-primary">Jetzt bestellen</a>
+        <ul class="payment-list">
+          <li>
+            <span>PayPal</span><br />
+            Zahlung bequem per PayPal.
+            <div class="small">
+              Hier kannst du später euren PayPal-Link eintragen, z. B. <code>https://paypal.me/DEINLINK</code>.
+            </div>
+          </li>
+          <li>
+            <span>Überweisung</span><br />
+            Auf Wunsch senden wir dir unsere Bankverbindung mit der Bestellbestätigung zu.
+          </li>
+        </ul>
       </div>
     </div>
-
   </section>
 
   <!-- KONTAKT -->
   <section id="kontakt">
-    <h2 class="section-title">Kontakt & Bestellung</h2>
+    <div class="section-header">
+      <h2 class="section-title">Kontakt & Anfrage</h2>
+      <p class="section-subtitle">
+        Du möchtest einen Kapuzenschal bestellen oder hast Fragen zu Farbe, Lieferzeit oder Pflege? Schreib uns einfach.
+      </p>
+    </div>
 
     <div class="contact-box">
-      Schreib uns für deine Bestellung:
-      <br><br>
-
-      <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal">
-        E-Mail senden
-      </a>
-
-      <p class="small" style="margin-top:12px;">
-        Bitte angeben: Farbe, Stückzahl, Lieferadresse.
+      <strong>Schreib uns eine E-Mail</strong>
+      <div class="contact-actions">
+        <!-- E-Mail-Adresse hier anpassen -->
+        <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Anfrage Kapuzenschal">
+          E-Mail senden
+        </a>
+      </div>
+      <p class="small">
+        Hilfreich für uns: Farbe, Stückzahl und Lieferadresse – dann können wir dir schnell ein Angebot schicken.
       </p>
     </div>
   </section>
@@ -426,8 +718,13 @@
 </main>
 
 <footer class="footer">
-  © 2025 Rosa Santangelo – Handmade Kapuzenschals
+  <div>© <span id="year"></span> ROSA SANTANGELO – Kapuzenschal.</div>
+  <div>Impressum / Datenschutz können hier später ergänzt werden.</div>
 </footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

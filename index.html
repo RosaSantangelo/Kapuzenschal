@@ -5,7 +5,7 @@
   <title>Kapuzenschal – ROSA SANTANGELO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Font für Marke & Überschriften -->
+  <!-- Google Font: Cormorant Garamond -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -72,7 +72,7 @@
     }
 
     .logo-wrap img {
-      height: 130px;
+      height: 150px; /* Logo-Größe */
       width: auto;
       display: block;
     }
@@ -87,7 +87,7 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 18px;
       font-size: 15px;
     }
 
@@ -109,6 +109,19 @@
 
     nav a:hover::after {
       width: 100%;
+    }
+
+    .cart-indicator {
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(0,0,0,0.08);
+      cursor: pointer;
+    }
+
+    .cart-indicator span {
+      font-weight: 600;
     }
 
     /* HERO */
@@ -196,6 +209,11 @@
       transform: translateY(-1px);
     }
 
+    .btn-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
     .hero-image-frame {
       border-radius: 30px;
       overflow: hidden;
@@ -232,7 +250,7 @@
       color: var(--muted);
     }
 
-    /* 4 PRODUKT-KARTEN */
+    /* PRODUKT-KARTEN */
 
     .product-grid {
       display: grid;
@@ -262,7 +280,7 @@
       font-size: 13px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
     }
 
     .product-color {
@@ -274,13 +292,32 @@
       color: var(--muted);
     }
 
-    .product-card .btn {
+    .product-meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .product-actions {
       margin-top: 6px;
-      width: 100%;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .quantity-select {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.12);
+      font-size: 13px;
+      background: rgba(255,255,255,0.8);
+    }
+
+    .product-card .btn {
+      flex: 1;
       justify-content: center;
     }
 
-    /* DETAILS (Beschreibung + Materialien) */
+    /* DETAILS */
 
     .details-grid {
       margin-top: 26px;
@@ -311,7 +348,7 @@
       font-size: 13px;
     }
 
-    /* STREIFEN / STATEMENT */
+    /* STATEMENT-STREIFEN */
 
     .strip {
       background: var(--bg-strip);
@@ -335,36 +372,63 @@
       opacity: 0.9;
     }
 
-    /* PREIS & BESTELLUNG */
+    /* WARENKORB & BEZAHLUNG */
 
-    .price-card {
+    .cart-card {
       background: var(--bg-card);
       border-radius: 22px;
       padding: 22px 20px 24px;
-      display: grid;
-      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
-      gap: 22px;
       margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 22px;
+      font-size: 14px;
     }
 
-    .price-amount {
-      font-size: 26px;
+    table.cart-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .cart-table th,
+    .cart-table td {
+      text-align: left;
+      padding: 6px 4px;
+    }
+
+    .cart-table th {
       font-weight: 600;
-      margin-bottom: 4px;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .cart-table td:last-child,
+    .cart-table th:last-child {
+      text-align: right;
+    }
+
+    .cart-empty {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 4px 0;
+    }
+
+    .cart-summary {
+      margin-top: 10px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-total {
+      font-weight: 600;
+      font-size: 16px;
     }
 
     .small {
       font-size: 12px;
       color: var(--muted);
-    }
-
-    .steps {
-      margin-top: 10px;
-      font-size: 13px;
-      padding-left: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
     }
 
     .payment-list {
@@ -378,6 +442,13 @@
 
     .payment-list span {
       font-weight: 600;
+    }
+
+    .payment-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     /* KONTAKT */
@@ -420,14 +491,14 @@
       .hero,
       .details-grid,
       .strip,
-      .price-card {
+      .cart-card {
         grid-template-columns: 1fr;
       }
       .hero {
         padding-top: 26px;
       }
       .logo-wrap img {
-        height: 110px;
+        height: 120px;
       }
     }
 
@@ -438,7 +509,7 @@
         gap: 8px;
       }
       nav {
-        gap: 14px;
+        gap: 12px;
         flex-wrap: wrap;
       }
       .page {
@@ -450,7 +521,7 @@
       .hero {
         gap: 24px;
       }
-      .price-card {
+      .cart-card {
         padding: 18px 14px 20px;
       }
     }
@@ -461,15 +532,18 @@
 
 <header>
   <div class="logo-wrap">
-    <!-- Logo-Datei muss im Repo genau so heißen -->
     <img src="logo-kapuzenschal.png" alt="ROSA SANTANGELO Logo" />
     <div class="logo-text">ROSA SANTANGELO</div>
   </div>
+
   <nav>
     <a href="#produkt">Produkt</a>
     <a href="#farben">Farben</a>
-    <a href="#bestellen">Bestellen</a>
+    <a href="#bestellen">Warenkorb</a>
     <a href="#kontakt">Kontakt</a>
+    <div class="cart-indicator" onclick="document.getElementById('bestellen').scrollIntoView({behavior:'smooth'});">
+      Warenkorb: <span id="cart-count">0</span> Artikel
+    </div>
   </nav>
 </header>
 
@@ -490,7 +564,7 @@
         <div class="badge">Limitierte Stückzahl</div>
       </div>
       <div class="hero-actions">
-        <a href="#bestellen" class="btn btn-primary">Jetzt Kapuzenschal bestellen</a>
+        <a href="#bestellen" class="btn btn-primary">Zum Warenkorb</a>
         <a href="#farben" class="btn btn-secondary">Farben ansehen</a>
       </div>
       <div class="hero-note">
@@ -499,7 +573,6 @@
     </div>
 
     <div class="hero-image-frame">
-      <!-- Hero-Foto – Datei im Repo als kapuzenschal-sand.jpg hochladen -->
       <img src="kapuzenschal-sand.jpg" alt="Kapuzenschal Sand" />
     </div>
   </section>
@@ -509,17 +582,17 @@
     <div class="section-header">
       <h2 class="section-title">Was den Kapuzenschal besonders macht</h2>
       <p class="section-subtitle">
-        Der Kapuzenschal verbindet die Wärme eines Schals mit dem Schutz einer Kapuze. Ein unkompliziertes
-        Accessoire für jeden Tag – einfach überwerfen, wohlfühlen, losgehen.
+        Der Kapuzenschal verbindet die Wärme eines Schals mit dem Schutz einer Kapuze.
+        Ein unkompliziertes Accessoire für jeden Tag – einfach überwerfen, wohlfühlen, losgehen.
       </p>
     </div>
 
-    <!-- Vier Farben -->
+    <!-- Farben -->
     <section id="farben">
       <div class="section-header">
         <h3 class="section-title" style="font-size:20px;">Vier Farben – ein Lieblingsstück</h3>
         <p class="section-subtitle">
-          Wähle deine Farbe direkt auf der Seite. Jede Variante hat eine eigene Artikelnummer.
+          Wähle deine Farbe. Über den Button legst du den Schal in deinen Warenkorb.
         </p>
       </div>
 
@@ -530,7 +603,16 @@
           <div class="product-info">
             <div class="product-color">Sand</div>
             <div class="product-article">Art.-Nr.: 2025123459</div>
-            <div class="small">Heller Sandton – ruhig, soft, zeitlos.</div>
+            <div class="product-meta">Heller Sandton – ruhig, soft, zeitlos.</div>
+            <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
+            <div class="product-actions">
+              <select class="quantity-select" data-product-id="sand">
+                <option value="1">1 Stück</option>
+                <option value="2">2 Stück</option>
+                <option value="3">3 Stück</option>
+              </select>
+              <button class="btn btn-secondary" data-add-to-cart="sand">In den Warenkorb</button>
+            </div>
           </div>
         </article>
 
@@ -540,7 +622,16 @@
           <div class="product-info">
             <div class="product-color">Beige</div>
             <div class="product-article">Art.-Nr.: 2025123458</div>
-            <div class="small">Warmer Beigeton, passt sich vielen Outfits an.</div>
+            <div class="product-meta">Warmer Beigeton, passt zu vielen Outfits.</div>
+            <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
+            <div class="product-actions">
+              <select class="quantity-select" data-product-id="beige">
+                <option value="1">1 Stück</option>
+                <option value="2">2 Stück</option>
+                <option value="3">3 Stück</option>
+              </select>
+              <button class="btn btn-secondary" data-add-to-cart="beige">In den Warenkorb</button>
+            </div>
           </div>
         </article>
 
@@ -550,7 +641,16 @@
           <div class="product-info">
             <div class="product-color">Braun</div>
             <div class="product-article">Art.-Nr.: 2025123457</div>
-            <div class="small">Tiefes Dunkelbraun – klar, ruhig, bewusst.</div>
+            <div class="product-meta">Tiefes Dunkelbraun – klar, ruhig, bewusst.</div>
+            <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
+            <div class="product-actions">
+              <select class="quantity-select" data-product-id="braun">
+                <option value="1">1 Stück</option>
+                <option value="2">2 Stück</option>
+                <option value="3">3 Stück</option>
+              </select>
+              <button class="btn btn-secondary" data-add-to-cart="braun">In den Warenkorb</button>
+            </div>
           </div>
         </article>
 
@@ -560,13 +660,22 @@
           <div class="product-info">
             <div class="product-color">Grau</div>
             <div class="product-article">Art.-Nr.: 2025123456</div>
-            <div class="small">Neutrales Grau – minimalistisch und kombinierbar.</div>
+            <div class="product-meta">Neutrales Grau – minimalistisch und kombinierbar.</div>
+            <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
+            <div class="product-actions">
+              <select class="quantity-select" data-product-id="grau">
+                <option value="1">1 Stück</option>
+                <option value="2">2 Stück</option>
+                <option value="3">3 Stück</option>
+              </select>
+              <button class="btn btn-secondary" data-add-to-cart="grau">In den Warenkorb</button>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Details: Beschreibung & Materialien -->
+    <!-- Details -->
     <div class="details-grid">
       <div>
         <h3>Beschreibung & Passform</h3>
@@ -595,7 +704,7 @@
       </div>
     </div>
 
-    <!-- Streifen / Statement -->
+    <!-- Statement -->
     <div class="strip">
       <div class="strip-main">
         „Ein Teil, das dich warm hält, ohne laut zu sein.“
@@ -608,53 +717,60 @@
 
   </section>
 
-  <!-- PREIS & BESTELLUNG -->
+  <!-- WARENKORB & BEZAHLUNG -->
   <section id="bestellen">
     <div class="section-header">
-      <h2 class="section-title">Preis & Bestellung</h2>
+      <h2 class="section-title">Warenkorb & Bezahlung</h2>
       <p class="section-subtitle">
-        Du kannst deinen Kapuzenschal bequem per PayPal oder Überweisung bezahlen. Schreib uns kurz, welche Farbe du möchtest –
-        oder nutze direkt den PayPal-Button.
+        Lege deine Wunschfarben in den Warenkorb und bezahle anschließend bequem per PayPal oder Überweisung.
       </p>
     </div>
 
-    <div class="price-card">
+    <div class="cart-card">
       <div>
-        <div class="price-amount">Kapuzenschal – XX,XX €</div>
-        <div class="small">
-          inkl. MwSt., zzgl. Versand. Den genauen Betrag und die Versandkosten bestätigen wir dir per E-Mail.
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Artikel</th>
+              <th>Anzahl</th>
+              <th>Summe</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <tr><td colspan="3" class="cart-empty">Dein Warenkorb ist noch leer.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="cart-summary">
+          <div class="small">Versand & genaue Gesamtsumme bestätigen wir dir per E-Mail.</div>
+          <div class="cart-total">Gesamt: <span id="cart-total">0,00&nbsp;€</span></div>
         </div>
 
-        <div class="small" style="margin-top:10px;">So läuft deine Bestellung ab:</div>
-        <ol class="steps">
-          <li>Du wählst deine Wunschfarbe (Art.-Nr. siehe oben).</li>
-          <li>Du schreibst uns eine kurze E-Mail mit Farbe, Stückzahl und Adresse.</li>
-          <li>Du bezahlst per PayPal oder Überweisung.</li>
-          <li>Wir verschicken deinen Kapuzenschal so schnell wie möglich.</li>
-        </ol>
+        <div class="small" style="margin-top:6px;">
+          Hinweis: Preis aktuell als Platzhalter hinterlegt. Bitte passt den Stückpreis im Code an euren Verkaufspreis an.
+        </div>
       </div>
 
       <div>
         <ul class="payment-list">
           <li>
             <span>PayPal</span><br />
-            Bezahle bequem online per PayPal.
-            <div class="small" style="margin-top:4px;">
-              <!-- HIER euren echten PayPal-Link eintragen, z. B. https://paypal.me/deinname -->
-              <a class="btn btn-primary"
-                 href="https://paypal.me/DEINLINK"
-                 target="_blank" rel="noopener">
+            Bezahle deinen Warenkorb bequem per PayPal.
+            <div class="payment-actions">
+              <!-- HIER euren echten PayPal.me-Link über das Script konfigurieren -->
+              <button id="paypal-button" class="btn btn-primary btn-disabled" disabled>
                 Mit PayPal bezahlen
-              </a>
-              <br />
-              Bitte im Betreff deine Farbe & Artikelnummer angeben.
+              </button>
+            </div>
+            <div class="small">
+              Wir öffnen PayPal mit dem Gesamtbetrag. Bitte dort im Betreff deine Farbe(n) angeben.
             </div>
           </li>
+
           <li>
             <span>Überweisung</span><br />
-            Du kannst auch per Banküberweisung zahlen.
+            Du möchtest lieber per Banküberweisung zahlen?
             <div class="small" style="margin-top:4px;">
-              <!-- Diese Daten bitte anpassen -->
               Kontoinhaber: NAME EINTRAGEN<br />
               IBAN: DE00 0000 0000 0000 0000 00<br />
               BIC: BANKCODE123<br />
@@ -669,22 +785,21 @@
   <!-- KONTAKT -->
   <section id="kontakt">
     <div class="section-header">
-      <h2 class="section-title">Kontakt & Anfrage</h2>
+      <h2 class="section-title">Kontakt & Fragen</h2>
       <p class="section-subtitle">
-        Du möchtest bestellen oder hast Fragen zu Farben, Lieferzeit oder Pflege? Schreib uns einfach eine Nachricht.
+        Du hast Fragen zu Farben, Lieferzeit oder Bestellung? Schreib uns einfach eine Nachricht.
       </p>
     </div>
 
     <div class="contact-box">
       <strong>Schreib uns eine E-Mail</strong>
       <div class="contact-actions">
-        <!-- E-Mail-Adresse hier anpassen -->
-        <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Anfrage Kapuzenschal">
+        <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Frage zum Kapuzenschal">
           E-Mail senden
         </a>
       </div>
       <p class="small">
-        Hilfreich für uns: gewünschte Farbe, Stückzahl und Lieferadresse – dann können wir dir direkt ein Angebot schicken.
+        Hilfreich für uns: gewünschte Farbe, Stückzahl und Lieferadresse.
       </p>
     </div>
   </section>
@@ -697,6 +812,150 @@
 </footer>
 
 <script>
+  // ===============================
+  // Konfiguration
+  // ===============================
+
+  // Stückpreis pro Schal in EUR (ANPASSEN!)
+  const PRICE_PER_ITEM = 39.00;
+
+  // Euer PayPal.me-Link – HIER anpassen, z.B. "https://paypal.me/deinname"
+  const PAYPAL_LINK_BASE = "https://paypal.me/DEINLINK";
+
+  const PRODUCTS = [
+    { id: "sand",  name: "Kapuzenschal Sand",  color: "Sand",  article: "2025123459" },
+    { id: "beige", name: "Kapuzenschal Beige", color: "Beige", article: "2025123458" },
+    { id: "braun", name: "Kapuzenschal Braun", color: "Braun", article: "2025123457" },
+    { id: "grau",  name: "Kapuzenschal Grau",  color: "Grau",  article: "2025123456" }
+  ];
+
+  let cart = []; // {id, quantity}
+
+  function findProduct(id) {
+    return PRODUCTS.find(p => p.id === id);
+  }
+
+  function addToCart(id, quantity) {
+    quantity = Number(quantity) || 1;
+    const existing = cart.find(item => item.id === id);
+    if (existing) {
+      existing.quantity += quantity;
+    } else {
+      cart.push({ id, quantity });
+    }
+    renderCart();
+  }
+
+  function updateQuantity(id, quantity) {
+    quantity = Number(quantity) || 1;
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    item.quantity = quantity;
+    if (item.quantity <= 0) {
+      cart = cart.filter(i => i.id !== id);
+    }
+    renderCart();
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    renderCart();
+  }
+
+  function calculateTotals() {
+    let totalQty = 0;
+    let totalPrice = 0;
+    cart.forEach(item => {
+      totalQty += item.quantity;
+      totalPrice += item.quantity * PRICE_PER_ITEM;
+    });
+    return { totalQty, totalPrice };
+  }
+
+  function formatPrice(value) {
+    return value.toFixed(2).replace(".", ",") + " €";
+  }
+
+  function renderCart() {
+    const tbody = document.getElementById("cart-items");
+    const countEl = document.getElementById("cart-count");
+    const totalEl = document.getElementById("cart-total");
+    const paypalButton = document.getElementById("paypal-button");
+
+    tbody.innerHTML = "";
+
+    if (cart.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="3" class="cart-empty">Dein Warenkorb ist noch leer.</td></tr>';
+      countEl.textContent = "0";
+      totalEl.textContent = "0,00 €";
+      paypalButton.classList.add("btn-disabled");
+      paypalButton.disabled = true;
+      return;
+    }
+
+    const { totalQty, totalPrice } = calculateTotals();
+
+    cart.forEach(item => {
+      const product = findProduct(item.id);
+      if (!product) return;
+      const row = document.createElement("tr");
+
+      const nameCell = document.createElement("td");
+      nameCell.textContent = product.color;
+
+      const qtyCell = document.createElement("td");
+      const sumCell = document.createElement("td");
+
+      qtyCell.innerHTML = `
+        <input type="number" min="1" value="${item.quantity}"
+          style="width:60px;padding:4px 6px;border-radius:6px;border:1px solid rgba(0,0,0,0.15);font-size:12px;" />
+        <button style="margin-left:4px;font-size:11px;border:none;background:none;color:#b07b5c;cursor:pointer;">
+          Entfernen
+        </button>
+      `;
+
+      const itemSum = item.quantity * PRICE_PER_ITEM;
+      sumCell.textContent = formatPrice(itemSum);
+
+      row.appendChild(nameCell);
+      row.appendChild(qtyCell);
+      row.appendChild(sumCell);
+      tbody.appendChild(row);
+
+      const input = qtyCell.querySelector("input");
+      const removeBtn = qtyCell.querySelector("button");
+      input.addEventListener("change", () => updateQuantity(item.id, input.value));
+      removeBtn.addEventListener("click", () => removeFromCart(item.id));
+    });
+
+    countEl.textContent = String(totalQty);
+    totalEl.textContent = formatPrice(totalPrice);
+
+    paypalButton.classList.remove("btn-disabled");
+    paypalButton.disabled = false;
+  }
+
+  // Add-to-cart Buttons
+  document.querySelectorAll("[data-add-to-cart]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-add-to-cart");
+      const select = document.querySelector(`.quantity-select[data-product-id="${id}"]`);
+      const qty = select ? select.value : 1;
+      addToCart(id, qty);
+      document.getElementById("bestellen").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // PayPal-Button
+  document.getElementById("paypal-button").addEventListener("click", () => {
+    if (cart.length === 0) return;
+    const { totalPrice } = calculateTotals();
+    const amount = totalPrice.toFixed(2); // z.B. 39.00
+    const url = `${PAYPAL_LINK_BASE}/${amount}`;
+    window.open(url, "_blank");
+  });
+
+  // Jahr im Footer
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 

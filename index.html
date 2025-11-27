@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Kapuzenschal – ROSA SANTANGELO</title>
+  <title>Kapuzenschal – ROSA BY SANTANGELO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Google Font: Cormorant Garamond -->
@@ -266,6 +266,7 @@
       border: 1px solid rgba(0,0,0,0.06);
       display: flex;
       flex-direction: column;
+      height: 100%;
     }
 
     .product-card img {
@@ -281,6 +282,7 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      flex: 1;
     }
 
     .product-color {
@@ -304,7 +306,7 @@
     }
 
     .product-actions {
-      margin-top: 6px;
+      margin-top: auto; /* Buttons nach unten -> alle Karten gleich hoch */
       display: flex;
       gap: 8px;
       align-items: center;
@@ -386,7 +388,7 @@
       padding: 22px 20px 24px;
       margin-top: 18px;
       display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1.1fr);
       gap: 22px;
       font-size: 14px;
     }
@@ -437,6 +439,75 @@
       color: var(--muted);
     }
 
+    .payment-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkout-box {
+      background: rgba(255,255,255,0.9);
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      font-size: 13px;
+    }
+
+    .checkout-box h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 10px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 6px;
+    }
+
+    .field label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 6px 8px;
+      font-size: 13px;
+      font-family: inherit;
+      background: rgba(255,255,255,0.9);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 52px;
+    }
+
+    .order-info-box {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(240,232,223,0.9);
+      border: 1px solid rgba(0,0,0,0.04);
+      font-size: 12px;
+    }
+
+    .order-info-box strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
     .payment-list {
       list-style: none;
       padding-left: 0;
@@ -448,10 +519,11 @@
 
     .payment-list span {
       font-weight: 600;
+      font-size: 15px;
     }
 
     .payment-actions {
-      margin-top: 10px;
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -544,6 +616,9 @@
       .cart-card {
         padding: 18px 14px 20px;
       }
+      .checkout-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -552,8 +627,8 @@
 
 <header>
   <div class="logo-wrap">
-    <img src="logo-kapuzenschal.png" alt="ROSA SANTANGELO Logo" />
-    <div class="logo-text">ROSA SANTANGELO</div>
+    <img src="logo-kapuzenschal.png" alt="ROSA BY SANTANGELO Logo" />
+    <div class="logo-text">ROSA BY SANTANGELO</div>
   </div>
 
   <nav>
@@ -747,11 +822,12 @@
     <div class="section-header">
       <h2 class="section-title">Warenkorb & Bezahlung</h2>
       <p class="section-subtitle">
-        Lege deine Wunschfarben in den Warenkorb und bezahle anschließend bequem per PayPal oder Überweisung.
+        Lege deine Wunschfarben in den Warenkorb und trage deine Daten ein. Danach kannst du bequem per PayPal oder Überweisung bezahlen.
       </p>
     </div>
 
     <div class="cart-card">
+      <!-- Warenkorb links -->
       <div>
         <table class="cart-table">
           <thead>
@@ -772,29 +848,83 @@
         </div>
       </div>
 
-      <div>
+      <!-- Checkout + Bezahlung rechts -->
+      <div class="payment-column">
+        <!-- Bestelldaten -->
+        <div class="checkout-box">
+          <h3>Deine Bestelldaten</h3>
+          <p class="small" style="margin-bottom:6px;">
+            Bitte fülle die Felder aus. Wir nutzen diese Daten für den Versand und die Zuordnung deiner Zahlung.
+          </p>
+
+          <div class="checkout-grid">
+            <div>
+              <div class="field">
+                <label for="cust-name">Name*</label>
+                <input id="cust-name" type="text" placeholder="Vor- und Nachname" />
+              </div>
+              <div class="field">
+                <label for="cust-email">E-Mail*</label>
+                <input id="cust-email" type="email" placeholder="E-Mail für Rückfragen" />
+              </div>
+              <div class="field">
+                <label for="cust-address">Straße & Nr.*</label>
+                <input id="cust-address" type="text" placeholder="z.B. Musterstraße 12" />
+              </div>
+              <div class="field">
+                <label for="cust-zip">PLZ & Ort*</label>
+                <input id="cust-zip" type="text" placeholder="z.B. 12345 Musterstadt" />
+              </div>
+            </div>
+            <div>
+              <div class="field">
+                <label for="cust-notes">Hinweise (optional)</label>
+                <textarea id="cust-notes" placeholder="z.B. Wunschfarbe priorisieren, Geschenk, etc."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-actions">
+            <button id="generate-order" class="btn btn-secondary">
+              Bestellnummer erzeugen
+            </button>
+            <button id="email-order" class="btn btn-secondary btn-disabled" disabled>
+              Bestell-E-Mail öffnen
+            </button>
+          </div>
+
+          <div class="order-info-box" id="order-info" style="display:none;">
+            <strong>Deine Bestelldaten</strong>
+            <div id="order-number-line"></div>
+            <div id="order-items-line"></div>
+            <div id="order-purpose-line"></div>
+          </div>
+        </div>
+
+        <!-- Zahlarten -->
         <ul class="payment-list">
           <li>
-            <span>PayPal</span><br />
+            <span>PayPal (empfohlen)</span><br />
             Bezahle deinen Warenkorb bequem per PayPal.
             <div class="payment-actions">
               <button id="paypal-button" class="btn btn-primary btn-disabled" disabled>
                 Mit PayPal bezahlen
               </button>
             </div>
-            <div class="small">
-              Wir öffnen PayPal mit dem Gesamtbetrag. Bitte dort im Betreff deine Farbe(n) angeben.
+            <div class="small" id="paypal-hint">
+              Bitte gib bei PayPal in der Mitteilung den Verwendungszweck aus der Bestellbox oben an.
             </div>
           </li>
 
           <li>
             <span>Überweisung</span><br />
-            Du möchtest lieber per Banküberweisung zahlen?
-            <div class="small" style="margin-top:4px;">
-              Kontoinhaber: LUMANI UG (haftungsbeschränkt)<br />
-              IBAN: DE33 2545 0110 0031 0599 26<br />
-              BIC: NOLADE21SWB<br />
-              Verwendungszweck: Kapuzenschal + Farbe + dein Name
+            <div style="margin-top:4px; padding:8px 10px; border-radius:10px; background:rgba(255,255,255,0.9); border:1px solid rgba(0,0,0,0.08);">
+              <div style="font-size:13px;">
+                <strong>Kontoinhaber:</strong> LUMANI UG (haftungsbeschränkt)<br />
+                <strong>IBAN:</strong> DE33 2545 0110 0031 0599 26<br />
+                <strong>BIC:</strong> NOLADE21SWB<br />
+                <strong>Verwendungszweck:</strong> <span id="bank-purpose">Kapuzenschal + Farbe(n) + dein Name</span>
+              </div>
             </div>
           </li>
         </ul>
@@ -822,8 +952,7 @@
     <div class="contact-box">
       <strong>Schreib uns eine E-Mail</strong>
       <div class="contact-actions">
-        <!-- E-Mail-Adresse anpassen -->
-        <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Frage zum Kapuzenschal">
+        <a class="btn btn-secondary" href="mailto:info@lumani.net?subject=Frage%20zum%20Kapuzenschal">
           E-Mail senden
         </a>
       </div>
@@ -836,7 +965,7 @@
 </main>
 
 <footer class="footer">
-  <div>© <span id="year"></span> ROSA SANTANGELO – Kapuzenschal.</div>
+  <div>© 2025 ROSA BY SANTANGELO – ein Produkt der LUMANI UG.</div>
   <div>Impressum / Datenschutz können hier später ergänzt werden.</div>
 </footer>
 
@@ -851,6 +980,9 @@
   // Euer PayPal.me-Link
   const PAYPAL_LINK_BASE = "https://paypal.me/lumaniug";
 
+  // E-Mail für Bestellungen
+  const ORDER_EMAIL = "info@lumani.net";
+
   const PRODUCTS = [
     { id: "sand",  name: "Kapuzenschal Sand",  color: "Sand",  article: "2025123459" },
     { id: "beige", name: "Kapuzenschal Beige", color: "Beige", article: "2025123458" },
@@ -859,6 +991,9 @@
   ];
 
   let cart = []; // {id, quantity}
+  let currentOrderNumber = null;
+  let currentOrderSummary = "";
+  let currentPurposeText = "";
 
   function findProduct(id) {
     return PRODUCTS.find(p => p.id === id);
@@ -873,6 +1008,7 @@
       cart.push({ id, quantity });
     }
     renderCart();
+    resetOrderInfo();
   }
 
   function updateQuantity(id, quantity) {
@@ -884,11 +1020,13 @@
       cart = cart.filter(i => i.id !== id);
     }
     renderCart();
+    resetOrderInfo();
   }
 
   function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     renderCart();
+    resetOrderInfo();
   }
 
   function calculateTotals() {
@@ -964,6 +1102,162 @@
     paypalButton.disabled = false;
   }
 
+  // Bestellnummer generieren (Jahr + 5-stellige Nummer aus Zeitstempel)
+  function generateOrderNumber() {
+    const year = 2025;
+    const now = Date.now();
+    const part = String(now % 100000).padStart(5, "0");
+    return String(year) + part; // z.B. 202500123
+  }
+
+  function buildOrderSummary() {
+    if (cart.length === 0) return "";
+    return cart
+      .map(item => {
+        const p = findProduct(item.id);
+        return `${p ? p.color : "Artikel"} x${item.quantity}`;
+      })
+      .join(", ");
+  }
+
+  function buildOrderDetailsLines() {
+    return cart
+      .map(item => {
+        const p = findProduct(item.id);
+        const lineName = p ? p.name : "Kapuzenschal";
+        const art = p ? p.article : "";
+        return `${lineName} (Art.-Nr. ${art}) – Menge: ${item.quantity}`;
+      })
+      .join("\n");
+  }
+
+  function resetOrderInfo() {
+    currentOrderNumber = null;
+    currentOrderSummary = "";
+    currentPurposeText = "";
+    document.getElementById("order-info").style.display = "none";
+    document.getElementById("order-number-line").textContent = "";
+    document.getElementById("order-items-line").textContent = "";
+    document.getElementById("order-purpose-line").textContent = "";
+    document.getElementById("bank-purpose").textContent = "Kapuzenschal + Farbe(n) + dein Name";
+    document.getElementById("email-order").classList.add("btn-disabled");
+    document.getElementById("email-order").disabled = true;
+  }
+
+  function validateCustomerData() {
+    const name = document.getElementById("cust-name").value.trim();
+    const email = document.getElementById("cust-email").value.trim();
+    const address = document.getElementById("cust-address").value.trim();
+    const zip = document.getElementById("cust-zip").value.trim();
+
+    if (!name || !email || !address || !zip) {
+      alert("Bitte fülle Name, E-Mail, Straße & Nr. sowie PLZ & Ort aus.");
+      return null;
+    }
+
+    if (cart.length === 0) {
+      alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
+      return null;
+    }
+
+    return {
+      name,
+      email,
+      address,
+      zipCity: zip,
+      notes: document.getElementById("cust-notes").value.trim()
+    };
+  }
+
+  function handleGenerateOrder() {
+    const customer = validateCustomerData();
+    if (!customer) return;
+
+    const orderNumber = generateOrderNumber();
+    const summary = buildOrderSummary();
+    const purpose = `Bestellung ${orderNumber} – ${summary} – ${customer.name}`;
+
+    currentOrderNumber = orderNumber;
+    currentOrderSummary = summary;
+    currentPurposeText = purpose;
+
+    document.getElementById("order-info").style.display = "block";
+    document.getElementById("order-number-line").textContent = "Bestellnummer: " + orderNumber;
+    document.getElementById("order-items-line").textContent = "Artikel: " + summary;
+    document.getElementById("order-purpose-line").textContent = "Verwendungszweck / PayPal-Notiz: " + purpose;
+    document.getElementById("bank-purpose").textContent = purpose;
+
+    document.getElementById("email-order").classList.remove("btn-disabled");
+    document.getElementById("email-order").disabled = false;
+  }
+
+  function handleEmailOrder() {
+    if (!currentOrderNumber || cart.length === 0) {
+      alert("Bitte zuerst Bestellnummer erzeugen.");
+      return;
+    }
+
+    const customer = {
+      name: document.getElementById("cust-name").value.trim(),
+      email: document.getElementById("cust-email").value.trim(),
+      address: document.getElementById("cust-address").value.trim(),
+      zipCity: document.getElementById("cust-zip").value.trim(),
+      notes: document.getElementById("cust-notes").value.trim()
+    };
+
+    const details = buildOrderDetailsLines();
+    const { totalPrice } = calculateTotals();
+
+    const subject = `Bestellung Kapuzenschal ${currentOrderNumber}`;
+    const body =
+      `Bestellnummer: ${currentOrderNumber}\n\n` +
+      `Name: ${customer.name}\n` +
+      `E-Mail: ${customer.email}\n` +
+      `Adresse:\n${customer.address}\n${customer.zipCity}\n\n` +
+      `Produkte:\n${details}\n\n` +
+      `Gesamtbetrag: ${formatPrice(totalPrice)}\n\n` +
+      `Verwendungszweck / PayPal-Notiz:\n${currentPurposeText}\n\n` +
+      `Hinweise des Kunden:\n${customer.notes || "-"}\n`;
+
+    const mailto =
+      "mailto:" +
+      encodeURIComponent(ORDER_EMAIL) +
+      "?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+
+    window.location.href = mailto;
+  }
+
+  function handlePayPalClick() {
+    if (cart.length === 0) {
+      alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
+      return;
+    }
+
+    const customer = validateCustomerData();
+    if (!customer) return;
+
+    if (!currentOrderNumber) {
+      // automatisch Bestellnummer erzeugen, falls noch nicht geschehen
+      handleGenerateOrder();
+    }
+
+    const { totalPrice } = calculateTotals();
+    const amount = totalPrice.toFixed(2); // z.B. 24.95
+    const url = `${PAYPAL_LINK_BASE}/${amount}`;
+
+    alert(
+      "Hinweis für deine PayPal-Zahlung:\n\n" +
+      "Bitte trage im Mitteilungsfeld bei PayPal folgenden Text ein:\n\n" +
+      currentPurposeText +
+      "\n\nSo können wir deine Zahlung eindeutig zuordnen."
+    );
+
+    window.open(url, "_blank");
+  }
+
   // Add-to-cart Buttons
   document.querySelectorAll("[data-add-to-cart]").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -975,17 +1269,21 @@
     });
   });
 
-  // PayPal-Button
-  document.getElementById("paypal-button").addEventListener("click", () => {
-    if (cart.length === 0) return;
-    const { totalPrice } = calculateTotals();
-    const amount = totalPrice.toFixed(2); // z.B. 24.95
-    const url = `${PAYPAL_LINK_BASE}/${amount}`;
-    window.open(url, "_blank");
+  // Buttons für Bestellnummer, E-Mail & PayPal
+  document.getElementById("generate-order").addEventListener("click", (e) => {
+    e.preventDefault();
+    handleGenerateOrder();
   });
 
-  // Jahr im Footer
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("email-order").addEventListener("click", (e) => {
+    e.preventDefault();
+    handleEmailOrder();
+  });
+
+  document.getElementById("paypal-button").addEventListener("click", (e) => {
+    e.preventDefault();
+    handlePayPalClick();
+  });
 </script>
 
 </body>

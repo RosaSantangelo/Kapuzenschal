@@ -5,15 +5,15 @@
   <title>Kapuzenschal – ROSA SANTANGELO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Font: Cormorant Garamond für Überschriften & Brand -->
+  <!-- Google Font für Marke & Überschriften -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #f5eee7;   /* Grundhintergrund, sandig */
-      --bg-card: #f2e5d7;   /* Kartenhintergrund */
-      --bg-strip: #d0c2b3;  /* breiter Streifen / Sektion */
-      --accent: #b07b5c;    /* warmes Braun */
+      --bg-main: #f5eee7;
+      --bg-card: #f2e5d7;
+      --bg-strip: #d0c2b3;
+      --accent: #b07b5c;
       --accent-dark: #8f5f43;
       --text: #3b2b26;
       --muted: #7b6456;
@@ -72,7 +72,7 @@
     }
 
     .logo-wrap img {
-      height: 130px;  /* Wunschgröße */
+      height: 130px;
       width: auto;
       display: block;
     }
@@ -80,7 +80,7 @@
     .logo-text {
       font-size: 26px;
       letter-spacing: 0.18em;
-      text-transform: uppercase; /* ALLES groß */
+      text-transform: uppercase;
       font-weight: 500;
     }
 
@@ -111,7 +111,7 @@
       width: 100%;
     }
 
-    /* HERO – großer Bereich oben */
+    /* HERO */
 
     .hero {
       display: grid;
@@ -201,28 +201,14 @@
       overflow: hidden;
       background: #d4c3b1;
       position: relative;
+      min-height: 320px;
     }
 
     .hero-image-frame img {
       width: 100%;
       height: 100%;
-      display: block;
       object-fit: cover;
-    }
-
-    .hero-image-placeholder {
-      position: absolute;
-      inset: 18px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
-      color: #fdf5ed;
-      font-size: 14px;
-      background: linear-gradient(135deg, rgba(0,0,0,0.35), rgba(0,0,0,0.1));
+      display: block;
     }
 
     /* SECTIONS */
@@ -246,7 +232,7 @@
       color: var(--muted);
     }
 
-    /* PRODUKT-KARTEN für 4 Farben */
+    /* 4 PRODUKT-KARTEN */
 
     .product-grid {
       display: grid;
@@ -274,26 +260,27 @@
     .product-info {
       padding: 12px 14px 14px;
       font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .product-color {
       font-size: 15px;
       font-weight: 600;
-      margin-bottom: 2px;
     }
 
     .product-article {
       color: var(--muted);
-      margin-bottom: 6px;
     }
 
     .product-card .btn {
-      margin-top: 8px;
+      margin-top: 6px;
       width: 100%;
       justify-content: center;
     }
 
-    /* Produktdetails (Beschreibung + Materialien) */
+    /* DETAILS (Beschreibung + Materialien) */
 
     .details-grid {
       margin-top: 26px;
@@ -324,17 +311,18 @@
       font-size: 13px;
     }
 
-    /* Streifen-Sektion */
+    /* STREIFEN / STATEMENT */
 
     .strip {
       background: var(--bg-strip);
       border-radius: 26px;
       padding: 26px 22px 24px;
-      margin-top: 10px;
+      margin-top: 28px;
       display: grid;
       grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
       gap: 22px;
       color: #f7f2ed;
+      font-size: 14px;
     }
 
     .strip-main {
@@ -347,7 +335,7 @@
       opacity: 0.9;
     }
 
-    /* Preis & Bestellung */
+    /* PREIS & BESTELLUNG */
 
     .price-card {
       background: var(--bg-card);
@@ -385,14 +373,14 @@
       font-size: 14px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .payment-list span {
       font-weight: 600;
     }
 
-    /* Kontaktbox */
+    /* KONTAKT */
 
     .contact-box {
       background: rgba(255,255,255,0.95);
@@ -435,11 +423,9 @@
       .price-card {
         grid-template-columns: 1fr;
       }
-
       .hero {
         padding-top: 26px;
       }
-
       .logo-wrap img {
         height: 110px;
       }
@@ -451,29 +437,23 @@
         align-items: flex-start;
         gap: 8px;
       }
-
       nav {
         gap: 14px;
         flex-wrap: wrap;
       }
-
       .page {
         padding: 0 14px 32px;
       }
-
       section {
         padding: 26px 0;
       }
-
       .hero {
         gap: 24px;
       }
-
       .price-card {
         padding: 18px 14px 20px;
       }
     }
-
   </style>
 </head>
 
@@ -481,8 +461,8 @@
 
 <header>
   <div class="logo-wrap">
-    <!-- Logo-Datei: Bitte sicherstellen, dass sie im Repo so heißt -->
-    <img src="rosa-santangelo-logo.png" alt="ROSA SANTANGELO Logo" />
+    <!-- Logo-Datei muss im Repo genau so heißen -->
+    <img src="logo-kapuzenschal.png" alt="ROSA SANTANGELO Logo" />
     <div class="logo-text">ROSA SANTANGELO</div>
   </div>
   <nav>
@@ -519,14 +499,8 @@
     </div>
 
     <div class="hero-image-frame">
-      <!-- Nutze z.B. den Sand-Schal als großes Hero-Bild -->
+      <!-- Hero-Foto – Datei im Repo als kapuzenschal-sand.jpg hochladen -->
       <img src="kapuzenschal-sand.jpg" alt="Kapuzenschal Sand" />
-      <!-- falls noch kein Bild, einfach diesen Text lassen -->
-      <!--
-      <div class="hero-image-placeholder">
-        Hier kann später ein stimmungsvolles Foto platziert werden – z. B. ein Tragefoto des Kapuzenschals.
-      </div>
-      -->
     </div>
   </section>
 
@@ -540,12 +514,12 @@
       </p>
     </div>
 
-    <!-- Vier Produktkarten nebeneinander -->
+    <!-- Vier Farben -->
     <section id="farben">
       <div class="section-header">
         <h3 class="section-title" style="font-size:20px;">Vier Farben – ein Lieblingsstück</h3>
         <p class="section-subtitle">
-          Wähle direkt deine Farbe. Jeder Schal hat eine eigene Artikelnummer, damit die Bestellung einfach bleibt.
+          Wähle deine Farbe direkt auf der Seite. Jede Variante hat eine eigene Artikelnummer.
         </p>
       </div>
 
@@ -556,11 +530,7 @@
           <div class="product-info">
             <div class="product-color">Sand</div>
             <div class="product-article">Art.-Nr.: 2025123459</div>
-            <div class="small">Weicher, heller Sandton – ruhig und zeitlos.</div>
-            <!-- mailto später anpassen -->
-            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Sand">
-              Sand bestellen
-            </a>
+            <div class="small">Heller Sandton – ruhig, soft, zeitlos.</div>
           </div>
         </article>
 
@@ -570,10 +540,7 @@
           <div class="product-info">
             <div class="product-color">Beige</div>
             <div class="product-article">Art.-Nr.: 2025123458</div>
-            <div class="small">Warmer Beigeton – passt sich vielen Outfits an.</div>
-            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Beige">
-              Beige bestellen
-            </a>
+            <div class="small">Warmer Beigeton, passt sich vielen Outfits an.</div>
           </div>
         </article>
 
@@ -583,24 +550,17 @@
           <div class="product-info">
             <div class="product-color">Braun</div>
             <div class="product-article">Art.-Nr.: 2025123457</div>
-            <div class="small">Tiefes Dunkelbraun – ruhig, klar, bewusst.</div>
-            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Braun">
-              Braun bestellen
-            </a>
+            <div class="small">Tiefes Dunkelbraun – klar, ruhig, bewusst.</div>
           </div>
         </article>
 
-        <!-- Grau (Foto kannst du später ergänzen) -->
+        <!-- Grau -->
         <article class="product-card">
-          <!-- Platzhalter – später eigenes Bild hochladen und Dateinamen anpassen -->
           <img src="kapuzenschal-grau.jpg" alt="Kapuzenschal Grau" />
           <div class="product-info">
             <div class="product-color">Grau</div>
             <div class="product-article">Art.-Nr.: 2025123456</div>
-            <div class="small">Neutrales Grau – schlicht, minimalistisch, kombinierbar.</div>
-            <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Bestellung Kapuzenschal Grau">
-              Grau bestellen
-            </a>
+            <div class="small">Neutrales Grau – minimalistisch und kombinierbar.</div>
           </div>
         </article>
       </div>
@@ -635,26 +595,26 @@
       </div>
     </div>
 
-    <!-- Breiter Streifen / Statement -->
-    <div class="strip" style="margin-top:28px;">
+    <!-- Streifen / Statement -->
+    <div class="strip">
       <div class="strip-main">
         „Ein Teil, das dich warm hält, ohne laut zu sein.“
       </div>
       <div class="strip-sub">
-        Der Kapuzenschal lässt sich zu Mänteln, Jacken und Hoodies kombinieren, ohne den Look zu überladen.
-        Sanfte Naturtöne, weicher Strick und eine ruhige Silhouette machen ihn zum Begleiter, den man gerne jeden Tag trägt.
+        Sanfte Naturtöne, weicher Strick und eine ruhige Silhouette – der Kapuzenschal passt zu Mänteln, Jacken und Hoodies,
+        ohne den Look zu überladen. Einfach überziehen und rausgehen.
       </div>
     </div>
 
   </section>
 
-  <!-- PREIS & BESTELLEN -->
+  <!-- PREIS & BESTELLUNG -->
   <section id="bestellen">
     <div class="section-header">
       <h2 class="section-title">Preis & Bestellung</h2>
       <p class="section-subtitle">
-        Bestelle deinen Kapuzenschal ganz unkompliziert per E-Mail. Du wählst deine Farbe, wir bestätigen dir
-        Verfügbarkeit, Preis und Zahlungsart.
+        Du kannst deinen Kapuzenschal bequem per PayPal oder Überweisung bezahlen. Schreib uns kurz, welche Farbe du möchtest –
+        oder nutze direkt den PayPal-Button.
       </p>
     </div>
 
@@ -662,13 +622,13 @@
       <div>
         <div class="price-amount">Kapuzenschal – XX,XX €</div>
         <div class="small">
-          inkl. MwSt., zzgl. Versand. Den genauen Betrag und die Versandkosten teilen wir dir in der Bestätigung mit.
+          inkl. MwSt., zzgl. Versand. Den genauen Betrag und die Versandkosten bestätigen wir dir per E-Mail.
         </div>
 
         <div class="small" style="margin-top:10px;">So läuft deine Bestellung ab:</div>
         <ol class="steps">
-          <li>Du schreibst uns, welche Farbe(n) du möchtest.</li>
-          <li>Wir bestätigen dir Verfügbarkeit und Gesamtpreis.</li>
+          <li>Du wählst deine Wunschfarbe (Art.-Nr. siehe oben).</li>
+          <li>Du schreibst uns eine kurze E-Mail mit Farbe, Stückzahl und Adresse.</li>
           <li>Du bezahlst per PayPal oder Überweisung.</li>
           <li>Wir verschicken deinen Kapuzenschal so schnell wie möglich.</li>
         </ol>
@@ -678,14 +638,28 @@
         <ul class="payment-list">
           <li>
             <span>PayPal</span><br />
-            Zahlung bequem per PayPal.
-            <div class="small">
-              Hier kannst du später euren PayPal-Link eintragen, z. B. <code>https://paypal.me/DEINLINK</code>.
+            Bezahle bequem online per PayPal.
+            <div class="small" style="margin-top:4px;">
+              <!-- HIER euren echten PayPal-Link eintragen, z. B. https://paypal.me/deinname -->
+              <a class="btn btn-primary"
+                 href="https://paypal.me/DEINLINK"
+                 target="_blank" rel="noopener">
+                Mit PayPal bezahlen
+              </a>
+              <br />
+              Bitte im Betreff deine Farbe & Artikelnummer angeben.
             </div>
           </li>
           <li>
             <span>Überweisung</span><br />
-            Auf Wunsch senden wir dir unsere Bankverbindung mit der Bestellbestätigung zu.
+            Du kannst auch per Banküberweisung zahlen.
+            <div class="small" style="margin-top:4px;">
+              <!-- Diese Daten bitte anpassen -->
+              Kontoinhaber: NAME EINTRAGEN<br />
+              IBAN: DE00 0000 0000 0000 0000 00<br />
+              BIC: BANKCODE123<br />
+              Verwendungszweck: Kapuzenschal + Farbe + dein Name
+            </div>
           </li>
         </ul>
       </div>
@@ -697,7 +671,7 @@
     <div class="section-header">
       <h2 class="section-title">Kontakt & Anfrage</h2>
       <p class="section-subtitle">
-        Du möchtest einen Kapuzenschal bestellen oder hast Fragen zu Farbe, Lieferzeit oder Pflege? Schreib uns einfach.
+        Du möchtest bestellen oder hast Fragen zu Farben, Lieferzeit oder Pflege? Schreib uns einfach eine Nachricht.
       </p>
     </div>
 
@@ -710,7 +684,7 @@
         </a>
       </div>
       <p class="small">
-        Hilfreich für uns: Farbe, Stückzahl und Lieferadresse – dann können wir dir schnell ein Angebot schicken.
+        Hilfreich für uns: gewünschte Farbe, Stückzahl und Lieferadresse – dann können wir dir direkt ein Angebot schicken.
       </p>
     </div>
   </section>

@@ -288,6 +288,12 @@
       font-weight: 600;
     }
 
+    .product-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
     .product-article {
       color: var(--muted);
     }
@@ -451,6 +457,20 @@
       gap: 10px;
     }
 
+    .policy-box {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(0,0,0,0.06);
+      font-size: 13px;
+    }
+
+    .policy-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
     /* KONTAKT */
 
     .contact-box {
@@ -562,6 +582,7 @@
         <div class="badge">Einheitsgröße</div>
         <div class="badge">4 Farben</div>
         <div class="badge">Limitierte Stückzahl</div>
+        <div class="badge">24,95 € · inkl. Versand (DE)</div>
       </div>
       <div class="hero-actions">
         <a href="#bestellen" class="btn btn-primary">Zum Warenkorb</a>
@@ -602,6 +623,7 @@
           <img src="kapuzenschal-sand.jpg" alt="Kapuzenschal Sand" />
           <div class="product-info">
             <div class="product-color">Sand</div>
+            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
             <div class="product-article">Art.-Nr.: 2025123459</div>
             <div class="product-meta">Heller Sandton – ruhig, soft, zeitlos.</div>
             <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
@@ -621,6 +643,7 @@
           <img src="kapuzenschal-beige.jpg" alt="Kapuzenschal Beige" />
           <div class="product-info">
             <div class="product-color">Beige</div>
+            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
             <div class="product-article">Art.-Nr.: 2025123458</div>
             <div class="product-meta">Warmer Beigeton, passt zu vielen Outfits.</div>
             <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
@@ -640,6 +663,7 @@
           <img src="kapuzenschal-braun.jpg" alt="Kapuzenschal Braun" />
           <div class="product-info">
             <div class="product-color">Braun</div>
+            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
             <div class="product-article">Art.-Nr.: 2025123457</div>
             <div class="product-meta">Tiefes Dunkelbraun – klar, ruhig, bewusst.</div>
             <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
@@ -659,6 +683,7 @@
           <img src="kapuzenschal-grau.jpg" alt="Kapuzenschal Grau" />
           <div class="product-info">
             <div class="product-color">Grau</div>
+            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
             <div class="product-article">Art.-Nr.: 2025123456</div>
             <div class="product-meta">Neutrales Grau – minimalistisch und kombinierbar.</div>
             <div class="product-meta">Kapuzenschal aus weichem Strick.</div>
@@ -742,12 +767,8 @@
         </table>
 
         <div class="cart-summary">
-          <div class="small">Versand & genaue Gesamtsumme bestätigen wir dir per E-Mail.</div>
+          <div class="small">Preis: 24,95 € pro Kapuzenschal, inkl. Versand innerhalb Deutschlands.</div>
           <div class="cart-total">Gesamt: <span id="cart-total">0,00&nbsp;€</span></div>
-        </div>
-
-        <div class="small" style="margin-top:6px;">
-          Hinweis: Preis aktuell als Platzhalter hinterlegt. Bitte passt den Stückpreis im Code an euren Verkaufspreis an.
         </div>
       </div>
 
@@ -778,6 +799,14 @@
           </li>
         </ul>
       </div>
+    </div>
+
+    <div class="policy-box">
+      <strong>Umtausch & Widerruf</strong>
+      <p class="small">
+        Umtausch bzw. Widerruf ist innerhalb der gesetzlichen Frist von 14 Tagen ab Erhalt der Ware möglich.
+        Die Kosten der Rücksendung trägt der Käufer.
+      </p>
     </div>
   </section>
 
@@ -816,8 +845,8 @@
   // Konfiguration
   // ===============================
 
-  // Stückpreis pro Schal in EUR (ANPASSEN!)
-  const PRICE_PER_ITEM = 39.00;
+  // Stückpreis pro Schal in EUR
+  const PRICE_PER_ITEM = 24.95;
 
   // Euer PayPal.me-Link
   const PAYPAL_LINK_BASE = "https://paypal.me/lumaniug";
@@ -950,7 +979,7 @@
   document.getElementById("paypal-button").addEventListener("click", () => {
     if (cart.length === 0) return;
     const { totalPrice } = calculateTotals();
-    const amount = totalPrice.toFixed(2); // z.B. 39.00
+    const amount = totalPrice.toFixed(2); // z.B. 24.95
     const url = `${PAYPAL_LINK_BASE}/${amount}`;
     window.open(url, "_blank");
   });

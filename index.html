@@ -72,7 +72,7 @@
     }
 
     .logo-wrap img {
-      height: 150px; /* Logo-Größe */
+      height: 150px;
       width: auto;
       display: block;
     }
@@ -555,8 +555,8 @@
       <div class="hero-kicker">HANDGEMACHT · WARM · ZEITLOS</div>
       <h1 class="hero-title">Der Kapuzenschal für deinen Alltag.</h1>
       <p class="hero-sub">
-        Ein Schal und eine Kapuze in einem – weicher Strick, warm und bequem. Für Spaziergänge, Alltag, Spielplatz
-        oder Stadiontage.
+        Ein Schal und eine Kapuze in einem – weicher Strick, warm und bequem.
+        Für Spaziergänge, Alltag, Spielplatz oder Stadiontage.
       </p>
       <div class="hero-badges">
         <div class="badge">Einheitsgröße</div>
@@ -757,7 +757,6 @@
             <span>PayPal</span><br />
             Bezahle deinen Warenkorb bequem per PayPal.
             <div class="payment-actions">
-              <!-- HIER euren echten PayPal.me-Link über das Script konfigurieren -->
               <button id="paypal-button" class="btn btn-primary btn-disabled" disabled>
                 Mit PayPal bezahlen
               </button>
@@ -771,9 +770,9 @@
             <span>Überweisung</span><br />
             Du möchtest lieber per Banküberweisung zahlen?
             <div class="small" style="margin-top:4px;">
-              Kontoinhaber: NAME EINTRAGEN<br />
-              IBAN: DE00 0000 0000 0000 0000 00<br />
-              BIC: BANKCODE123<br />
+              Kontoinhaber: LUMANI UG (haftungsbeschränkt)<br />
+              IBAN: DE33 2545 0110 0031 0599 26<br />
+              BIC: NOLADE21SWB<br />
               Verwendungszweck: Kapuzenschal + Farbe + dein Name
             </div>
           </li>
@@ -794,6 +793,7 @@
     <div class="contact-box">
       <strong>Schreib uns eine E-Mail</strong>
       <div class="contact-actions">
+        <!-- E-Mail-Adresse anpassen -->
         <a class="btn btn-secondary" href="mailto:deine-mail@beispiel.de?subject=Frage zum Kapuzenschal">
           E-Mail senden
         </a>
@@ -819,8 +819,8 @@
   // Stückpreis pro Schal in EUR (ANPASSEN!)
   const PRICE_PER_ITEM = 39.00;
 
-  // Euer PayPal.me-Link – HIER anpassen, z.B. "https://paypal.me/deinname"
-  const PAYPAL_LINK_BASE = "https://paypal.me/DEINLINK";
+  // Euer PayPal.me-Link
+  const PAYPAL_LINK_BASE = "https://paypal.me/lumaniug";
 
   const PRODUCTS = [
     { id: "sand",  name: "Kapuzenschal Sand",  color: "Sand",  article: "2025123459" },

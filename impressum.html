@@ -2,39 +2,116 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Datenschutz – Rosa by Santangelo</title>
+<title>Impressum – Rosa by Santangelo</title>
 <style>
-  body { font-family: serif; padding: 60px; background:#f6f2eb; line-height:1.6; }
-  h1 { font-size: 32px; margin-bottom:20px; font-family:"Cormorant Garamond", serif; }
-  h2 { margin-top:28px; font-size:22px; }
-  p { margin: 6px 0 12px; }
-  a { color:#8b5b47; text-decoration:none; font-weight:bold; }
+  body {
+    margin: 0;
+    padding: 40px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background: #f6f2eb;
+    color: #2f241c;
+  }
+
+  .impressum-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px 32px 32px;
+    border-radius: 20px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+  }
+
+  h1 {
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+
+  h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #8b5b47;
+    margin: 0 0 18px;
+  }
+
+  p {
+    margin: 4px 0 10px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .label {
+    font-weight: 600;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 24px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #8b5b47;
+    font-weight: 600;
+  }
+
+  .back-link span {
+    margin-left: 6px;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9c8372;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 600px) {
+    .impressum-wrapper {
+      padding: 28px 20px 24px;
+      border-radius: 16px;
+    }
+  }
 </style>
 </head>
 
 <body>
-<h1>Datenschutzerklärung</h1>
+  <div class="impressum-wrapper">
+    <div class="eyebrow">Rechtliches</div>
+    <h1>Impressum</h1>
 
-<p>Wir freuen uns über dein Interesse an unserem Produkt. Datenschutz hat für uns einen hohen Stellenwert. Nachfolgend informieren wir dich über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten.</p>
+    <h2>Verantwortlich gemäß §5 TMG</h2>
+    <p>
+      <span class="label">Toni Kierakowitz</span><br>
+      Hamelspringer Str. 36<br>
+      31848 Bad Münder am Deister<br>
+      Deutschland
+    </p>
 
-<h2>1. Verantwortlicher</h2>
-<p>Lumani UG (haftungsbeschränkt)<br>
-Hamelspringer Str. 36<br>
-31848 Bad Münder am Deister<br>
-E-Mail: info@lumani.net</p>
+    <p><span class="label">Gerichtsstand:</span> Hannover</p>
 
-<h2>2. Verarbeitung personenbezogener Daten</h2>
-<p>Wir verarbeiten Daten ausschließlich zur Bestellabwicklung, Zahlungsabwicklung sowie zur Kommunikation mit dem Kunden.</p>
+    <p>
+      <span class="label">E-Mail:</span> info@lumani.net
+    </p>
 
-<h2>3. Weitergabe der Daten</h2>
-<p>Eine Weitergabe findet nur statt, wenn dies für Zahlungsabwicklung (z. B. PayPal) oder Versand notwendig ist.</p>
+    <p>
+      <span class="label">Unternehmen:</span> Lumani UG (haftungsbeschränkt)
+    </p>
 
-<h2>4. Rechte der Nutzer</h2>
-<p>Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung sowie Widerspruch gegen die Verarbeitung deiner Daten.</p>
+    <p>
+      <span class="label">USt.-ID / IBAN:</span> DE33 2545 0110 0031 0599 26
+    </p>
 
-<h2>5. Dauer der Speicherung</h2>
-<p>Daten werden nur so lange gespeichert, wie es gesetzlich erforderlich ist.</p>
-
-<a href="index.html">← zurück zur Startseite</a>
+    <a class="back-link" href="index.html">
+      ← <span>Zurück zur Startseite</span>
+    </a>
+  </div>
 </body>
 </html>

@@ -4,38 +4,32 @@
   <meta charset="UTF-8" />
   <title>Rosa by Santangelo – Kapuzenschal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
     :root {
-      --bg: #f6efe7;
-      --bg-soft: #f0e6db;
-      --card: #f3eee7;
-      --card-soft: #f8f4ee;
-      --accent: #c3805d;
-      --accent-soft: #e2b69a;
-      --accent-dark: #8f5334;
-      --text-main: #3b2c26;
-      --text-soft: #7c6a5e;
-      --pill-bg: #f8f4ee;
-      --pill-border: #e0d6c8;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.08);
-      --radius-lg: 26px;
-      --radius-md: 18px;
+      --bg-main: #f6efe6;
+      --bg-card: #ffffff;
+      --bg-soft: #f0e2d3;
+      --accent: #b86a4b;
+      --accent-dark: #8b4a32;
+      --text-main: #2f241c;
+      --text-muted: #6f6256;
+      --border-soft: #e0d2c2;
+      --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.06);
+      --radius-card: 22px;
       --radius-pill: 999px;
-      --transition: 0.22s ease;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-        Arial, sans-serif;
-      background: radial-gradient(circle at top left, #fdf7f0 0, var(--bg) 45%, #e8dfd3 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at top left, #f9efe4 0, #f3e4d6 40%, #f0e0d0 100%);
       color: var(--text-main);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     img {
@@ -48,23 +42,20 @@
       text-decoration: none;
     }
 
-    .page {
+    .page-wrapper {
       max-width: 1120px;
-      margin: 32px auto 72px;
-      padding: 0 18px 40px;
-      background: rgba(246, 239, 231, 0.92);
-      border-radius: 36px;
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
+      margin: 0 auto;
+      padding: 32px 16px 64px;
     }
+
+    /* HEADER */
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 26px 26px 10px;
-      gap: 24px;
+      margin-bottom: 32px;
+      gap: 32px;
     }
 
     .brand {
@@ -74,961 +65,778 @@
     }
 
     .logo-circle {
-      width: 190px;
-      height: 190px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       background: #ffffff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 14px;
     }
 
     .logo-circle img {
-      width: 160px;
-      height: auto;
+      width: 88%;
+      height: 88%;
+      object-fit: contain;
     }
 
-    .brand-name {
-      letter-spacing: 0.25em;
+    .brand-text {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      letter-spacing: 0.18em;
+      font-size: 18px;
       text-transform: uppercase;
-      font-size: 14px;
       color: var(--text-main);
       white-space: nowrap;
     }
-    .brand-name .brand-rosa {
-      font-weight: 400;
-    }
-    .brand-name .brand-by {
-      font-weight: 600;
+
+    .brand-text span.brand-by {
+      font-weight: 700;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 20px;
       font-size: 14px;
     }
 
     nav a {
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      color: var(--text-soft);
-      border: 1px solid transparent;
-      transition: var(--transition);
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+      color: var(--text-muted);
     }
 
     nav a:hover {
-      background: rgba(255, 255, 255, 0.9);
-      border-color: rgba(0, 0, 0, 0.04);
+      background: rgba(255, 255, 255, 0.8);
       color: var(--text-main);
     }
 
-    .nav-cart-pill {
+    .cart-pill {
       background: #ffffff;
-      border-radius: var(--radius-pill);
-      padding: 6px 18px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 999px;
+      padding: 6px 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
       font-size: 13px;
-      font-weight: 500;
+    }
+
+    /* HERO */
+
+    main section {
+      margin-bottom: 56px;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 32px;
-      padding: 12px 26px 34px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 40px;
       align-items: center;
     }
 
-    .hero-copy-eyebrow {
+    .hero-kicker {
       font-size: 11px;
-      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--text-soft);
+      letter-spacing: 0.28em;
+      color: var(--text-muted);
       margin-bottom: 12px;
     }
 
-    h1 {
+    .hero h1 {
       font-family: "Cormorant Garamond", "Times New Roman", serif;
-      font-weight: 600;
-      font-size: 34px;
-      line-height: 1.08;
-      margin: 0 0 14px;
-      color: #221713;
+      font-size: 38px;
+      line-height: 1.15;
+      margin-bottom: 14px;
     }
 
-    .hero-lead {
+    .hero p {
       font-size: 14px;
-      color: var(--text-soft);
+      color: var(--text-muted);
       max-width: 420px;
+      margin-bottom: 18px;
     }
 
-    .pill-row {
+    .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 18px 0 18px;
+      margin-bottom: 14px;
     }
 
-    .pill {
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
+    .tag {
       font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: var(--pill-bg);
-      border: 1px solid var(--pill-border);
-      color: var(--text-soft);
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text-muted);
     }
 
-    .pill-strong {
+    .hero-price-tag {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
       background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-soft);
       font-weight: 600;
-      color: var(--accent-dark);
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 14px 0 10px;
+      margin-bottom: 10px;
     }
 
-    .btn {
+    .btn-primary,
+    .btn-outline {
       border-radius: var(--radius-pill);
-      padding: 10px 18px;
-      border: none;
-      cursor: pointer;
+      padding: 9px 18px;
       font-size: 13px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-weight: 600;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(159, 96, 64, 0.45);
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 10px 26px rgba(184, 106, 75, 0.4);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 36px rgba(159, 96, 64, 0.55);
+      background: var(--accent-dark);
     }
 
-    .btn-ghost {
+    .btn-outline {
       background: transparent;
+      border: 1px solid var(--border-soft);
       color: var(--text-main);
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      background: rgba(255, 255, 255, 0.82);
     }
 
-    .btn-ghost:hover {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.18);
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .hero-note {
-      font-size: 12px;
-      color: var(--text-soft);
-      margin-top: 4px;
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
-    .hero-media-card {
-      background: #fdfaf7;
-      border-radius: 34px;
-      padding: 10px;
+    .hero-image-card {
+      background: #fefdfb;
+      border-radius: 26px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      padding: 14px;
     }
 
-    .hero-media-inner {
-      border-radius: 28px;
+    .hero-image-inner {
       overflow: hidden;
+      border-radius: 22px;
     }
 
-    .section {
-      padding: 10px 26px 28px;
+    .hero-image-inner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
-    .section + .section {
-      padding-top: 4px;
+    /* PRODUKTE */
+
+    .section-title {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 26px;
+      margin-bottom: 4px;
     }
 
-    .section-label {
+    .section-kicker {
       font-size: 11px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--text-soft);
+      color: var(--text-muted);
       margin-bottom: 6px;
     }
 
-    h2 {
-      font-family: "Cormorant Garamond", "Times New Roman", serif;
-      font-size: 24px;
-      margin: 0 0 8px;
-      color: #261915;
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 18px;
     }
 
-    .section-intro {
-      font-size: 14px;
-      color: var(--text-soft);
-      max-width: 540px;
-    }
-
-    /* Produktkarten */
-    .product-section {
-      padding-top: 10px;
-    }
-
-    .product-grid {
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 20px;
+      gap: 16px;
+      margin-bottom: 32px;
     }
 
     .product-card {
       background: #ffffff;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: var(--transition);
-      position: relative;
     }
 
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.08);
-    }
-
-    .product-card img {
-      width: 100%;
+    .product-image {
       height: 210px;
+      width: 100%;
       object-fit: cover;
-      cursor: zoom-in;
+      cursor: pointer;
     }
 
     .product-body {
       padding: 14px 14px 16px;
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
+      flex: 1;
     }
 
     .product-name {
-      font-weight: 600;
       font-size: 14px;
+      font-weight: 600;
       margin-bottom: 4px;
     }
 
     .product-price {
       font-size: 13px;
       font-weight: 600;
-      color: var(--accent-dark);
       margin-bottom: 2px;
     }
 
     .product-meta {
       font-size: 11px;
-      color: var(--text-soft);
-      margin-bottom: 6px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
     }
 
     .product-desc {
-      font-size: 12px;
-      color: var(--text-soft);
+      font-size: 11px;
+      color: var(--text-muted);
+      flex: 1;
       margin-bottom: 10px;
-      flex-grow: 1;
     }
 
     .product-actions {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 8px;
-      margin-top: 4px;
+      margin-top: auto;
     }
 
     .qty-select {
-      font-size: 12px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(0, 0, 0, 0.18);
-      padding: 6px 10px;
-      background: #fdfaf7;
+      border: 1px solid var(--border-soft);
+      padding: 5px 8px;
+      font-size: 12px;
+      background: #f9f6f1;
     }
 
-    /* Beschreibung & Material */
-    .info-grid {
+    .product-card .btn-primary {
+      flex: 1;
+      font-size: 12px;
+      padding: 7px 10px;
+      box-shadow: none;
+    }
+
+    /* DETAILS & GALERIE */
+
+    .details-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 24px;
-      align-items: flex-start;
-      margin-top: 24px;
-    }
-
-    .info-box-title {
-      font-size: 13px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-
-    ul.info-list {
-      list-style: disc;
-      padding-left: 18px;
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    ul.info-list li + li {
-      margin-top: 4px;
-    }
-
-    .article-list {
-      font-size: 13px;
-      margin-top: 12px;
-      color: var(--text-soft);
-    }
-
-    .article-list div + div {
-      margin-top: 4px;
-    }
-
-    .quote-card {
+      grid-template-columns: 1.1fr 1.1fr;
+      gap: 40px;
       margin-top: 18px;
-      padding: 18px 22px;
-      border-radius: var(--radius-md);
-      background: #d1a386;
-      color: #fff9f4;
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
-      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .details-col h3 {
       font-size: 13px;
-      box-shadow: 0 16px 40px rgba(172, 112, 70, 0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 4px;
     }
 
-    .quote-card strong {
-      font-family: "Cormorant Garamond", "Times New Roman", serif;
-      font-size: 18px;
-      font-weight: 600;
+    .details-col ul {
+      padding-left: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
-    /* Einblicke - Galerie */
+    .details-col li + li {
+      margin-top: 4px;
+    }
+
+    .quote-box {
+      background: #d9b9a3; /* ein warmer, matter Naturton – kein Verlauf mehr */
+      color: #fff;
+      border-radius: 18px;
+      padding: 14px 18px;
+      font-size: 13px;
+      display: flex;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .quote-mark {
+      font-size: 26px;
+      line-height: 1;
+      opacity: 0.4;
+    }
+
     .gallery-section {
-      margin-top: 32px;
-    }
-
-    .gallery-intro {
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-bottom: 16px;
+      margin-top: 10px;
     }
 
     .gallery-grid {
+      margin-top: 14px;
       display: grid;
-      grid-template-columns: 2.1fr 1.4fr;
-      grid-template-rows: auto auto;
-      gap: 16px;
+      grid-template-columns: 2.1fr 1.3fr;
+      grid-auto-rows: 230px; /* macht die rechten Bilder deutlich größer */
+      gap: 18px;
     }
 
     .gallery-card {
-      background: var(--card);
-      border-radius: 0; /* eckig, nicht rund */
-      overflow: hidden;
       position: relative;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      cursor: zoom-in;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      background: var(--bg-soft);
+      overflow: hidden;
+      border-radius: 0; /* eckige Kacheln */
+      cursor: pointer;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+    }
+
+    .gallery-card.large {
+      grid-row: span 2;
     }
 
     .gallery-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
-    .gallery-card.large {
-      grid-column: 1 / 2;
-      grid-row: 1 / 3;
-    }
-
-    .gallery-card-top {
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
-      height: 150px;
-    }
-
-    .gallery-card-mid {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-      height: 150px;
+    .gallery-card:hover img {
+      transform: scale(1.03);
     }
 
     .gallery-label {
       position: absolute;
       left: 14px;
-      bottom: 14px;
-      padding: 5px 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      background: rgba(27, 23, 21, 0.85);
-      color: #fff;
+      bottom: 12px;
+      padding: 4px 10px;
       border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.78);
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    /* Vollbreites Banner-Bild */
-    .fullwidth-banner {
-      margin: 56px 0 60px;
+    .gallery-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
     }
 
-    .fullwidth-banner-edge {
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      width: 100vw;
+    .gallery-intro {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* BANNER */
+
+    .full-banner {
+      margin-top: 40px;
+      border-radius: 0;
       overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
     }
 
-    .fullwidth-banner-edge img {
+    .full-banner img {
       width: 100%;
       height: auto;
-      display: block;
-      cursor: zoom-in;
+      object-fit: cover;
     }
 
-    /* Warenkorb & Zahlung */
-    .checkout-section {
-      margin-top: 32px;
+    /* WARENKORB & ZAHLUNG */
+
+    .cart-section {
+      margin-top: 40px;
     }
 
     .cart-layout {
+      margin-top: 14px;
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.15fr);
-      gap: 20px;
-      margin-top: 16px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 24px;
     }
 
     .cart-box,
     .payment-box {
       background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 16px 18px 18px;
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 18px;
       font-size: 13px;
     }
 
-    .cart-table {
+    table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
     }
 
-    .cart-table th,
-    .cart-table td {
+    th,
+    td {
       padding: 6px 4px;
       text-align: left;
     }
 
-    .cart-table th {
-      font-size: 11px;
+    th {
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-soft);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-soft);
     }
 
-    .cart-table td.remove-cell {
+    tbody tr + tr td {
+      border-top: 1px solid #f0e4d7;
+    }
+
+    .cart-remove {
       font-size: 11px;
-    }
-
-    .remove-link {
-      color: var(--text-soft);
-      text-decoration: underline;
+      color: var(--accent-dark);
       cursor: pointer;
-    }
-
-    .cart-empty {
-      font-size: 13px;
-      color: var(--text-soft);
-      padding: 4px 0 8px;
+      border: none;
+      background: none;
+      padding: 0;
     }
 
     .cart-summary {
       margin-top: 8px;
-      font-size: 13px;
-    }
-
-    .cart-summary strong {
-      font-size: 14px;
-    }
-
-    .cart-note-price {
       font-size: 12px;
-      color: var(--text-soft);
+      color: var(--text-muted);
+    }
+
+    .cart-total {
+      font-weight: 600;
       margin-top: 4px;
     }
 
-    .payment-highlight {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      color: #fff;
-      margin-bottom: 10px;
-      box-shadow: 0 16px 40px rgba(159, 96, 64, 0.6);
+    .payment-box h3 {
       font-size: 13px;
-    }
-
-    .payment-highlight h3 {
-      margin: 0 0 6px;
-      font-size: 15px;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
     }
 
-    .payment-highlight button {
+    .payment-box p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .payment-method {
+      background: var(--bg-soft);
+      border-radius: 16px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+    }
+
+    .payment-method + .payment-method {
       margin-top: 8px;
-      width: 100%;
+    }
+
+    .payment-method strong {
+      font-size: 12px;
     }
 
     .btn-paypal {
-      background: #ffc439;
-      color: #111;
+      display: inline-block;
+      margin-top: 8px;
       border-radius: var(--radius-pill);
-      padding: 9px 16px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
       border: none;
       cursor: pointer;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-      transition: var(--transition);
+      background: var(--accent);  /* kein Gelb mehr – gleiche Farbe wie Hauptbutton */
+      color: #ffffff;
     }
 
     .btn-paypal:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+      background: var(--accent-dark);
     }
 
-    .payment-details {
-      background: var(--card-soft);
-      border-radius: var(--radius-md);
-      padding: 12px 14px 14px;
-      font-size: 13px;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-
-    .payment-details h3 {
-      margin: 0 0 6px;
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-    }
-
-    .payment-details p {
-      margin: 2px 0;
-    }
-
-    .payment-details code {
-      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
+    .bank-info {
       font-size: 12px;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-
-    .orderform {
-      margin-top: 16px;
-      font-size: 13px;
-    }
-
-    .orderform-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 10px 14px;
-    }
-
-    .orderform label {
-      display: block;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 3px;
-      color: var(--text-soft);
-    }
-
-    .orderform input,
-    .orderform textarea {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      padding: 7px 9px;
-      font-size: 13px;
-      font-family: inherit;
-      background: #fdfaf7;
-    }
-
-    .orderform textarea {
-      resize: vertical;
-      min-height: 60px;
-    }
-
-    .orderform-footer {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .orderform-footer small {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-
-    .order-id {
-      font-weight: 600;
-    }
-
-    .alert {
-      font-size: 12px;
-      color: #a3342e;
+      line-height: 1.5;
       margin-top: 6px;
     }
 
-    /* Umtausch & Kontakt */
-    .secondary-section {
-      margin-top: 26px;
+    .bank-info span {
+      font-weight: 600;
     }
 
-    .secondary-grid {
+    .order-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .exchange-box {
+      margin-top: 12px;
+      background: #f7f1e8;
+      border-radius: 16px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* BESTELLFORMULAR */
+
+    .order-form {
+      margin-top: 14px;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 18px;
-      margin-top: 10px;
-    }
-
-    .secondary-card {
-      background: var(--card-soft);
-      border-radius: var(--radius-lg);
-      padding: 14px 16px 16px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
       font-size: 13px;
     }
 
-    .secondary-card h3 {
-      margin: 0 0 6px;
+    .order-form h3 {
       font-size: 13px;
-      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-soft);
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
     }
 
-    .secondary-card p {
-      margin: 4px 0;
+    .form-group {
+      margin-bottom: 8px;
     }
 
-    .contact-button {
-      margin-top: 8px;
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 2px;
     }
 
-    .btn-email {
-      border-radius: var(--radius-pill);
-      padding: 8px 16px;
-      border: 1px solid rgba(0, 0, 0, 0.18);
-      background: #ffffff;
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      padding: 7px 8px;
       font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: var(--transition);
+      font-family: inherit;
+      background: #fdfaf6;
     }
 
-    .btn-email:hover {
-      background: #fdfaf7;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .order-helper {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* KONTAKT & FOOTER */
+
+    .contact-section {
+      margin-top: 40px;
+    }
+
+    .contact-box {
+      margin-top: 10px;
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+
+    .contact-box p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
     }
 
     footer {
-      padding: 10px 26px 4px;
-      margin-top: 10px;
+      margin-top: 26px;
       font-size: 11px;
-      color: var(--text-soft);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
     }
 
-    footer a {
+    .footer-links a {
+      font-size: 11px;
       text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
-    /* Bild-Zoom Modal */
-    .image-modal-backdrop {
+    /* IMAGE MODAL (POP-UP) */
+
+    .image-modal {
       position: fixed;
       inset: 0;
-      background: rgba(15, 10, 8, 0.8);
-      display: none;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
       padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
     }
 
-    .image-modal-backdrop.active {
-      display: flex;
+    .image-modal.active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .image-modal-inner {
-      max-width: 1000px;
-      width: 100%;
-      max-height: 90vh;
-      background: #111;
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
-    }
-
-    .image-modal-inner img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .image-modal-caption {
-      position: absolute;
-      left: 16px;
-      bottom: 12px;
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.9);
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.55);
+    .image-modal img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
 
     .image-modal-close {
-      position: absolute;
-      right: 14px;
-      top: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      border-radius: 999px;
-      border: none;
-      padding: 4px 10px;
+      position: fixed;
+      top: 18px;
+      right: 24px;
+      color: #ffffff;
+      font-size: 26px;
       cursor: pointer;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
     }
 
-    /* Responsiv */
-    @media (max-width: 960px) {
-      .page {
-        margin: 18px auto 40px;
-        padding: 0 12px 28px;
-        border-radius: 26px;
-      }
+    /* RESPONSIVE */
 
+    @media (max-width: 960px) {
       header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-        padding: 18px 18px 10px;
       }
 
       .brand {
-        gap: 14px;
+        width: 100%;
+        justify-content: center;
       }
 
-      .logo-circle {
-        width: 150px;
-        height: 150px;
-        padding: 12px;
-      }
-
-      .logo-circle img {
-        width: 130px;
+      nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .hero {
-        grid-template-columns: minmax(0, 1.1fr);
+        grid-template-columns: 1fr;
       }
 
-      .hero-media-card {
+      .hero-image-card {
         order: -1;
       }
 
-      .product-grid {
+      .products-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .info-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .quote-card {
-        grid-template-columns: minmax(0, 1fr);
+      .details-grid {
+        grid-template-columns: 1fr;
       }
 
       .gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
       }
 
       .gallery-card.large {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
-      }
-
-      .gallery-card-top,
-      .gallery-card-mid {
-        grid-column: 1 / 2;
-        height: 170px;
+        grid-row: span 1;
       }
 
       .cart-layout,
-      .secondary-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .order-form {
+        grid-template-columns: 1fr;
       }
 
       footer {
         flex-direction: column;
         align-items: flex-start;
-        gap: 4px;
-      }
-
-      .fullwidth-banner-edge {
-        margin-left: -50vw;
-        margin-right: -50vw;
       }
     }
 
     @media (max-width: 600px) {
+      .page-wrapper {
+        padding: 20px 12px 40px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
       .logo-circle {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
       }
 
-      .logo-circle img {
-        width: 105px;
-      }
-
-      .brand-name {
-        font-size: 11px;
-        letter-spacing: 0.18em;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .hero {
-        padding: 6px 14px 24px;
-      }
-
-      .hero-media-card {
-        border-radius: 26px;
-      }
-
-      .product-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .section {
-        padding: 4px 14px 22px;
-      }
-
-      .cart-box,
-      .payment-box,
-      .secondary-card {
-        padding: 14px 14px 16px;
-      }
-
-      .orderform-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .fullwidth-banner {
-        margin: 40px 0 40px;
+      .brand-text {
+        font-size: 16px;
+        letter-spacing: 0.16em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="page-wrapper">
+    <!-- HEADER -->
     <header>
       <div class="brand">
         <div class="logo-circle">
+          <!-- Logo-Datei: logo-kapuzenschal.png -->
           <img src="logo-kapuzenschal.png" alt="Rosa by Santangelo Logo" />
         </div>
-        <div class="brand-name">
-          <span class="brand-rosa">ROSA</span>
-          <span class="brand-by">BY SANTANGELO</span>
+        <div class="brand-text">
+          <span>ROSA</span> <span class="brand-by">BY SANTANGELO</span>
         </div>
       </div>
-
       <nav>
         <a href="#produkt">Produkt</a>
         <a href="#farben">Farben</a>
         <a href="#warenkorb">Warenkorb</a>
         <a href="#kontakt">Kontakt</a>
-        <div class="nav-cart-pill" id="nav-cart-indicator">
-          Warenkorb: 0 Artikel
-        </div>
+        <div class="cart-pill" id="cart-pill">Warenkorb: 0 Artikel</div>
       </nav>
     </header>
 
+    <!-- HERO -->
     <main>
-      <!-- Hero -->
-      <section class="hero" id="produkt">
+      <section id="produkt" class="hero">
         <div>
-          <div class="hero-copy-eyebrow">Handgemacht · Warm · Zeitlos</div>
+          <div class="hero-kicker">Handgemacht · Warm · Zeitlos</div>
           <h1>Der Kapuzenschal für deinen Alltag.</h1>
-          <p class="hero-lead">
+          <p>
             Ein Schal und eine Kapuze in einem – weicher Strick, warm und bequem.
             Für Spaziergänge, Alltag oder den Spielplatz.
           </p>
 
-          <div class="pill-row">
-            <div class="pill">Einheitsgröße</div>
-            <div class="pill">4&nbsp;Farben</div>
-            <div class="pill">Limitierte Stückzahl</div>
-            <div class="pill pill-strong">24,95&nbsp;€ · inkl. Versand (DE)</div>
+          <div class="hero-tags">
+            <span class="tag">Einheitsgröße</span>
+            <span class="tag">4 Farben</span>
+            <span class="tag">Limitierte Stückzahl</span>
+            <span class="hero-price-tag">24,95 € · inkl. Versand (DE)</span>
           </div>
 
-          <div class="hero-actions">
-            <button class="btn btn-primary" id="cta-cart">Zum Warenkorb</button>
-            <button class="btn btn-ghost" id="cta-colors">Farben ansehen</button>
+          <div class="hero-buttons">
+            <button class="btn-primary" onclick="scrollToSection('warenkorb')">Zum Warenkorb</button>
+            <button class="btn-outline" onclick="scrollToSection('farben')">Farben ansehen</button>
           </div>
 
           <div class="hero-note">
@@ -1036,50 +844,51 @@
           </div>
         </div>
 
-        <div class="hero-media-card">
-          <div class="hero-media-inner">
+        <div class="hero-image-card">
+          <div class="hero-image-inner">
+            <!-- Hero-Bild: hero-kapuzenschal.jpg -->
             <img
-              src="kapuzenschal-hero.jpg"
-              alt="Kapuzenschal in der Natur getragen"
-              class="js-zoomable"
-              data-caption="Kapuzenschal – unterwegs"
+              src="hero-kapuzenschal.jpg"
+              alt="Kapuzenschal in den Bergen"
+              class="js-enlarge"
+              data-large="hero-kapuzenschal.jpg"
             />
           </div>
         </div>
       </section>
 
-      <!-- Farben / Produktkarten -->
-      <section class="section product-section" id="farben">
-        <div class="section-label">Vier Farben – ein Lieblingsstück</div>
-        <h2>Wähle deine Farbe.</h2>
-        <p class="section-intro">
+      <!-- PRODUKTE -->
+      <section id="farben">
+        <div class="section-kicker">Vier Farben – ein Lieblingsstück</div>
+        <h2 class="section-title">Wähle deine Farbe.</h2>
+        <p class="section-subtitle">
           Über den Button legst du den Schal in deinen Warenkorb.
         </p>
 
-        <div class="product-grid">
+        <div class="products-grid">
           <!-- Sand -->
-          <article class="product-card" data-product-id="sand">
+          <article class="product-card" data-sku="2025123459">
             <img
               src="kapuzenschal-sand.jpg"
-              alt="Kapuzenschal in Sand"
-              class="js-zoomable"
-              data-caption="Kapuzenschal · Sand"
+              alt="Kapuzenschal Sand"
+              class="product-image js-enlarge"
+              data-large="kapuzenschal-sand.jpg"
             />
             <div class="product-body">
               <div class="product-name">Sand</div>
-              <div class="product-price">24,95&nbsp;€ · inkl. Versand (DE)</div>
+              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
               <div class="product-meta">Art.-Nr.: 2025123459</div>
               <div class="product-desc">
                 Heller Sandton – ruhig, soft, zeitlos. Kapuzenschal aus weichem Strick.
               </div>
               <div class="product-actions">
-                <select class="qty-select" data-qty-for="sand">
+                <select class="qty-select">
                   <option value="1">1 Stück</option>
                   <option value="2">2 Stück</option>
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn btn-ghost add-to-cart" data-product-id="sand">
+                <button class="btn-primary" onclick="addToCart('Sand', '2025123459', 24.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -1087,28 +896,28 @@
           </article>
 
           <!-- Beige -->
-          <article class="product-card" data-product-id="beige">
+          <article class="product-card" data-sku="2025123458">
             <img
               src="kapuzenschal-beige.jpg"
-              alt="Kapuzenschal in Beige"
-              class="js-zoomable"
-              data-caption="Kapuzenschal · Beige"
+              alt="Kapuzenschal Beige"
+              class="product-image js-enlarge"
+              data-large="kapuzenschal-beige.jpg"
             />
             <div class="product-body">
               <div class="product-name">Beige</div>
-              <div class="product-price">24,95&nbsp;€ · inkl. Versand (DE)</div>
+              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
               <div class="product-meta">Art.-Nr.: 2025123458</div>
               <div class="product-desc">
                 Warmer Beigeton, passt zu vielen Outfits. Kapuzenschal aus weichem Strick.
               </div>
               <div class="product-actions">
-                <select class="qty-select" data-qty-for="beige">
+                <select class="qty-select">
                   <option value="1">1 Stück</option>
                   <option value="2">2 Stück</option>
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn btn-ghost add-to-cart" data-product-id="beige">
+                <button class="btn-primary" onclick="addToCart('Beige', '2025123458', 24.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -1116,28 +925,28 @@
           </article>
 
           <!-- Braun -->
-          <article class="product-card" data-product-id="braun">
+          <article class="product-card" data-sku="2025123457">
             <img
               src="kapuzenschal-braun.jpg"
-              alt="Kapuzenschal in Braun"
-              class="js-zoomable"
-              data-caption="Kapuzenschal · Braun"
+              alt="Kapuzenschal Braun"
+              class="product-image js-enlarge"
+              data-large="kapuzenschal-braun.jpg"
             />
             <div class="product-body">
               <div class="product-name">Braun</div>
-              <div class="product-price">24,95&nbsp;€ · inkl. Versand (DE)</div>
+              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
               <div class="product-meta">Art.-Nr.: 2025123457</div>
               <div class="product-desc">
                 Tiefes Dunkelbraun – klar, ruhig, bewusst. Kapuzenschal aus weichem Strick.
               </div>
               <div class="product-actions">
-                <select class="qty-select" data-qty-for="braun">
+                <select class="qty-select">
                   <option value="1">1 Stück</option>
                   <option value="2">2 Stück</option>
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn btn-ghost add-to-cart" data-product-id="braun">
+                <button class="btn-primary" onclick="addToCart('Braun', '2025123457', 24.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -1145,29 +954,28 @@
           </article>
 
           <!-- Grau -->
-          <article class="product-card" data-product-id="grau">
+          <article class="product-card" data-sku="2025123456">
             <img
               src="kapuzenschal-grau.jpg"
-              alt="Kapuzenschal in Grau"
-              class="js-zoomable"
-              data-caption="Kapuzenschal · Grau"
+              alt="Kapuzenschal Grau"
+              class="product-image js-enlarge"
+              data-large="kapuzenschal-grau.jpg"
             />
             <div class="product-body">
               <div class="product-name">Grau</div>
-              <div class="product-price">24,95&nbsp;€ · inkl. Versand (DE)</div>
+              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
               <div class="product-meta">Art.-Nr.: 2025123456</div>
               <div class="product-desc">
-                Neutrales Grau – minimalistisch und kombinierbar.
-                Kapuzenschal aus weichem Strick.
+                Neutrales Grau – minimalistisch und kombinierbar. Kapuzenschal aus weichem Strick.
               </div>
               <div class="product-actions">
-                <select class="qty-select" data-qty-for="grau">
+                <select class="qty-select">
                   <option value="1">1 Stück</option>
                   <option value="2">2 Stück</option>
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn btn-ghost add-to-cart" data-product-id="grau">
+                <button class="btn-primary" onclick="addToCart('Grau', '2025123456', 24.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -1175,124 +983,111 @@
           </article>
         </div>
 
-        <!-- Beschreibung & Material -->
-        <div class="info-grid">
-          <div>
-            <div class="info-box-title">Beschreibung &amp; Passform</div>
-            <ul class="info-list">
+        <!-- DETAILS & MATERIAL -->
+        <div class="details-grid">
+          <div class="details-col">
+            <h3>Beschreibung & Passform</h3>
+            <ul>
               <li>Kapuzenschal aus weichem Strick.</li>
               <li>Accessoire-Stil: Balaclava / Kapuzenschal.</li>
               <li>Einheitsgröße – passt sich der Kopfform an.</li>
             </ul>
 
-            <div class="article-list">
-              <strong>Farben &amp; Artikelnummern</strong><br />
-              <div>Grau – 2025123456</div>
-              <div>Braun – 2025123457</div>
-              <div>Beige – 2025123458</div>
-              <div>Sand – 2025123459</div>
-            </div>
+            <h3 style="margin-top: 14px;">Farben & Artikelnummern</h3>
+            <ul>
+              <li>Grau – 2025123456</li>
+              <li>Braun – 2025123457</li>
+              <li>Beige – 2025123458</li>
+              <li>Sand – 2025123459</li>
+            </ul>
           </div>
 
-          <div>
-            <div class="info-box-title">Material &amp; Pflege</div>
-            <ul class="info-list">
+          <div class="details-col">
+            <h3>Material & Pflege</h3>
+            <ul>
               <li>Weicher, elastischer Strick – formstabil, angenehm auf der Haut und pflegeleicht.</li>
               <li>Pflegehinweis: Schonwaschgang, liegend trocknen.</li>
               <li>Detaillierte Materialangaben erhältst du gerne auf Anfrage.</li>
             </ul>
 
-            <div class="quote-card">
+            <div class="quote-box">
+              <div class="quote-mark">“</div>
               <div>
-                <strong>„Ein Teil, das dich warm hält, ohne laut zu sein.“</strong>
-              </div>
-              <div>
-                Sanfte Naturtöne, weicher Strick und eine ruhige Silhouette –
-                der Kapuzenschal passt zu Mänteln, Jacken und Hoodies, ohne den Look zu überladen.
-                Einfach überziehen und rausgehen.
+                <div><strong>„Ein Teil, das dich warm hält, ohne laut zu sein.“</strong></div>
+                <div style="font-size: 12px; margin-top: 4px;">
+                  Sanfte Naturtöne, weicher Strick und eine ruhige Silhouette – der Kapuzenschal passt zu Mänteln,
+                  Jacken und Hoodies, ohne den Look zu überladen. Einfach überziehen und rausgehen.
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Einblicke / Galerie -->
-        <div class="gallery-section">
-          <div class="section-label">Einblicke</div>
-          <h2>So trägt sich der Kapuzenschal im Alltag.</h2>
+        <!-- GALERIE -->
+        <section class="gallery-section">
+          <div class="section-kicker">Einblicke</div>
+          <h2 class="section-title">So trägt sich der Kapuzenschal im Alltag.</h2>
           <p class="gallery-intro">
             Hier siehst du ein paar Eindrücke aus unserem Shooting. Die Fotos kannst du später nach und nach austauschen.
           </p>
 
           <div class="gallery-grid">
-            <div class="gallery-card large">
-              <img
-                src="kapuzenschal-einblick-1.jpg"
-                alt="Kapuzenschal draußen unterwegs"
-                class="js-zoomable"
-                data-caption="Kapuzenschal draußen unterwegs"
-              />
-              <div class="gallery-label">Draußen unterwegs</div>
+            <div
+              class="gallery-card large js-enlarge"
+              data-large="galerie-outdoor.jpg"
+            >
+              <img src="galerie-outdoor.jpg" alt="Kapuzenschal draußen unterwegs" />
+              <div class="gallery-label">Draussen unterwegs</div>
             </div>
 
-            <div class="gallery-card gallery-card-top">
-              <img
-                src="kapuzenschal-einblick-2.jpg"
-                alt="Kapuzenschal – Details & Struktur"
-                class="js-zoomable"
-                data-caption="Details &amp; Struktur"
-              />
-              <div class="gallery-label">Details &amp; Struktur</div>
+            <div
+              class="gallery-card js-enlarge"
+              data-large="galerie-details.jpg"
+            >
+              <img src="galerie-details.jpg" alt="Kapuzenschal – Details & Struktur" />
+              <div class="gallery-label">Details & Struktur</div>
             </div>
 
-            <div class="gallery-card gallery-card-mid">
-              <img
-                src="kapuzenschal-einblick-3.jpg"
-                alt="Kapuzenschal im Alltag"
-                class="js-zoomable"
-                data-caption="Alltagssituation"
-              />
+            <div
+              class="gallery-card js-enlarge"
+              data-large="galerie-alltag.jpg"
+            >
+              <img src="galerie-alltag.jpg" alt="Kapuzenschal im Alltag" />
               <div class="gallery-label">Alltagssituation</div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <!-- FULL-WIDTH BANNER -->
+        <section class="full-banner">
+          <!-- Datei: banner-kapuzenschal.jpg -->
+          <img src="banner-kapuzenschal.jpg" alt="Kapuzenschal – Lifestyle Banner" />
+        </section>
       </section>
 
-      <!-- Vollbreites Banner-Bild -->
-      <section class="fullwidth-banner">
-        <div class="fullwidth-banner-edge">
-          <img
-            src="kapuzenschal-banner.jpg"
-            alt="Kapuzenschal – stimmungsvolles Titelbild"
-            class="js-zoomable"
-            data-caption="Kapuzenschal – Moments"
-          />
-        </div>
-      </section>
-
-      <!-- Warenkorb & Bezahlung -->
-      <section class="section checkout-section" id="warenkorb">
-        <div class="section-label">Warenkorb &amp; Bezahlung</div>
-        <h2>Deine Bestellung.</h2>
-        <p class="section-intro">
-          Lege deine Wunschfarben in den Warenkorb und trage deine Daten ein.
-          Danach kannst du bequem per PayPal oder Überweisung bezahlen.
+      <!-- WARENKORB & ZAHLUNG -->
+      <section id="warenkorb" class="cart-section">
+        <div class="section-kicker">Warenkorb & Bezahlung</div>
+        <h2 class="section-title">Deine Bestellung.</h2>
+        <p class="section-subtitle">
+          Lege deine Wunschfarben in den Warenkorb und trage deine Daten ein. Danach kannst du bequem per PayPal oder
+          Überweisung bezahlen.
         </p>
 
         <div class="cart-layout">
-          <!-- Warenkorb -->
           <div class="cart-box">
-            <table class="cart-table">
+            <table>
               <thead>
                 <tr>
-                  <th>Artikel</th>
-                  <th>Anzahl</th>
-                  <th>Summe</th>
-                  <th></th>
+                  <th style="width: 45%;">Artikel</th>
+                  <th style="width: 18%;">Anzahl</th>
+                  <th style="width: 22%;">Summe</th>
+                  <th style="width: 15%;"></th>
                 </tr>
               </thead>
               <tbody id="cart-items">
                 <tr>
-                  <td colspan="4" class="cart-empty">
+                  <td colspan="4" style="padding-top: 10px; font-size: 12px; color: var(--text-muted);">
                     Dein Warenkorb ist noch leer.
                   </td>
                 </tr>
@@ -1300,408 +1095,300 @@
             </table>
 
             <div class="cart-summary">
-              <div>Gesamt: <strong id="cart-total">0,00&nbsp;€</strong></div>
-              <div class="cart-note-price">
-                Preis: 24,95&nbsp;€ pro Kapuzenschal, inkl. Versand innerhalb Deutschlands.
-              </div>
+              Preis: 24,95 € pro Kapuzenschal, inkl. Versand innerhalb Deutschlands.
+              <div class="cart-total" id="cart-total">Gesamt: 0,00 €</div>
+              <div id="order-number-display" style="font-size: 12px; margin-top: 4px;"></div>
             </div>
           </div>
 
-          <!-- Bezahlung & Daten -->
           <div class="payment-box">
-            <div class="payment-highlight">
-              <h3>PayPal (empfohlen)</h3>
+            <h3>PayPal & Überweisung</h3>
+            <p>
+              Wir priorisieren die Zahlung per PayPal. Wenn du möchtest, kannst du aber auch per Banküberweisung zahlen.
+            </p>
+
+            <div class="payment-method">
+              <strong>PayPal (empfohlen)</strong>
               <p>
-                Bezahle deine Bestellung bequem per PayPal.
-                Wir öffnen PayPal mit dem Gesamtbetrag. Bitte gib im Betreff deine Bestellnummer an.
+                Bezahle bequem über PayPal. Nach Klick auf den Button öffnet sich PayPal in einem neuen Fenster.
+                Bitte gib dort im Betreff deine Bestellnummer und die gewählten Farben an.
               </p>
-              <button type="button" class="btn-paypal" id="btn-paypal">
-                Mit PayPal bezahlen
-              </button>
+              <button class="btn-paypal" onclick="payWithPaypal()">Mit PayPal bezahlen</button>
             </div>
 
-            <div class="payment-details">
-              <h3>Überweisung</h3>
-              <p><strong>Du möchtest lieber per Banküberweisung zahlen?</strong></p>
-              <p>Konto­inhaber: <strong>LUMANI UG (haftungsbeschränkt)</strong></p>
-              <p>IBAN: <code>DE33 2545 0110 0031 0599 26</code></p>
-              <p>BIC: <code>NOLADE21SWB</code></p>
-              <p>
-                Verwendungszweck:
-                <code>Kapuzenschal + Farbe(n) + deine Bestellnummer</code>
-              </p>
+            <div class="payment-method">
+              <strong>Überweisung</strong>
+              <p>Du möchtest lieber per Banküberweisung zahlen?</p>
+              <div class="bank-info">
+                <div><span>Kontoinhaber:</span> LUMANI UG (haftungsbeschränkt)</div>
+                <div><span>IBAN:</span> DE33 2545 0110 0031 0599 26</div>
+                <div><span>BIC:</span> NOLADE21SWB</div>
+                <div>
+                  <span>Verwendungszweck:</span>
+                  Kapuzenschal + Farbe(n) + dein Name
+                </div>
+              </div>
+              <div class="order-note">
+                Sobald deine Zahlung eingegangen ist, versenden wir deine Bestellung an die unten angegebene Adresse.
+              </div>
             </div>
 
-            <form class="orderform" id="order-form">
-              <div class="info-box-title">Deine Bestelldaten</div>
-              <p class="section-intro" style="font-size:13px;">
-                Bitte fülle die Felder aus. Wir nutzen diese Daten für den Versand und die Zuordnung deiner Zahlung.
-              </p>
-
-              <div class="orderform-grid">
-                <div>
-                  <label for="name">Vor- und Nachname</label>
-                  <input type="text" id="name" required />
-                </div>
-                <div>
-                  <label for="email">E-Mail-Adresse</label>
-                  <input type="email" id="email" required />
-                </div>
-                <div>
-                  <label for="address">Straße &amp; Hausnummer</label>
-                  <input type="text" id="address" required />
-                </div>
-                <div>
-                  <label for="zipcity">PLZ &amp; Ort</label>
-                  <input type="text" id="zipcity" required />
-                </div>
-                <div>
-                  <label for="quantity-note">Hinweise (optional)</label>
-                  <textarea id="quantity-note" placeholder="z.B. Geschenk, Wunschfarbe im Zweifel, Anmerkungen"></textarea>
-                </div>
-                <div>
-                  <label>Bestellnummer</label>
-                  <input type="text" id="order-id" class="order-id" readonly />
-                </div>
-              </div>
-
-              <div class="orderform-footer">
-                <small>
-                  Mit deiner Bestellung bestätigst du, dass du unsere Hinweise zu
-                  <a href="datenschutz.html" target="_blank">Datenschutz</a> und
-                  <a href="impressum.html" target="_blank">Impressum</a> gelesen hast.
-                </small>
-                <small>
-                  Nach Absenden deiner Daten erhältst du eine Übersicht im Browser. Zusätzlich kannst du uns bei Fragen jederzeit schreiben.
-                </small>
-                <button type="submit" class="btn btn-primary">
-                  Bestellung abschließen (Daten senden)
-                </button>
-                <div id="form-alert" class="alert" style="display:none;"></div>
-              </div>
-            </form>
+            <div class="exchange-box">
+              <strong>Umtausch & Widerruf</strong><br />
+              Umtausch bzw. Widerruf ist innerhalb der gesetzlichen Frist von 14 Tagen ab Erhalt der Ware möglich.
+              Die Kosten der Rücksendung trägt der Käufer.
+            </div>
           </div>
         </div>
 
-        <div class="secondary-section">
-          <div class="secondary-grid">
-            <div class="secondary-card">
-              <h3>Umtausch &amp; Widerruf</h3>
-              <p>
-                Umtausch bzw. Widerruf ist innerhalb der gesetzlichen Frist von
-                <strong>14 Tagen ab Erhalt der Ware</strong> möglich.
-              </p>
-              <p>Die Kosten der Rücksendung trägt der Käufer.</p>
+        <!-- BESTELLDATEN -->
+        <div class="order-form">
+          <div>
+            <h3>Deine Bestelldaten</h3>
+            <p class="order-helper">
+              Bitte fülle alle Felder aus. Wir nutzen diese Daten für den Versand und die Zuordnung deiner Zahlung.
+            </p>
+
+            <div class="form-group">
+              <label for="order-name">Vor- und Nachname *</label>
+              <input id="order-name" type="text" required />
             </div>
 
-            <div class="secondary-card" id="kontakt">
-              <h3>Kontakt &amp; Fragen</h3>
-              <p>
-                Du hast Fragen zu Farben, Lieferzeit oder Bestellung?
-                Schreib uns einfach eine Nachricht.
-              </p>
-              <div class="contact-button">
-                <a
-                  href="mailto:info@lumani.net?subject=Frage%20zum%20Kapuzenschal"
-                  class="btn-email"
-                >
-                  Schreib uns eine E-Mail
-                </a>
-              </div>
-              <p style="font-size:11px; color:var(--text-soft); margin-top:6px;">
-                Hilfreich für uns: gewünschte Farbe, Stückzahl und Lieferadresse.
-              </p>
+            <div class="form-group">
+              <label for="order-address">Straße & Hausnummer *</label>
+              <input id="order-address" type="text" required />
             </div>
+
+            <div class="form-group">
+              <label for="order-zip-city">PLZ & Ort *</label>
+              <input id="order-zip-city" type="text" required />
+            </div>
+
+            <div class="form-group">
+              <label for="order-email">E-Mail-Adresse *</label>
+              <input id="order-email" type="email" required />
+            </div>
+          </div>
+
+          <div>
+            <h3>Hinweise (optional)</h3>
+            <div class="form-group">
+              <label for="order-notes">z.B. Geschenk, Wunschfarbe in der Reihenfolge, Hinweise für den Versand</label>
+              <textarea id="order-notes"></textarea>
+            </div>
+            <p class="order-helper">
+              Du erhältst nach dem Absenden deiner PayPal-Zahlung oder Überweisung eine Bestätigung über den
+              Zahlungseingang per E-Mail (manuell).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- KONTAKT -->
+      <section id="kontakt" class="contact-section">
+        <div class="section-kicker">Kontakt & Fragen</div>
+        <h2 class="section-title">Schreib uns eine Nachricht.</h2>
+        <div class="contact-box">
+          <p>
+            Du hast Fragen zu Farben, Lieferzeit oder Bestellung? Schreib uns einfach eine E-Mail – wir melden uns
+            schnellstmöglich zurück.
+          </p>
+          <button
+            class="btn-outline"
+            onclick="window.location.href='mailto:info@lumani.net?subject=Frage%20zum%20Kapuzenschal'"
+          >
+            E-Mail senden
+          </button>
+          <div class="order-helper" style="margin-top: 6px;">
+            Hilfreich für uns: gewünschte Farbe, Stückzahl und Lieferadresse.
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div>© 2025 ROSA BY SANTANGELO – ein Produkt der LUMANI UG.</div>
       <div>
-        <a href="impressum.html" target="_blank">Impressum</a> /
-        <a href="datenschutz.html" target="_blank">Datenschutz</a>
+        © 2025 ROSA BY SANTANGELO – ein Produkt der LUMANI UG.
+      </div>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a> ·
+        <a href="datenschutz.html">Datenschutz</a>
       </div>
     </footer>
   </div>
 
-  <!-- Bild-Zoom Modal -->
-  <div class="image-modal-backdrop" id="image-modal">
-    <div class="image-modal-inner">
-      <button class="image-modal-close" type="button" id="image-modal-close">
-        SCHLIESSEN
-      </button>
-      <img src="" alt="" id="image-modal-img" />
-      <div class="image-modal-caption" id="image-modal-caption"></div>
-    </div>
+  <!-- BILD-POPUP -->
+  <div class="image-modal" id="image-modal">
+    <div class="image-modal-close" id="image-modal-close">×</div>
+    <img src="" alt="" id="image-modal-img" />
   </div>
 
   <script>
-    // Produktdaten
-    const PRODUCTS = {
-      sand: {
-        name: "Kapuzenschal Sand",
-        color: "Sand",
-        article: "2025123459",
-        price: 24.95
-      },
-      beige: {
-        name: "Kapuzenschal Beige",
-        color: "Beige",
-        article: "2025123458",
-        price: 24.95
-      },
-      braun: {
-        name: "Kapuzenschal Braun",
-        color: "Braun",
-        article: "2025123457",
-        price: 24.95
-      },
-      grau: {
-        name: "Kapuzenschal Grau",
-        color: "Grau",
-        article: "2025123456",
-        price: 24.95
-      }
-    };
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      window.scrollTo({
+        top: el.offsetTop - 20,
+        behavior: "smooth",
+      });
+    }
 
-    let cart = [];
-
+    // Warenkorb Logik
+    const cart = [];
     const cartItemsEl = document.getElementById("cart-items");
     const cartTotalEl = document.getElementById("cart-total");
-    const navCartIndicator = document.getElementById("nav-cart-indicator");
-    const formAlert = document.getElementById("form-alert");
-    const orderIdInput = document.getElementById("order-id");
+    const cartPillEl = document.getElementById("cart-pill");
+    const orderNumberDisplay = document.getElementById("order-number-display");
 
     function formatPrice(value) {
-      return value.toFixed(2).replace(".", ",") + "\u00A0€";
+      return value.toFixed(2).replace(".", ",") + " €";
     }
 
     function updateCartDisplay() {
+      cartItemsEl.innerHTML = "";
       if (cart.length === 0) {
         cartItemsEl.innerHTML =
-          '<tr><td colspan="4" class="cart-empty">Dein Warenkorb ist noch leer.</td></tr>';
-        cartTotalEl.textContent = "0,00\u00A0€";
-        navCartIndicator.textContent = "Warenkorb: 0 Artikel";
+          '<tr><td colspan="4" style="padding-top:10px;font-size:12px;color:var(--text-muted);">Dein Warenkorb ist noch leer.</td></tr>';
+        cartTotalEl.textContent = "Gesamt: 0,00 €";
+        cartPillEl.textContent = "Warenkorb: 0 Artikel";
+        orderNumberDisplay.textContent = "";
         return;
       }
 
+      let total = 0;
       let totalItems = 0;
-      let totalPrice = 0;
-      cartItemsEl.innerHTML = "";
-
       cart.forEach((item, index) => {
-        const product = PRODUCTS[item.id];
-        const row = document.createElement("tr");
-
-        const nameCell = document.createElement("td");
-        nameCell.textContent = product.color;
-        row.appendChild(nameCell);
-
-        const qtyCell = document.createElement("td");
-        qtyCell.textContent = item.qty + " Stk.";
-        row.appendChild(qtyCell);
-
-        const sum = product.price * item.qty;
-        const sumCell = document.createElement("td");
-        sumCell.textContent = formatPrice(sum);
-        row.appendChild(sumCell);
-
-        const removeCell = document.createElement("td");
-        removeCell.className = "remove-cell";
-        const removeLink = document.createElement("span");
-        removeLink.textContent = "Entfernen";
-        removeLink.className = "remove-link";
-        removeLink.addEventListener("click", () => {
-          cart.splice(index, 1);
-          updateCartDisplay();
-        });
-        removeCell.appendChild(removeLink);
-        row.appendChild(removeCell);
-
-        cartItemsEl.appendChild(row);
-
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
         totalItems += item.qty;
-        totalPrice += sum;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.qty} ×</td>
+          <td>${formatPrice(lineTotal)}</td>
+          <td><button class="cart-remove" onclick="removeFromCart(${index})">Entfernen</button></td>
+        `;
+        cartItemsEl.appendChild(tr);
       });
 
-      cartTotalEl.textContent = formatPrice(totalPrice);
-      navCartIndicator.textContent =
+      cartTotalEl.textContent = "Gesamt: " + formatPrice(total);
+      cartPillEl.textContent =
         "Warenkorb: " + totalItems + (totalItems === 1 ? " Artikel" : " Artikel");
+
+      // Bestellnummer generieren (Jahr + laufende Nummer)
+      let counter = parseInt(localStorage.getItem("rosaOrderCounter") || "0", 10) + 1;
+      localStorage.setItem("rosaOrderCounter", String(counter));
+      const year = "2025";
+      const orderNumber = year + String(counter).padStart(4, "0");
+      orderNumberDisplay.textContent = "Bestellnummer: " + orderNumber;
+      orderNumberDisplay.dataset.orderNumber = orderNumber;
     }
 
-    function addToCart(id, qty) {
-      const existing = cart.find((item) => item.id === id);
+    function addToCart(name, sku, price, btn) {
+      const card = btn.closest(".product-card");
+      const select = card.querySelector(".qty-select");
+      const qty = parseInt(select.value, 10);
+
+      const existing = cart.find((item) => item.sku === sku);
       if (existing) {
         existing.qty += qty;
       } else {
-        cart.push({ id, qty });
+        cart.push({ name, sku, price, qty });
       }
       updateCartDisplay();
-      generateOrderId();
+      scrollToSection("warenkorb");
     }
 
-    document.querySelectorAll(".add-to-cart").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const id = btn.dataset.productId;
-        const qtySelect = document.querySelector(
-          '.qty-select[data-qty-for="' + id + '"]'
-        );
-        const qty = parseInt(qtySelect.value, 10) || 1;
-        addToCart(id, qty);
-        window.location.hash = "#warenkorb";
-      });
-    });
-
-    // CTA Buttons
-    document.getElementById("cta-cart").addEventListener("click", () => {
-      window.location.hash = "#warenkorb";
-    });
-
-    document.getElementById("cta-colors").addEventListener("click", () => {
-      window.location.hash = "#farben";
-    });
-
-    // Bestellnummer generieren – 2025 + laufende Nummer
-    function generateOrderId() {
-      if (cart.length === 0) {
-        orderIdInput.value = "";
-        return;
-      }
-      const now = new Date();
-      const year = 2025; // fest für diese Saison
-      // einfache laufende Nummer: Anzahl der Warenkorb-Artikel als Basis
-      let counter = 1;
-      cart.forEach((item) => (counter += item.qty));
-      const padded = String(counter).padStart(4, "0");
-      const orderId = year + "" + padded;
-      orderIdInput.value = orderId;
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartDisplay();
     }
 
-    // PayPal-Button
-    document.getElementById("btn-paypal").addEventListener("click", () => {
+    // PayPal Button
+    function payWithPaypal() {
       if (cart.length === 0) {
         alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
         return;
       }
-      const total = cart.reduce(
-        (sum, item) => sum + PRODUCTS[item.id].price * item.qty,
-        0
-      );
-      generateOrderId();
-      const orderId = orderIdInput.value || "Bestellung";
-      const paypalBase = "https://paypal.me/lumaniug";
-      const url = paypalBase + "?amount=" + total.toFixed(2) + "&note=" + encodeURIComponent("Bestellnr. " + orderId);
-      window.open(url, "_blank");
-    });
 
-    // Bestellformular
-    document
-      .getElementById("order-form")
-      .addEventListener("submit", function (e) {
-        e.preventDefault();
-        formAlert.style.display = "none";
+      const name = document.getElementById("order-name").value.trim();
+      const address = document.getElementById("order-address").value.trim();
+      const zipCity = document.getElementById("order-zip-city").value.trim();
+      const email = document.getElementById("order-email").value.trim();
 
-        if (cart.length === 0) {
-          formAlert.textContent =
-            "Bitte lege mindestens einen Kapuzenschal in den Warenkorb, bevor du die Bestelldaten sendest.";
-          formAlert.style.display = "block";
-          return;
-        }
+      if (!name || !address || !zipCity || !email) {
+        alert("Bitte fülle alle Pflichtfelder (Name, Adresse, PLZ/Ort, E-Mail) aus.");
+        return;
+      }
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const address = document.getElementById("address").value.trim();
-        const zipcity = document.getElementById("zipcity").value.trim();
-        const note = document.getElementById("quantity-note").value.trim();
-        generateOrderId();
-        const orderId = orderIdInput.value;
+      let total = 0;
+      const items = cart
+        .map((item) => {
+          total += item.price * item.qty;
+          return item.qty + "× " + item.name;
+        })
+        .join(", ");
 
-        let itemsSummary = cart
-          .map((item) => {
-            const p = PRODUCTS[item.id];
-            return (
-              p.color +
-              " (" +
-              p.article +
-              ") – " +
-              item.qty +
-              "x à 24,95 €"
-            );
-          })
-          .join("\n");
+      const orderNumber = orderNumberDisplay.dataset.orderNumber || "";
+      const notes = document.getElementById("order-notes").value.trim();
 
-        const total = cart.reduce(
-          (sum, item) => sum + PRODUCTS[item.id].price * item.qty,
-          0
-        );
+      const summary =
+        "Bitte gib bei PayPal folgenden Verwendungszweck an:\n\n" +
+        "Bestellnummer: " +
+        orderNumber +
+        "\n" +
+        "Artikel: " +
+        items +
+        "\n" +
+        "Gesamtbetrag: " +
+        formatPrice(total) +
+        "\n\n" +
+        "Versandadresse:\n" +
+        name +
+        "\n" +
+        address +
+        "\n" +
+        zipCity +
+        "\n\n" +
+        (notes ? "Hinweise: " + notes + "\n\n" : "") +
+        "PayPal öffnet sich jetzt in einem neuen Fenster.";
 
-        const summary =
-          "Vielen Dank, " +
-          name +
-          "!\n\n" +
-          "Hier eine Übersicht deiner Bestellung:\n\n" +
-          "Bestellnummer: " +
-          orderId +
-          "\n" +
-          "Artikel:\n" +
-          itemsSummary +
-          "\n\n" +
-          "Gesamtsumme: " +
-          formatPrice(total) +
-          "\n\n" +
-          "Lieferadresse:\n" +
-          address +
-          "\n" +
-          zipcity +
-          "\n\n" +
-          (note ? "Hinweise:\n" + note + "\n\n" : "") +
-          "Bitte überweise den Betrag oder zahle bequem per PayPal.\n" +
-          "Kontoinhaber: LUMANI UG (haftungsbeschränkt)\n" +
-          "IBAN: DE33 2545 0110 0031 0599 26\n" +
-          "BIC: NOLADE21SWB\n" +
-          "Verwendungszweck: Kapuzenschal + Farbe(n) + deine Bestellnummer\n\n" +
-          "Oder nutze den gelben PayPal-Button auf der Seite.\n";
+      alert(summary);
 
-        alert(summary);
-      });
-
-    // Bild-Zoom (Produkt + Galerie + Banner + Hero)
-    const imageModal = document.getElementById("image-modal");
-    const imageModalImg = document.getElementById("image-modal-img");
-    const imageModalCaption = document.getElementById("image-modal-caption");
-    const imageModalClose = document.getElementById("image-modal-close");
-
-    function openImageModal(src, caption) {
-      imageModalImg.src = src;
-      imageModalCaption.textContent = caption || "";
-      imageModal.classList.add("active");
+      // Einfacher Link zu PayPal.me – Betrag und Betreff trägst du dann dort ein.
+      window.open("https://paypal.me/lumaniug", "_blank");
     }
 
-    function closeImageModal() {
-      imageModal.classList.remove("active");
-      imageModalImg.src = "";
-      imageModalCaption.textContent = "";
+    // Bild-Popups für Produktbilder & Galerie
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("image-modal-img");
+    const modalClose = document.getElementById("image-modal-close");
+
+    function openImage(src, alt) {
+      modalImg.src = src;
+      modalImg.alt = alt || "";
+      modal.classList.add("active");
     }
 
-    document.querySelectorAll(".js-zoomable").forEach((img) => {
-      img.addEventListener("click", () => {
-        const src = img.getAttribute("src");
-        const caption = img.getAttribute("data-caption") || img.getAttribute("alt") || "";
-        openImageModal(src, caption);
-      });
+    modalClose.addEventListener("click", () => {
+      modal.classList.remove("active");
+      modalImg.src = "";
     });
 
-    imageModalClose.addEventListener("click", closeImageModal);
-    imageModal.addEventListener("click", (e) => {
-      if (e.target === imageModal) {
-        closeImageModal();
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+        modalImg.src = "";
       }
     });
 
-    // initial
-    updateCartDisplay();
+    document.querySelectorAll(".js-enlarge").forEach((el) => {
+      el.addEventListener("click", () => {
+        const large = el.dataset.large || el.src;
+        openImage(large, el.alt || "");
+      });
+    });
   </script>
 </body>
 </html>

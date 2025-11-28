@@ -5,39 +5,33 @@
   <title>Rosa by Santangelo – Kapuzenschal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Cormorant Garamond für Logo/Überschriften, Rest system fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --bg-main: #f6eee4;
-      --bg-light: #fbf7f1;
-      --bg-white: #ffffff;
-      --accent: #c8835b;
-      --accent-soft: #e3b497;
-      --text-main: #2f241e;
-      --text-muted: #7b6c63;
-      --border-soft: #e3d7ca;
-      --badge-bg: #f0e6da;
-      --card-bg: #f9f5f0;
-      --shadow-soft: 0 18px 40px rgba(0,0,0,0.08);
+      --bg: #f6efe5;
+      --bg-soft: #f0e4d4;
+      --accent: #c8805a;
+      --accent-soft: #e7c1a4;
+      --text: #3c3027;
+      --muted: #8b7b6b;
+      --card: #fbf7f2;
+      --border: #e0d2c4;
       --radius-lg: 24px;
       --radius-md: 18px;
-      --radius-pill: 999px;
+      --radius-sm: 999px;
+      --shadow-soft: 0 18px 35px rgba(65, 46, 32, 0.12);
+      --shadow-card: 0 10px 25px rgba(65, 46, 32, 0.08);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at top, #f8f1e9 0, #f3ebdf 38%, #efe3d6 100%);
-      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+        Arial, sans-serif;
+      background: radial-gradient(circle at top, #fdf6ee 0, #f6efe5 60%, #efe2d4 100%);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -51,20 +45,19 @@
       display: block;
     }
 
-    .page-wrapper {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 32px 20px 40px;
-    }
+    /* Layout basic */
 
-    /* HEADER / NAV */
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 36px;
-      gap: 24px;
+      margin-bottom: 28px;
     }
 
     .brand {
@@ -73,465 +66,446 @@
       gap: 18px;
     }
 
+    .brand-logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
     .brand-logo img {
-      width: 150px; /* Logo-Größe */
-      height: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .brand-name {
-      font-family: "Cormorant Garamond", serif;
-      letter-spacing: 0.24em;
-      font-size: 18px;
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
+      font-size: 20px;
+      font-weight: 500;
+      white-space: nowrap;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 14px;
       font-size: 14px;
     }
 
-    nav a {
+    .nav-link {
       padding: 8px 14px;
-      border-radius: var(--radius-pill);
-      transition: background 0.2s ease, color 0.2s ease;
-      color: var(--text-muted);
-      white-space: nowrap;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: background 0.18s ease, color 0.18s ease;
     }
 
-    nav a:hover {
-      background: rgba(255,255,255,0.65);
-      color: var(--text-main);
+    .nav-link:hover {
+      background: rgba(0, 0, 0, 0.04);
+      color: var(--text);
     }
 
-    .cart-pill {
+    .nav-cart-pill {
+      padding: 8px 18px;
+      border-radius: 999px;
       background: #fff;
-      border-radius: var(--radius-pill);
-      padding: 8px 16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow-card);
       font-size: 13px;
+      font-weight: 500;
     }
 
-    /* HERO */
+    /* Hero */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 40px;
-      padding: 32px 32px 32px 32px;
-      border-radius: var(--radius-lg);
-      background: var(--bg-light);
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 48px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 56px;
     }
 
-    .hero-eyebrow {
+    .hero-kicker {
       font-size: 11px;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
-    .hero h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 40px;
-      line-height: 1.15;
-      margin-bottom: 16px;
+    .hero-title {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 38px;
+      line-height: 1.05;
+      margin: 0 0 18px;
     }
 
-    .hero p {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      max-width: 460px;
+    .hero-text {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 18px;
     }
 
-    .hero-badges {
+    .hero-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
-    .badge {
-      font-size: 11px;
+    .pill {
       padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      background: var(--badge-bg);
-      color: var(--text-main);
-      white-space: nowrap;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.7);
+      font-size: 11px;
+      color: var(--muted);
     }
 
-    .hero-actions {
+    .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 10px;
     }
 
-    .btn-primary,
-    .btn-secondary {
-      border-radius: var(--radius-pill);
-      padding: 10px 20px;
-      font-size: 14px;
+    .btn {
+      border-radius: var(--radius-sm);
       border: none;
+      font-size: 13px;
+      padding: 10px 20px;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease,
+        color 0.15s ease;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+      box-shadow: var(--shadow-soft);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.18);
-      background: #b86f45;
+      box-shadow: 0 18px 30px rgba(85, 50, 32, 0.25);
     }
 
-    .btn-secondary {
-      background: #fff;
-      color: var(--text-main);
-      border: 1px solid var(--border-soft);
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-white);
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(0, 0, 0, 0.16);
     }
 
     .hero-note {
-      font-size: 12px;
-      color: var(--text-muted);
+      font-size: 11px;
+      color: var(--muted);
     }
 
-    .hero-media {
+    .hero-image-card {
+      background: linear-gradient(145deg, #f0e4d4, #fdf6ee);
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: linear-gradient(135deg, #d49b73, #f1c6a2);
+      box-shadow: var(--shadow-soft);
       padding: 10px;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
     }
 
-    .hero-media-inner {
-      border-radius: calc(var(--radius-lg) - 10px);
+    .hero-image-inner {
+      border-radius: calc(var(--radius-lg) - 6px);
       overflow: hidden;
-      background: var(--bg-white);
+      background: #c7b7a2;
     }
 
-    /* SECTION TITLES */
+    .hero-image-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Sections */
 
     .section {
       margin-bottom: 56px;
     }
 
     .section-header {
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
-    .section-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.22em;
+    .section-kicker {
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 26px;
+      letter-spacing: 0.24em;
+      font-size: 11px;
+      color: var(--muted);
       margin-bottom: 4px;
     }
 
-    .section-subtitle {
+    .section-title {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 26px;
+      margin: 0 0 4px;
+    }
+
+    .section-text {
       font-size: 14px;
-      color: var(--text-muted);
-      max-width: 520px;
+      color: var(--muted);
+      max-width: 540px;
     }
 
-    /* FEATURE CARDS ("Was den Kapuzenschal besonders macht") */
+    /* Produkt-Kacheln */
 
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .feature-card {
-      background: var(--bg-white);
-      border-radius: var(--radius-md);
-      padding: 18px 18px 18px 18px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-
-    .feature-card span {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .feature-card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .feature-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* PRODUCT GRID */
-
-    .product-grid {
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
     .product-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-md);
-      padding: 14px 14px 16px;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.8);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .product-image {
-      border-radius: 18px;
-      overflow: hidden;
-      margin-bottom: 10px;
-      background: #ddd;
-      max-height: 210px;
-    }
-
-    .product-name {
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .product-price {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .product-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .product-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .product-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .qty-select {
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-soft);
-      padding: 6px 10px;
-      font-size: 12px;
-      background: #fff;
-    }
-
-    .product-card button {
-      font-size: 12px;
-      padding: 8px 12px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--accent);
-      background: var(--accent);
-      color: #fff;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .product-card button:hover {
-      background: #b86f45;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    }
-
-    /* GALLERY / STORY SECTION */
-
-    .gallery-section {
-      background: linear-gradient(135deg, #ded0c1, #f6eee4);
+      background: var(--card);
       border-radius: var(--radius-lg);
-      padding: 26px 26px 26px;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 56px;
-    }
-
-    .gallery-header {
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      margin-bottom: 18px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
     }
 
-    .gallery-header h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(65, 46, 32, 0.18);
     }
 
-    .gallery-header p {
-      font-size: 13px;
-      color: var(--text-muted);
-      max-width: 520px;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      grid-template-rows: 190px 190px;
-      gap: 14px;
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 18px;
+    .product-media {
+      aspect-ratio: 4 / 3;
       overflow: hidden;
-      background: #d4c4b4;
+      background: #c7b7a2;
     }
 
-    .gallery-item img {
+    .product-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .gallery-item.large {
-      grid-row: span 2;
+    .product-body {
+      padding: 14px 14px 16px;
+      font-size: 13px;
     }
 
-    .gallery-label {
-      position: absolute;
-      left: 14px;
-      bottom: 12px;
-      padding: 4px 10px;
-      background: rgba(0,0,0,0.42);
-      color: #fff;
-      border-radius: var(--radius-pill);
+    .product-name {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .product-price {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .product-article {
       font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 3px;
     }
 
-    /* DESCRIPTION & MATERIAL */
-
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 32px;
-      margin-bottom: 32px;
+    .product-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
-    .two-column h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .two-column p,
-    .two-column li {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .two-column ul {
-      padding-left: 18px;
-      margin-top: 6px;
-    }
-
-    .tag-list span {
-      display: block;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .tag-list strong {
-      color: var(--text-main);
-    }
-
-    .quote-band {
-      background: var(--bg-light);
-      border-radius: 999px;
-      padding: 14px 22px;
+    .product-actions {
       display: flex;
+      gap: 8px;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
+      margin-top: auto;
+    }
+
+    .qty-select {
+      flex: 0 0 90px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+
+    .btn-cart {
+      flex: 1;
+      font-size: 12px;
+      padding: 8px 14px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-cart:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Info-Zeilen */
+
+    .info-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+
+    .info-block-title {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .info-list {
       font-size: 13px;
-      color: var(--text-muted);
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.06);
-      margin-bottom: 40px;
+      color: var(--muted);
+      padding-left: 16px;
+      margin: 0;
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+    }
+
+    .quote-banner {
+      margin-top: 10px;
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #d3b79c, #c08c63);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 13px;
+      box-shadow: var(--shadow-soft);
     }
 
     .quote-text {
       font-style: italic;
-      color: var(--text-main);
     }
 
-    .quote-note {
-      max-width: 340px;
+    .quote-detail {
+      font-size: 12px;
+      opacity: 0.9;
     }
 
-    /* CART & PAYMENT */
+    /* Galerie – neue Kacheln */
+
+    .section-gallery {
+      margin-bottom: 56px;
+    }
+
+    .section-gallery-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      grid-auto-rows: auto;
+      gap: 18px;
+    }
+
+    .gallery-item {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .gallery-item-large {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      aspect-ratio: 16 / 9;
+    }
+
+    .gallery-item-medium {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      aspect-ratio: 16 / 6;
+    }
+
+    .gallery-item-medium-2 {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      aspect-ratio: 16 / 6;
+    }
+
+    .gallery-item-tall {
+      grid-column: 1 / 2;
+      grid-row: 2 / 4;
+      aspect-ratio: 3 / 4;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* wichtig: komplette Bilder sichtbar */
+      background: #d4c4b3; /* falls Ränder entstehen */
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Warenkorb & Bezahlung */
 
     .cart-section {
-      margin-bottom: 40px;
+      margin-top: 24px;
     }
 
     .cart-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
       gap: 24px;
+      align-items: flex-start;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
-      background: var(--bg-white);
-      border-radius: var(--radius-md);
+      background: var(--card);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+      box-shadow: var(--shadow-card);
     }
 
-    thead {
-      background: #f4ece1;
-    }
-
-    th, td {
+    th,
+    td {
       padding: 10px 12px;
+      border-bottom: 1px solid #edded0;
       text-align: left;
-      border-bottom: 1px solid #f0e1d4;
     }
 
-    tbody tr:last-child td {
-      border-bottom: none;
+    th {
+      background: #f1e3d4;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     tfoot td {
@@ -540,215 +514,182 @@
 
     .cart-remove {
       font-size: 11px;
-      color: #b25a42;
+      color: #b1694f;
       cursor: pointer;
       text-decoration: underline;
-      background: none;
-      border: none;
-      padding: 0;
     }
 
-    .cart-note {
+    .cart-hint {
       font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .order-box {
-      background: var(--bg-light);
-      border-radius: var(--radius-md);
-      padding: 16px 16px 18px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
-    }
-
-    .order-box h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .order-box p {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .order-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .order-field {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 12px;
-    }
-
-    .order-field label {
-      color: var(--text-muted);
-    }
-
-    .order-field input,
-    .order-field textarea {
-      border-radius: 12px;
-      border: 1px solid var(--border-soft);
-      padding: 8px 10px;
-      font-size: 13px;
-      font-family: inherit;
-      resize: vertical;
-    }
-
-    .order-field textarea {
-      min-height: 70px;
-    }
-
-    .order-meta {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .order-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-      align-items: center;
-    }
-
-    .btn-paypal {
-      border-radius: var(--radius-pill);
-      padding: 10px 18px;
-      font-size: 13px;
-      border: none;
-      cursor: pointer;
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.16);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-    }
-
-    .btn-paypal span {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.9;
-    }
-
-    .btn-paypal:hover {
-      background: #b86f45;
-      transform: translateY(-1px);
-    }
-
-    .btn-mail {
-      border-radius: var(--radius-pill);
-      padding: 8px 16px;
-      font-size: 12px;
-      border: 1px solid var(--border-soft);
-      background: #fff;
-      cursor: pointer;
-      text-decoration: none;
-      color: var(--text-main);
-    }
-
-    .order-number {
-      font-size: 12px;
-      color: var(--text-muted);
+      color: var(--muted);
       margin-top: 4px;
     }
 
-    .order-number strong {
-      color: var(--text-main);
+    .payment-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-card);
+      font-size: 13px;
     }
 
-    /* RETURN & CONTACT */
-
-    .info-band {
-      background: var(--bg-light);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      font-size: 12px;
-      color: var(--text-muted);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-      margin-bottom: 26px;
-    }
-
-    .contact-section {
-      margin-bottom: 32px;
-    }
-
-    .contact-card {
-      background: var(--bg-white);
-      border-radius: var(--radius-md);
-      padding: 18px 18px 20px;
-      box-shadow: 0 14px 32px rgba(0,0,0,0.08);
-      max-width: 380px;
-    }
-
-    .contact-card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 18px;
+    .payment-title {
+      font-weight: 600;
       margin-bottom: 6px;
     }
 
-    .contact-card p {
-      font-size: 13px;
-      color: var(--text-muted);
+    .payment-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .btn-paypal {
+      width: 100%;
       margin-bottom: 10px;
     }
 
-    .contact-card .btn-secondary {
-      font-size: 13px;
-      padding-inline: 18px;
+    .bank-details {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #f4e7d8;
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .contact-hint {
+    .bank-details strong {
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    .order-form {
+      margin-top: 12px;
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 12px 12px 14px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .order-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .order-form label {
+      display: block;
       font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 6px;
+      color: var(--muted);
+      margin-bottom: 2px;
     }
 
-    /* FOOTER */
+    .order-form input,
+    .order-form textarea {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-family: inherit;
+    }
+
+    .order-form textarea {
+      min-height: 56px;
+      resize: vertical;
+    }
+
+    .order-id {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .btn-finish {
+      margin-top: 10px;
+      width: 100%;
+      font-size: 12px;
+      padding: 9px 16px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Umtausch + Kontakt */
+
+    .info-box {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      font-size: 12px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .info-box-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 22px;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      box-shadow: var(--shadow-card);
+      font-size: 13px;
+    }
+
+    .contact-subtext {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .btn-email {
+      margin-top: 4px;
+      font-size: 12px;
+    }
 
     footer {
+      margin-top: 32px;
       font-size: 11px;
-      color: var(--text-muted);
+      color: var(--muted);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      border-top: 1px solid rgba(0,0,0,0.04);
-      padding-top: 16px;
-      margin-top: 8px;
+      gap: 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
     }
 
-    footer a {
+    .footer-links a {
+      margin-left: 10px;
       text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
-    /* RESPONSIVE */
+    /* Responsive */
 
-    @media (max-width: 980px) {
+    @media (max-width: 960px) {
       .hero {
         grid-template-columns: 1fr;
       }
 
-      .feature-grid {
-        grid-template-columns: 1fr 1fr;
+      .hero-image-card {
+        order: -1;
       }
 
-      .product-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .two-column {
+      .info-columns {
         grid-template-columns: 1fr;
       }
 
@@ -756,719 +697,624 @@
         grid-template-columns: 1fr;
       }
 
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 170px 170px;
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item-large,
+      .gallery-item-medium,
+      .gallery-item-medium-2,
+      .gallery-item-tall {
+        grid-column: auto;
+        grid-row: auto;
+        aspect-ratio: 4 / 3;
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 14px;
+      }
+
       header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 14px;
       }
 
-      .hero {
-        padding: 22px 18px;
+      .brand {
+        gap: 12px;
       }
 
-      .hero h1 {
-        font-size: 32px;
+      .brand-logo {
+        width: 120px;
+        height: 120px;
       }
 
-      .feature-grid {
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .products-grid {
         grid-template-columns: 1fr;
       }
 
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 200px);
-      }
-
-      .gallery-item.large {
-        grid-row: auto;
-      }
-
-      footer {
+      .quote-banner {
         flex-direction: column;
-        align-items: flex-start;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page-wrapper">
-    <!-- HEADER -->
-    <header>
-      <div class="brand">
-        <a href="#top" class="brand-logo">
-          <img src="logo-kapuzenschal.png" alt="Rosa by Santangelo Logo">
-        </a>
-        <div class="brand-name">ROSA BY SANTANGELO</div>
+<div class="page">
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">
+        <img src="logo-kapuzenschal.png" alt="Rosa by Santangelo Logo">
       </div>
-      <nav>
-        <a href="#produkt">Produkt</a>
-        <a href="#farben">Farben</a>
-        <a href="#warenkorb">Warenkorb</a>
-        <a href="#kontakt">Kontakt</a>
-        <div class="cart-pill" id="cart-pill">
-          Warenkorb: 0 Artikel
+      <div class="brand-name">Rosa by Santangelo</div>
+    </div>
+    <nav>
+      <a href="#produkt" class="nav-link">Produkt</a>
+      <a href="#farben" class="nav-link">Farben</a>
+      <a href="#warenkorb" class="nav-link">Warenkorb</a>
+      <a href="#kontakt" class="nav-link">Kontakt</a>
+      <div class="nav-cart-pill" id="nav-cart-count">Warenkorb: 0 Artikel</div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="produkt">
+    <div>
+      <div class="hero-kicker">Handgemacht · Warm · Zeitlos</div>
+      <h1 class="hero-title">Der Kapuzenschal für deinen Alltag.</h1>
+      <p class="hero-text">
+        Ein Schal und eine Kapuze in einem – weicher Strick, warm und bequem.
+        Für Spaziergänge, Alltag oder den Spielplatz.
+      </p>
+
+      <div class="hero-pills">
+        <span class="pill">Einheitsgröße</span>
+        <span class="pill">4 Farben</span>
+        <span class="pill">Limitierte Stückzahl</span>
+        <span class="pill">24,95 € · inkl. Versand (DE)</span>
+      </div>
+
+      <div class="hero-cta-row">
+        <button class="btn btn-primary" onclick="scrollToSection('warenkorb')">
+          Zum Warenkorb
+        </button>
+        <button class="btn btn-ghost" onclick="scrollToSection('farben')">
+          Farben ansehen
+        </button>
+      </div>
+
+      <div class="hero-note">
+        Aktuell ein Modell in vier Farbtönen: Braun, Grau, Beige und Sand.
+      </div>
+    </div>
+
+    <div class="hero-image-card">
+      <div class="hero-image-inner">
+        <!-- NEUER Dateiname für das Hauptbild -->
+        <img src="hero-kapuzenschal.jpg" alt="Frau trägt Kapuzenschal in den Bergen">
+      </div>
+    </div>
+  </section>
+
+  <!-- Was macht den Kapuzenschal besonders -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-kicker">Was den Kapuzenschal besonders macht</div>
+      <p class="section-text">
+        Der Kapuzenschal verbindet die Wärme eines Schals mit dem Schutz einer Kapuze.
+        Ein unkompliziertes Accessoire für jeden Tag – einfach überwerfen, wohlfühlen, losgehen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Farben / Produkte -->
+  <section class="section" id="farben">
+    <div class="section-header">
+      <div class="section-kicker">Vier Farben – ein Lieblingsstück</div>
+      <h2 class="section-title">Wähle deine Farbe.</h2>
+      <p class="section-text">
+        Über den Button legst du den Schal in deinen Warenkorb.
+      </p>
+    </div>
+
+    <div class="products-grid">
+      <!-- Sand -->
+      <article class="product-card">
+        <div class="product-media">
+          <img src="kapuzenschal-sand.jpg" alt="Kapuzenschal Sand">
         </div>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <main id="top">
-      <section class="hero" id="produkt">
-        <div>
-          <div class="hero-eyebrow">Handgemacht · Warm · Zeitlos</div>
-          <h1>Der Kapuzenschal für deinen Alltag.</h1>
-          <p>
-            Ein Schal und eine Kapuze in einem – weicher Strick, warm und bequem.
-            Für Spaziergänge, Alltag oder den Spielplatz.
-          </p>
-
-          <div class="hero-badges">
-            <div class="badge">Einheitsgröße</div>
-            <div class="badge">4 Farben</div>
-            <div class="badge">Limitierte Stückzahl</div>
-            <div class="badge">24,95 € · inkl. Versand (DE)</div>
+        <div class="product-body">
+          <div class="product-name">Sand</div>
+          <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+          <div class="product-article">Art.-Nr.: 2025123459</div>
+          <div class="product-desc">
+            Heller Sandton – ruhig, soft, zeitlos. Kapuzenschal aus weichem Strick.
           </div>
-
-          <div class="hero-actions">
-            <button class="btn-primary" onclick="scrollToSection('warenkorb')">Zum Warenkorb</button>
-            <button class="btn-secondary" onclick="scrollToSection('farben')">Farben ansehen</button>
-          </div>
-
-          <div class="hero-note">
-            Aktuell ein Modell in vier Farbtönen: Braun, Grau, Beige und Sand.
-          </div>
-        </div>
-
-        <div class="hero-media">
-          <div class="hero-media-inner">
-            <!-- NEUER NAME für das Hauptbild -->
-            <img src="hero-kapuzenschal.jpg" alt="Kapuzenschal in den Bergen">
-          </div>
-        </div>
-      </section>
-
-      <!-- FEATURES -->
-      <section class="section">
-        <div class="section-header">
-          <div class="section-eyebrow">Tragegefühl</div>
-          <div class="section-title">Was den Kapuzenschal besonders macht</div>
-          <div class="section-subtitle">
-            Der Kapuzenschal verbindet die Wärme eines Schals mit dem Schutz einer Kapuze.
-            Ein unkompliziertes Accessoire für jeden Tag – einfach überwerfen, wohlfühlen, losgehen.
-          </div>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span>No. 1</span>
-            <h3>Weich & warm</h3>
-            <p>
-              Ideal für kühle Tage, Wind und leichten Regen.
-              Perfekt für Spaziergänge, Alltag und den Spielplatz.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <span>No. 2</span>
-            <h3>Ein Produkt, viele Styles</h3>
-            <p>
-              Über Mantel, Jacke oder Hoodie getragen – der Kapuzenschal passt sich deinem Look an,
-              ohne aufzutragen.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <span>No. 3</span>
-            <h3>Mit Liebe handgemacht</h3>
-            <p>
-              Jeder Kapuzenschal wird einzeln gefertigt. Keine Massenproduktion –
-              jedes Teil ist ein kleines Lieblingsstück.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- PRODUCT CARDS -->
-      <section class="section" id="farben">
-        <div class="section-header">
-          <div class="section-eyebrow">Vier Farben – ein Lieblingsstück</div>
-          <div class="section-title">Wähle deinen Kapuzenschal</div>
-          <div class="section-subtitle">
-            Wähle deine Farbe. Über den Button legst du den Schal in deinen Warenkorb.
+          <div class="product-actions">
+            <select class="qty-select" id="qty-sand">
+              <option value="1">1 Stück</option>
+              <option value="2">2 Stück</option>
+              <option value="3">3 Stück</option>
+              <option value="4">4 Stück</option>
+            </select>
+            <button class="btn-cart" onclick="addToCart('sand')">In den Warenkorb</button>
           </div>
         </div>
+      </article>
 
-        <div class="product-grid">
-          <!-- Sand -->
-          <article class="product-card">
-            <div class="product-image">
-              <img src="kapuzenschal-sand.jpg" alt="Kapuzenschal Sand">
-            </div>
-            <div class="product-name">Sand</div>
-            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
-            <div class="product-meta">Art.-Nr.: 2025123459</div>
-            <div class="product-desc">
-              Heller Sandton – ruhig, soft, zeitlos. Kapuzenschal aus weichem Strick.
-            </div>
-            <div class="product-actions">
-              <select class="qty-select" id="qty-sand">
-                <option value="1">1 Stück</option>
-                <option value="2">2 Stück</option>
-                <option value="3">3 Stück</option>
-                <option value="4">4 Stück</option>
-              </select>
-              <button
-                data-id="sand"
-                data-name="Sand"
-                data-article="2025123459"
-                data-price="24.95"
-              >
-                In den Warenkorb
-              </button>
-            </div>
-          </article>
-
-          <!-- Beige -->
-          <article class="product-card">
-            <div class="product-image">
-              <img src="kapuzenschal-beige.jpg" alt="Kapuzenschal Beige">
-            </div>
-            <div class="product-name">Beige</div>
-            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
-            <div class="product-meta">Art.-Nr.: 2025123458</div>
-            <div class="product-desc">
-              Warmer Beigeton, passt zu vielen Outfits. Kapuzenschal aus weichem Strick.
-            </div>
-            <div class="product-actions">
-              <select class="qty-select" id="qty-beige">
-                <option value="1">1 Stück</option>
-                <option value="2">2 Stück</option>
-                <option value="3">3 Stück</option>
-                <option value="4">4 Stück</option>
-              </select>
-              <button
-                data-id="beige"
-                data-name="Beige"
-                data-article="2025123458"
-                data-price="24.95"
-              >
-                In den Warenkorb
-              </button>
-            </div>
-          </article>
-
-          <!-- Braun -->
-          <article class="product-card">
-            <div class="product-image">
-              <img src="kapuzenschal-braun.jpg" alt="Kapuzenschal Braun">
-            </div>
-            <div class="product-name">Braun</div>
-            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
-            <div class="product-meta">Art.-Nr.: 2025123457</div>
-            <div class="product-desc">
-              Tiefes Dunkelbraun – klar, ruhig, bewusst. Kapuzenschal aus weichem Strick.
-            </div>
-            <div class="product-actions">
-              <select class="qty-select" id="qty-braun">
-                <option value="1">1 Stück</option>
-                <option value="2">2 Stück</option>
-                <option value="3">3 Stück</option>
-                <option value="4">4 Stück</option>
-              </select>
-              <button
-                data-id="braun"
-                data-name="Braun"
-                data-article="2025123457"
-                data-price="24.95"
-              >
-                In den Warenkorb
-              </button>
-            </div>
-          </article>
-
-          <!-- Grau -->
-          <article class="product-card">
-            <div class="product-image">
-              <img src="kapuzenschal-grau.jpg" alt="Kapuzenschal Grau">
-            </div>
-            <div class="product-name">Grau</div>
-            <div class="product-price">24,95 € · inkl. Versand (DE)</div>
-            <div class="product-meta">Art.-Nr.: 2025123456</div>
-            <div class="product-desc">
-              Neutrales Grau – minimalistisch und kombinierbar. Kapuzenschal aus weichem Strick.
-            </div>
-            <div class="product-actions">
-              <select class="qty-select" id="qty-grau">
-                <option value="1">1 Stück</option>
-                <option value="2">2 Stück</option>
-                <option value="3">3 Stück</option>
-                <option value="4">4 Stück</option>
-              </select>
-              <button
-                data-id="grau"
-                data-name="Grau"
-                data-article="2025123456"
-                data-price="24.95"
-              >
-                In den Warenkorb
-              </button>
-            </div>
-          </article>
+      <!-- Beige -->
+      <article class="product-card">
+        <div class="product-media">
+          <img src="kapuzenschal-beige.jpg" alt="Kapuzenschal Beige">
         </div>
-      </section>
-
-      <!-- GALLERY / STORY SECTION -->
-      <section class="gallery-section">
-        <div class="gallery-header">
-          <div class="section-eyebrow">Momente</div>
-          <h2>So trägt sich der Kapuzenschal im Alltag</h2>
-          <p>
-            Ein warmes Getränk in der Hand, Berge im Hintergrund oder einfach der Weg zum Spielplatz:
-            hier siehst du ein paar Eindrücke aus unserem Shooting. Die Fotos kannst du später nach und nach austauschen.
-          </p>
-        </div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item large">
-            <img src="gallery-1.jpg" alt="Kapuzenschal in der Natur">
-            <div class="gallery-label">Draußen unterwegs</div>
+        <div class="product-body">
+          <div class="product-name">Beige</div>
+          <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+          <div class="product-article">Art.-Nr.: 2025123458</div>
+          <div class="product-desc">
+            Warmer Beigeton, passt zu vielen Outfits. Kapuzenschal aus weichem Strick.
           </div>
-          <div class="gallery-item">
-            <img src="gallery-2.jpg" alt="Kapuzenschal Detail">
-            <div class="gallery-label">Details & Struktur</div>
-          </div>
-          <div class="gallery-item">
-            <img src="gallery-3.jpg" alt="Kapuzenschal im Alltag">
-            <div class="gallery-label">Alltagssituation</div>
-          </div>
-          <div class="gallery-item">
-            <img src="gallery-4.jpg" alt="Kapuzenschal gestylt">
-            <div class="gallery-label">Gestylt & kombiniert</div>
+          <div class="product-actions">
+            <select class="qty-select" id="qty-beige">
+              <option value="1">1 Stück</option>
+              <option value="2">2 Stück</option>
+              <option value="3">3 Stück</option>
+              <option value="4">4 Stück</option>
+            </select>
+            <button class="btn-cart" onclick="addToCart('beige')">In den Warenkorb</button>
           </div>
         </div>
-      </section>
+      </article>
 
-      <!-- DESCRIPTION & MATERIAL -->
-      <section class="section">
-        <div class="two-column">
-          <div>
-            <h3>Beschreibung & Passform</h3>
-            <p>Kapuzenschal aus weichem Strick.</p>
-            <p>Accessoire-Stil: Balaclava / Kapuzenschal.</p>
-
-            <div class="tag-list" style="margin-top: 14px;">
-              <span><strong>Farben & Artikelnummern</strong></span>
-              <span>Grau – 2025123456</span>
-              <span>Braun – 2025123457</span>
-              <span>Beige – 2025123458</span>
-              <span>Sand – 2025123459</span>
-            </div>
+      <!-- Braun -->
+      <article class="product-card">
+        <div class="product-media">
+          <img src="kapuzenschal-braun.jpg" alt="Kapuzenschal Braun">
+        </div>
+        <div class="product-body">
+          <div class="product-name">Braun</div>
+          <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+          <div class="product-article">Art.-Nr.: 2025123457</div>
+          <div class="product-desc">
+            Tiefes Dunkelbraun – klar, ruhig, bewusst. Kapuzenschal aus weichem Strick.
           </div>
-
-          <div>
-            <h3>Material & Pflege</h3>
-            <p>
-              Weicher, elastischer Strick – formstabil, angenehm auf der Haut und pflegeleicht.
-              Detaillierte Materialangaben erhältst du gerne auf Anfrage.
-            </p>
-
-            <ul style="margin-top: 10px;">
-              <li>Pflegeleicht & alltagstauglich</li>
-              <li>Angenehmes Tragegefühl – auch bei empfindlicher Haut</li>
-              <li>Ideal zum Überziehen über Mantel, Jacke oder Hoodie</li>
-            </ul>
+          <div class="product-actions">
+            <select class="qty-select" id="qty-braun">
+              <option value="1">1 Stück</option>
+              <option value="2">2 Stück</option>
+              <option value="3">3 Stück</option>
+              <option value="4">4 Stück</option>
+            </select>
+            <button class="btn-cart" onclick="addToCart('braun')">In den Warenkorb</button>
           </div>
         </div>
+      </article>
 
-        <div class="quote-band">
+      <!-- Grau -->
+      <article class="product-card">
+        <div class="product-media">
+          <img src="kapuzenschal-grau.jpg" alt="Kapuzenschal Grau">
+        </div>
+        <div class="product-body">
+          <div class="product-name">Grau</div>
+          <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+          <div class="product-article">Art.-Nr.: 2025123456</div>
+          <div class="product-desc">
+            Neutrales Grau – minimalistisch und kombinierbar. Kapuzenschal aus weichem Strick.
+          </div>
+          <div class="product-actions">
+            <select class="qty-select" id="qty-grau">
+              <option value="1">1 Stück</option>
+              <option value="2">2 Stück</option>
+              <option value="3">3 Stück</option>
+              <option value="4">4 Stück</option>
+            </select>
+            <button class="btn-cart" onclick="addToCart('grau')">In den Warenkorb</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Beschreibung & Material -->
+  <section class="section">
+    <div class="info-columns">
+      <div>
+        <h3 class="info-block-title">Beschreibung & Passform</h3>
+        <ul class="info-list">
+          <li>Kapuzenschal aus weichem Strick.</li>
+          <li>Accessoire-Stil: Balaclava / Kapuzenschal.</li>
+          <li>Einheitsgröße – passt sich der Kopfform an.</li>
+        </ul>
+
+        <h4 class="info-block-title" style="margin-top:14px;">Farben & Artikelnummern</h4>
+        <ul class="info-list">
+          <li>Grau – 2025123456</li>
+          <li>Braun – 2025123457</li>
+          <li>Beige – 2025123458</li>
+          <li>Sand – 2025123459</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="info-block-title">Material & Pflege</h3>
+        <ul class="info-list">
+          <li>Weicher, elastischer Strick – formstabil, angenehm auf der Haut und pflegeleicht.</li>
+          <li>Pflegehinweis: Schonwaschgang, liegend trocknen.</li>
+          <li>Detaillierte Materialangaben erhältst du gerne auf Anfrage.</li>
+        </ul>
+
+        <div class="quote-banner">
           <div class="quote-text">
             „Ein Teil, das dich warm hält, ohne laut zu sein.“
           </div>
-          <div class="quote-note">
-            Sanfte Naturtöne, weicher Strick und eine ruhige Silhouette – der Kapuzenschal passt zu Mänteln,
-            Jacken und Hoodies, ohne den Look zu überladen. Einfach überziehen und rausgehen.
+          <div class="quote-detail">
+            Sanfte Naturtöne, weicher Strick und eine ruhige Silhouette – der Kapuzenschal passt
+            zu Mänteln, Jacken und Hoodies, ohne den Look zu überladen. Einfach überziehen und
+            rausgehen.
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- CART & PAYMENT -->
-      <section class="section cart-section" id="warenkorb">
-        <div class="section-header">
-          <div class="section-eyebrow">Bestellung</div>
-          <div class="section-title">Warenkorb & Bezahlung</div>
-          <div class="section-subtitle">
-            Lege deine Wunschfarben in den Warenkorb und trage deine Daten ein.
-            Danach kannst du bequem per PayPal oder Überweisung bezahlen.
+  <!-- Neue Galerie-Kacheln -->
+  <section class="section section-gallery">
+    <div class="section-header">
+      <div class="section-kicker">Einblicke</div>
+      <h2 class="section-title">So trägt sich der Kapuzenschal im Alltag.</h2>
+      <p class="section-text">
+        Hier siehst du ein paar Eindrücke aus unserem Shooting. Die Fotos kannst du später nach
+        und nach austauschen.
+      </p>
+    </div>
+
+    <div class="section-gallery-grid">
+      <!-- Groß oben links -->
+      <figure class="gallery-item gallery-item-large">
+        <img src="galerie-1.jpg" alt="Kapuzenschal draußen unterwegs" class="gallery-img">
+        <figcaption class="gallery-caption">Draußen unterwegs</figcaption>
+      </figure>
+
+      <!-- Mittel oben rechts -->
+      <figure class="gallery-item gallery-item-medium">
+        <img src="galerie-2.jpg" alt="Kapuzenschal – Details & Struktur" class="gallery-img">
+        <figcaption class="gallery-caption">Details &amp; Struktur</figcaption>
+      </figure>
+
+      <!-- Mittel darunter rechts -->
+      <figure class="gallery-item gallery-item-medium-2">
+        <img src="galerie-3.jpg" alt="Kapuzenschal im Alltag" class="gallery-img">
+        <figcaption class="gallery-caption">Alltagssituation</figcaption>
+      </figure>
+
+      <!-- Groß & hoch links unten -->
+      <figure class="gallery-item gallery-item-tall">
+        <img src="galerie-4.jpg" alt="Gestylt & kombiniert" class="gallery-img">
+        <figcaption class="gallery-caption">Gestylt &amp; kombiniert</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Warenkorb & Bezahlung -->
+  <section class="section cart-section" id="warenkorb">
+    <div class="section-header">
+      <div class="section-kicker">Warenkorb & Bezahlung</div>
+      <h2 class="section-title">Bestelle deinen Kapuzenschal.</h2>
+      <p class="section-text">
+        Lege deine Wunschfarben in den Warenkorb und trage deine Daten ein.
+        Danach kannst du bequem per PayPal oder Überweisung bezahlen.
+      </p>
+    </div>
+
+    <div class="cart-layout">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Artikel</th>
+              <th>Anzahl</th>
+              <th>Summe</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <tr>
+              <td colspan="4">Dein Warenkorb ist noch leer.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Preis: 24,95 € pro Kapuzenschal, inkl. Versand innerhalb Deutschlands.</td>
+              <td colspan="2" id="cart-total">Gesamt: 0,00 €</td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="cart-hint">
+          Bitte überprüfe vor der Bezahlung deine Farben und Stückzahl.
+        </div>
+      </div>
+
+      <div>
+        <div class="payment-card">
+          <div class="payment-title">PayPal</div>
+          <div class="payment-subtitle">
+            Bezahl deine Bestellung bevorzugt bequem per PayPal.
+          </div>
+          <button class="btn btn-primary btn-paypal" onclick="payWithPaypal()">
+            Mit PayPal bezahlen
+          </button>
+          <div class="cart-hint">
+            Wir öffnen PayPal in einem neuen Fenster. Bitte gib dort im Verwendungszweck deine
+            Bestellnummer und die gewählten Farben an.
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(0,0,0,0.08);margin:14px 0;" />
+
+          <div class="payment-title">Überweisung</div>
+          <div class="payment-subtitle">
+            Du möchtest lieber per Banküberweisung zahlen?
+          </div>
+
+          <div class="bank-details">
+            <div><strong>Kontoinhaber:</strong> LUMANI UG (haftungsbeschränkt)</div>
+            <div><strong>IBAN:</strong> DE33 2545 0110 0031 0599 26</div>
+            <div><strong>BIC:</strong> NOLADE21SWB</div>
+            <div><strong>Verwendungszweck:</strong> Kapuzenschal + Farbe(n) + deine Bestellnummer</div>
+          </div>
+
+          <div class="order-form">
+            <div class="payment-title" style="margin-bottom:6px;">Deine Bestelldaten</div>
+            <div class="payment-subtitle" style="margin-bottom:8px;">
+              Bitte fülle die Felder aus. Wir nutzen diese Daten für den Versand und die Zuordnung
+              deiner Zahlung.
+            </div>
+
+            <div class="order-form-row">
+              <div>
+                <label for="order-name">Vor- und Nachname*</label>
+                <input id="order-name" type="text" autocomplete="name" />
+              </div>
+              <div>
+                <label for="order-email">E-Mail-Adresse*</label>
+                <input id="order-email" type="email" autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="order-form-row">
+              <div>
+                <label for="order-street">Straße &amp; Hausnummer*</label>
+                <input id="order-street" type="text" autocomplete="street-address" />
+              </div>
+              <div>
+                <label for="order-zipcity">PLZ &amp; Ort*</label>
+                <input id="order-zipcity" type="text" autocomplete="postal-code" />
+              </div>
+            </div>
+
+            <div style="margin-bottom:8px;">
+              <label for="order-notes">Hinweise (optional)</label>
+              <textarea id="order-notes" placeholder="z.B. Geschenk, Wunschfarbe priorisieren, etc."></textarea>
+            </div>
+
+            <div class="order-id" id="order-id-display">
+              Bestellnummer wird beim Abschluss automatisch vergeben.
+            </div>
+
+            <button class="btn-finish" type="button" onclick="finishOrder()">
+              Bestellung abschließen (Übersicht anzeigen)
+            </button>
           </div>
         </div>
 
-        <div class="cart-layout">
-          <!-- TABLE -->
+        <div style="margin-top:14px;" class="info-box">
+          <div class="info-box-title">Umtausch &amp; Widerruf</div>
           <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Artikel</th>
-                  <th>Anzahl</th>
-                  <th>Summe</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="cart-body">
-                <tr>
-                  <td colspan="4" style="text-align:center; padding:18px 12px; color: var(--text-muted); font-size:13px;">
-                    Dein Warenkorb ist noch leer.
-                  </td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="2">Gesamt:</td>
-                  <td id="cart-total">0,00 €</td>
-                  <td></td>
-                </tr>
-              </tfoot>
-            </table>
-            <div class="cart-note">
-              Preis: 24,95 € pro Kapuzenschal, inkl. Versand innerhalb Deutschlands.
-            </div>
-          </div>
-
-          <!-- ORDER DATA / PAYMENT -->
-          <div class="order-box">
-            <h3>Deine Bestelldaten</h3>
-            <p>
-              Bitte fülle alle Felder aus. Wir nutzen diese Daten für den Versand und die Zuordnung deiner Zahlung.
-            </p>
-
-            <div class="order-grid">
-              <div class="order-field">
-                <label for="customer-name">Voll- und Nachname *</label>
-                <input type="text" id="customer-name" placeholder="Vorname Nachname" />
-              </div>
-              <div class="order-field">
-                <label for="customer-address">Adresse *</label>
-                <textarea id="customer-address" placeholder="Straße, Hausnummer&#10;PLZ, Ort"></textarea>
-              </div>
-              <div class="order-field">
-                <label for="customer-email">E-Mail *</label>
-                <input type="email" id="customer-email" placeholder="deine@mailadresse.de" />
-              </div>
-              <div class="order-field">
-                <label for="customer-notes">Hinweise (optional)</label>
-                <textarea id="customer-notes" placeholder="z.B. Geschenk, Wunschfarbe im Zweifel, Hinweise zur Lieferung"></textarea>
-              </div>
-            </div>
-
-            <div class="order-meta">
-              <div id="order-number-line">
-                Bestellnummer wird erzeugt, sobald du einen Artikel in den Warenkorb legst.
-              </div>
-            </div>
-
-            <div class="order-buttons">
-              <a href="#" id="paypal-button" class="btn-paypal">
-                <span>PayPal (empfohlen)</span>
-                Mit PayPal bezahlen
-              </a>
-              <a href="#" id="mail-button" class="btn-mail">Bestellmail vorbereiten</a>
-            </div>
-
-            <div class="order-meta" style="margin-top: 10px;">
-              Bitte gib bei PayPal im Verwendungszweck deine Bestellnummer an.<br>
-              Wir bestätigen deine Bestellung per E-Mail, sobald Zahlung und Daten eingegangen sind.
-            </div>
-
-            <div class="order-meta" style="margin-top: 12px; border-top: 1px solid rgba(0,0,0,0.04); padding-top: 10px;">
-              <strong>Überweisung</strong><br>
-              Wenn du lieber per Überweisung zahlen möchtest, nutze bitte die folgenden Daten und gib deine
-              Bestellnummer im Verwendungszweck an:
-              <br><br>
-              Kontoinhaber: <strong>LUMANI UG (haftungsbeschränkt)</strong><br>
-              IBAN: <strong>DE33 2545 0110 0031 0599 26</strong><br>
-              BIC: <strong>NOLADE21SWB</strong><br>
-              Verwendungszweck: <strong>Kapuzenschal + Farbe(n) + Bestellnummer</strong>
-            </div>
+            Umtausch bzw. Widerruf ist innerhalb der gesetzlichen Frist von 14 Tagen ab Erhalt der
+            Ware möglich. Die Kosten der Rücksendung trägt der Käufer.
           </div>
         </div>
-      </section>
-
-      <!-- RETURN & CONTACT -->
-      <section class="section">
-        <div class="info-band">
-          <strong>Umtausch & Widerruf</strong><br>
-          Umtausch bzw. Widerruf ist innerhalb der gesetzlichen Frist von 14 Tagen ab Erhalt der Ware möglich.
-          Die Kosten der Rücksendung trägt der Käufer.
-        </div>
-
-        <div class="contact-section" id="kontakt">
-          <div class="contact-card">
-            <h3>Kontakt & Fragen</h3>
-            <p>
-              Du hast Fragen zu Farben, Lieferzeit oder Bestellung?
-              Schreib uns einfach eine Nachricht.
-            </p>
-            <a class="btn-secondary" href="mailto:info@lumani.net?subject=Frage%20zum%20Kapuzenschal">
-              E-Mail senden
-            </a>
-            <div class="contact-hint">
-              Hilfreich für uns: gewünschte Farbe, Stückzahl und Lieferadresse (falls schon klar).
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <div>
-        © 2025 ROSA BY SANTANGELO – ein Produkt der LUMANI UG.
       </div>
-      <div>
-        <a href="impressum.html">Impressum</a> /
-        <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section class="section" id="kontakt">
+    <div class="contact-layout">
+      <div class="contact-card">
+        <h3 class="info-block-title">Kontakt &amp; Fragen</h3>
+        <p class="contact-subtext">
+          Du hast Fragen zu Farben, Lieferzeit oder deiner Bestellung? Schreib uns einfach eine
+          Nachricht.
+        </p>
+        <button class="btn btn-ghost btn-email" onclick="sendEmail()">
+          E-Mail senden
+        </button>
+        <div class="cart-hint" style="margin-top:10px;">
+          Hilfreich für uns: gewünschte Farbe, Stückzahl und Lieferadresse.
+        </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    const cart = {};
-    const PRICE_PER_ITEM = 24.95;
-    const PAYPAL_BASE = "https://paypal.me/lumaniug";
+  <!-- Footer -->
+  <footer>
+    <div>© 2025 ROSA BY SANTANGELO – ein Produkt der LUMANI UG.</div>
+    <div class="footer-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+</div>
 
-    function formatPrice(value) {
-      return value.toFixed(2).replace(".", ",") + " €";
+<script>
+  const PRICE = 24.95;
+  const FORMATTER = new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+  });
+
+  const products = {
+    sand: { name: "Sand", article: "2025123459" },
+    beige: { name: "Beige", article: "2025123458" },
+    braun: { name: "Braun", article: "2025123457" },
+    grau: { name: "Grau", article: "2025123456" },
+  };
+
+  let cart = [];
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
     }
+  }
 
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        window.scrollTo({
-          top: el.offsetTop - 40,
-          behavior: "smooth"
-        });
-      }
+  function getQtyId(key) {
+    return "qty-" + key;
+  }
+
+  function addToCart(key) {
+    const select = document.getElementById(getQtyId(key));
+    const qty = parseInt(select.value, 10) || 1;
+    const existing = cart.find((item) => item.key === key);
+    if (existing) {
+      existing.qty += qty;
+    } else {
+      cart.push({ key, qty });
     }
-
-    function getCartItemCount() {
-      return Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
-    }
-
-    function getCartTotal() {
-      return Object.values(cart).reduce((sum, item) => sum + item.qty * item.price, 0);
-    }
-
-    function updateCartDisplay() {
-      const tbody = document.getElementById("cart-body");
-      const totalCell = document.getElementById("cart-total");
-      const pill = document.getElementById("cart-pill");
-
-      const items = Object.values(cart);
-
-      if (items.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:18px 12px; color: #7b6c63; font-size:13px;">Dein Warenkorb ist noch leer.</td></tr>';
-        totalCell.textContent = "0,00 €";
-        pill.textContent = "Warenkorb: 0 Artikel";
-      } else {
-        tbody.innerHTML = "";
-        items.forEach(item => {
-          const tr = document.createElement("tr");
-
-          const tdName = document.createElement("td");
-          tdName.textContent = item.name;
-          tr.appendChild(tdName);
-
-          const tdQty = document.createElement("td");
-          tdQty.textContent = item.qty + " Stück";
-          tr.appendChild(tdQty);
-
-          const tdSum = document.createElement("td");
-          tdSum.textContent = formatPrice(item.qty * item.price);
-          tr.appendChild(tdSum);
-
-          const tdRemove = document.createElement("td");
-          const btnRemove = document.createElement("button");
-          btnRemove.className = "cart-remove";
-          btnRemove.textContent = "Entfernen";
-          btnRemove.onclick = () => {
-            delete cart[item.id];
-            updateCartDisplay();
-            updateOrderMeta();
-          };
-          tdRemove.appendChild(btnRemove);
-          tr.appendChild(tdRemove);
-
-          tbody.appendChild(tr);
-        });
-
-        const total = getCartTotal();
-        totalCell.textContent = formatPrice(total);
-        const count = getCartItemCount();
-        pill.textContent = "Warenkorb: " + count + (count === 1 ? " Artikel" : " Artikel");
-      }
-
-      updateOrderMeta();
-    }
-
-    function generateOrderNumber() {
-      const year = new Date().getFullYear(); // z.B. 2025
-      let counter = parseInt(localStorage.getItem("rosa_order_counter") || "0", 10);
-      counter += 1;
-      localStorage.setItem("rosa_order_counter", String(counter));
-      const padded = String(counter).padStart(4, "0");
-      return year + padded;
-    }
-
-    let currentOrderNumber = null;
-
-    function ensureOrderNumber() {
-      if (!currentOrderNumber && getCartItemCount() > 0) {
-        currentOrderNumber = generateOrderNumber();
-      }
-      return currentOrderNumber;
-    }
-
-    function updateOrderMeta() {
-      const line = document.getElementById("order-number-line");
-      const total = getCartTotal();
-      const count = getCartItemCount();
-
-      if (count === 0) {
-        currentOrderNumber = null;
-        line.textContent = "Bestellnummer wird erzeugt, sobald du einen Artikel in den Warenkorb legst.";
-      } else {
-        const nr = ensureOrderNumber();
-        line.innerHTML = 'Deine Bestellnummer: <strong>' + nr +
-          "</strong> · Gesamt: <strong>" + formatPrice(total) + "</strong>";
-      }
-
-      updatePaymentLinks();
-    }
-
-    function getOrderSummaryText() {
-      const nr = ensureOrderNumber() || "–";
-      const items = Object.values(cart);
-      const name = document.getElementById("customer-name").value.trim();
-      const address = document.getElementById("customer-address").value.trim();
-      const email = document.getElementById("customer-email").value.trim();
-      const notes = document.getElementById("customer-notes").value.trim();
-      const total = getCartTotal();
-
-      let lines = [];
-      lines.push("Bestellnummer: " + nr);
-      lines.push("");
-      lines.push("Artikel:");
-      if (items.length === 0) {
-        lines.push("- (Warenkorb ist leer)");
-      } else {
-        items.forEach(item => {
-          lines.push(
-            "- " + item.name +
-            " (" + item.article + "), " +
-            item.qty + " Stück · " +
-            formatPrice(item.qty * item.price)
-          );
-        });
-      }
-      lines.push("");
-      lines.push("Gesamtbetrag: " + formatPrice(total));
-      lines.push("");
-      lines.push("Name: " + (name || "–"));
-      lines.push("Adresse:");
-      lines.push(address || "–");
-      lines.push("");
-      lines.push("E-Mail: " + (email || "–"));
-      lines.push("");
-      lines.push("Hinweise des Käufers:");
-      lines.push(notes || "–");
-
-      return lines.join("\n");
-    }
-
-    function updatePaymentLinks() {
-      const total = getCartTotal();
-      const paypalBtn = document.getElementById("paypal-button");
-      const mailBtn = document.getElementById("mail-button");
-
-      if (!paypalBtn || !mailBtn) return;
-
-      if (total <= 0) {
-        paypalBtn.href = "#";
-        paypalBtn.onclick = function(e) {
-          e.preventDefault();
-          alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
-        };
-        mailBtn.href = "#";
-        mailBtn.onclick = function(e) {
-          e.preventDefault();
-          alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
-        };
-        return;
-      }
-
-      const nr = ensureOrderNumber();
-      const amountStr = total.toFixed(2); // Punkt für PayPal
-
-      // PayPal-Link mit Betrag
-      const paypalUrl = PAYPAL_BASE + "/" + amountStr;
-      paypalBtn.href = paypalUrl;
-      paypalBtn.target = "_blank";
-      paypalBtn.onclick = null;
-
-      // Mailto-Link mit Bestellübersicht
-      const subject = encodeURIComponent("Bestellung Kapuzenschal – Nr. " + nr);
-      const body = encodeURIComponent(getOrderSummaryText());
-      const mailUrl = "mailto:info@lumani.net?subject=" + subject + "&body=" + body;
-      mailBtn.href = mailUrl;
-      mailBtn.onclick = null;
-    }
-
-    // INIT: Buttons
-    document.querySelectorAll(".product-card button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const id = btn.dataset.id;
-        const name = btn.dataset.name;
-        const article = btn.dataset.article;
-        const price = parseFloat(btn.dataset.price);
-        const qtySelect = document.getElementById("qty-" + id);
-        const qty = parseInt(qtySelect.value, 10);
-
-        if (!cart[id]) {
-          cart[id] = { id, name, article, price, qty: 0 };
-        }
-        cart[id].qty += qty;
-
-        updateCartDisplay();
-
-        // kleine visuelle Rückmeldung
-        btn.textContent = "Hinzugefügt";
-        setTimeout(() => {
-          btn.textContent = "In den Warenkorb";
-        }, 900);
-      });
-    });
-
-    // Datenfelder beobachten, damit sich Mailtext aktualisiert
-    ["customer-name", "customer-address", "customer-email", "customer-notes"].forEach(id => {
-      const el = document.getElementById(id);
-      el.addEventListener("input", () => {
-        updatePaymentLinks();
-      });
-    });
-
-    // Initial
     updateCartDisplay();
-  </script>
+  }
+
+  function removeFromCart(key) {
+    cart = cart.filter((item) => item.key !== key);
+    updateCartDisplay();
+  }
+
+  function updateCartDisplay() {
+    const tbody = document.getElementById("cart-items");
+    const navCount = document.getElementById("nav-cart-count");
+    tbody.innerHTML = "";
+
+    if (cart.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4">Dein Warenkorb ist noch leer.</td></tr>';
+      navCount.textContent = "Warenkorb: 0 Artikel";
+      document.getElementById("cart-total").textContent = "Gesamt: 0,00 €";
+      return;
+    }
+
+    let totalItems = 0;
+    let totalAmount = 0;
+
+    cart.forEach((item) => {
+      const product = products[item.key];
+      const lineAmount = item.qty * PRICE;
+      totalItems += item.qty;
+      totalAmount += lineAmount;
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${product.name}</td>
+        <td>${item.qty}</td>
+        <td>${FORMATTER.format(lineAmount)}</td>
+        <td><span class="cart-remove" onclick="removeFromCart('${item.key}')">Entfernen</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    navCount.textContent = `Warenkorb: ${totalItems} Artikel`;
+    document.getElementById("cart-total").textContent =
+      "Gesamt: " + FORMATTER.format(totalAmount);
+  }
+
+  function payWithPaypal() {
+    if (cart.length === 0) {
+      alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
+      return;
+    }
+    window.open("https://paypal.me/lumaniug", "_blank");
+  }
+
+  function sendEmail() {
+    const subject = encodeURIComponent("Frage zum Kapuzenschal");
+    const body = encodeURIComponent(
+      "Hallo Rosa by Santangelo,\n\nich habe eine Frage zum Kapuzenschal:\n\n"
+    );
+    window.location.href = `mailto:info@lumani.net?subject=${subject}&body=${body}`;
+  }
+
+  function generateOrderNumber() {
+    const year = "2025";
+    const key = "rosaOrderCounter2025";
+    const last = parseInt(localStorage.getItem(key) || "0", 10);
+    const next = last + 1;
+    localStorage.setItem(key, String(next));
+    const padded = String(next).padStart(4, "0");
+    return year + padded;
+  }
+
+  function finishOrder() {
+    if (cart.length === 0) {
+      alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
+      return;
+    }
+
+    const name = document.getElementById("order-name").value.trim();
+    const email = document.getElementById("order-email").value.trim();
+    const street = document.getElementById("order-street").value.trim();
+    const zipcity = document.getElementById("order-zipcity").value.trim();
+
+    if (!name || !email || !street || !zipcity) {
+      alert("Bitte fülle alle Pflichtfelder (Name, E-Mail, Adresse, PLZ/Ort) aus.");
+      return;
+    }
+
+    const notes = document.getElementById("order-notes").value.trim();
+    const orderId = generateOrderNumber();
+
+    document.getElementById(
+      "order-id-display"
+    ).textContent = `Deine Bestellnummer: ${orderId}. Bitte gib diese Nummer bei PayPal oder im Verwendungszweck der Überweisung an.`;
+
+    let summary = `Bestellnummer: ${orderId}\n\nArtikel:\n`;
+    let total = 0;
+
+    cart.forEach((item) => {
+      const p = products[item.key];
+      const line = item.qty * PRICE;
+      total += line;
+      summary += `- ${item.qty}x Kapuzenschal ${p.name} (Art.-Nr. ${p.article})\n`;
+    });
+
+    summary += `\nGesamtbetrag: ${FORMATTER.format(total)}\n\nVersandadresse:\n${name}\n${street}\n${zipcity}\n\nE-Mail: ${email}\n`;
+    if (notes) {
+      summary += `\nHinweise:\n${notes}\n`;
+    }
+
+    alert(
+      "Deine Bestelldaten wurden zusammengestellt.\n\nBitte kopiere dir die folgenden Infos für deine Unterlagen bzw. für den Verwendungszweck bei PayPal oder Überweisung:\n\n" +
+        summary
+    );
+  }
+
+  // Initial
+  updateCartDisplay();
+</script>
 </body>
 </html>

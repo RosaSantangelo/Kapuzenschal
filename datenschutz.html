@@ -1,40 +1,185 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Datenschutz – Rosa by Santangelo</title>
 <style>
-  body { font-family: serif; padding: 60px; background:#f6f2eb; line-height:1.6; }
-  h1 { font-size: 32px; margin-bottom:20px; font-family:"Cormorant Garamond", serif; }
-  h2 { margin-top:28px; font-size:22px; }
-  p { margin: 6px 0 12px; }
-  a { color:#8b5b47; text-decoration:none; font-weight:bold; }
+  :root {
+    --beige: #e3d2bd;
+    --text: #29221a;
+    --accent: #8b5b47;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background: #ffffff;
+    color: var(--text);
+  }
+
+  .top-bar,
+  .bottom-bar {
+    height: 6px;
+    background: var(--beige);
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 32px auto 40px auto;
+    padding: 0 20px 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin: 0 0 16px;
+    letter-spacing: 0.04em;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin: 24px 0 8px;
+  }
+
+  p {
+    margin: 2px 0 10px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  ul {
+    margin: 4px 0 12px 18px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9c8372;
+    margin-bottom: 8px;
+  }
+
+  .label {
+    font-weight: 600;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 24px;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .back-link span {
+    margin-left: 6px;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .page {
+      margin-top: 24px;
+      padding-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+  }
 </style>
 </head>
 
 <body>
-<h1>Datenschutzerklärung</h1>
+  <div class="top-bar"></div>
 
-<p>Wir freuen uns über dein Interesse an unserem Produkt. Datenschutz hat für uns einen hohen Stellenwert. Nachfolgend informieren wir dich über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten.</p>
+  <main class="page">
+    <div class="eyebrow">Rechtliches</div>
+    <h1>Datenschutzerklärung</h1>
 
-<h2>1. Verantwortlicher</h2>
-<p>Lumani UG (haftungsbeschränkt)<br>
-Hamelspringer Str. 36<br>
-31848 Bad Münder am Deister<br>
-E-Mail: info@lumani.net</p>
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      <span class="label">Lumani UG (haftungsbeschränkt)</span><br />
+      vertreten durch Toni Kierakowitz<br />
+      Hamelspringer Str. 36<br />
+      31848 Bad Münder am Deister<br />
+      Deutschland
+    </p>
+    <p>
+      <span class="label">E-Mail:</span> info@lumani.net
+    </p>
 
-<h2>2. Verarbeitung personenbezogener Daten</h2>
-<p>Wir verarbeiten Daten ausschließlich zur Bestellabwicklung, Zahlungsabwicklung sowie zur Kommunikation mit dem Kunden.</p>
+    <h2>2. Welche Daten wir verarbeiten</h2>
+    <p>Wir verarbeiten personenbezogene Daten, die du uns im Rahmen einer Bestellung mitteilst, insbesondere:</p>
+    <ul>
+      <li>Name</li>
+      <li>Rechnungs- und Lieferadresse</li>
+      <li>E-Mail-Adresse</li>
+      <li>bestellte Produkte und Mengen</li>
+    </ul>
+    <p>
+      Diese Daten werden ausschließlich zur Abwicklung deiner Bestellung, zum Versand der Ware und ggf. zur
+      Beantwortung von Anfragen genutzt.
+    </p>
 
-<h2>3. Weitergabe der Daten</h2>
-<p>Eine Weitergabe findet nur statt, wenn dies für Zahlungsabwicklung (z. B. PayPal) oder Versand notwendig ist.</p>
+    <h2>3. Zahlungsarten (PayPal & Überweisung)</h2>
+    <p>
+      Für Zahlungen nutzen wir PayPal oder klassische Banküberweisung. Bei Zahlung per PayPal wirst du direkt zu PayPal
+      weitergeleitet. Dort gelten ausschließlich die Datenschutzbestimmungen von PayPal.
+    </p>
+    <p>
+      Bei Überweisung erhalten wir von deiner Bank lediglich die für den Zahlungseingang notwendigen Informationen
+      (Name des Kontoinhabers, IBAN, Verwendungszweck).
+    </p>
 
-<h2>4. Rechte der Nutzer</h2>
-<p>Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung sowie Widerspruch gegen die Verarbeitung deiner Daten.</p>
+    <h2>4. Speicherdauer</h2>
+    <p>
+      Bestelldaten werden von uns dauerhaft gespeichert, soweit dem keine gesetzlichen Aufbewahrungsfristen
+      entgegenstehen. Eine Löschung erfolgt, wenn die Speicherung für die genannten Zwecke nicht mehr erforderlich ist.
+    </p>
 
-<h2>5. Dauer der Speicherung</h2>
-<p>Daten werden nur so lange gespeichert, wie es gesetzlich erforderlich ist.</p>
+    <h2>5. Weitergabe der Daten</h2>
+    <p>
+      Eine Weitergabe deiner Daten erfolgt nur, wenn dies zur Vertragserfüllung notwendig ist (z. B. an Versanddienstleister
+      oder Zahlungsdienstleister wie PayPal) oder wenn wir gesetzlich dazu verpflichtet sind.
+    </p>
 
-<a href="index.html">← zurück zur Startseite</a>
+    <h2>6. Deine Rechte</h2>
+    <p>Du hast im Rahmen der gesetzlichen Vorgaben folgende Rechte:</p>
+    <ul>
+      <li>Recht auf Auskunft über die bei uns gespeicherten Daten,</li>
+      <li>Recht auf Berichtigung unrichtiger Daten,</li>
+      <li>Recht auf Löschung, soweit dem keine gesetzlichen Pflichten entgegenstehen,</li>
+      <li>Recht auf Einschränkung der Verarbeitung,</li>
+      <li>Recht auf Widerspruch gegen die Verarbeitung,</li>
+      <li>Recht auf Datenübertragbarkeit.</li>
+    </ul>
+    <p>
+      Zur Ausübung deiner Rechte kannst du dich jederzeit per E-Mail an
+      <span class="label">info@lumani.net</span> wenden.
+    </p>
+
+    <h2>7. Kontakt</h2>
+    <p>
+      Wenn du Fragen zum Datenschutz hast, schreib uns einfach eine Nachricht an
+      <span class="label">info@lumani.net</span>.
+    </p>
+
+    <a class="back-link" href="index.html">
+      ← <span>Zurück zur Startseite</span>
+    </a>
+  </main>
+
+  <div class="bottom-bar"></div>
 </body>
 </html>

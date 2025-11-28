@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Impressum – Rosa by Santangelo</title>
 <style>
-  body {
-    margin: 0;
-    padding: 40px 16px;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    background: #f6f2eb;
-    color: #2f241c;
+  :root {
+    --beige: #e3d2bd;
+    --text: #29221a;
+    --accent: #8b5b47;
   }
 
-  .impressum-wrapper {
-    max-width: 720px;
-    margin: 0 auto;
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     background: #ffffff;
-    padding: 40px 32px 32px;
-    border-radius: 20px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    color: var(--text);
+  }
+
+  .top-bar,
+  .bottom-bar {
+    height: 6px;
+    background: var(--beige);
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 32px auto 40px auto;
+    padding: 0 20px 40px;
   }
 
   h1 {
     font-size: 28px;
+    margin: 0 0 16px;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin: 0 0 24px;
   }
 
   h2 {
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #8b5b47;
-    margin: 0 0 18px;
+    font-size: 16px;
+    margin: 28px 0 8px;
   }
 
   p {
-    margin: 4px 0 10px;
+    margin: 2px 0 10px;
     font-size: 15px;
     line-height: 1.6;
   }
@@ -47,13 +55,21 @@
     font-weight: 600;
   }
 
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9c8372;
+    margin-bottom: 8px;
+  }
+
   .back-link {
     display: inline-flex;
     align-items: center;
     margin-top: 24px;
     font-size: 14px;
     text-decoration: none;
-    color: #8b5b47;
+    color: var(--accent);
     font-weight: 600;
   }
 
@@ -65,53 +81,75 @@
     text-decoration: underline;
   }
 
-  .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #9c8372;
-    margin-bottom: 6px;
-  }
-
   @media (max-width: 600px) {
-    .impressum-wrapper {
-      padding: 28px 20px 24px;
-      border-radius: 16px;
+    .page {
+      margin-top: 24px;
+      padding-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 24px;
     }
   }
 </style>
 </head>
 
 <body>
-  <div class="impressum-wrapper">
+  <div class="top-bar"></div>
+
+  <main class="page">
     <div class="eyebrow">Rechtliches</div>
     <h1>Impressum</h1>
 
-    <h2>Verantwortlich gemäß §5 TMG</h2>
+    <h2>Verantwortlich gemäß § 5 TMG</h2>
     <p>
-      <span class="label">Toni Kierakowitz</span><br>
-      Hamelspringer Str. 36<br>
-      31848 Bad Münder am Deister<br>
+      <span class="label">Toni Kierakowitz</span><br />
+      Hamelspringer Str. 36<br />
+      31848 Bad Münder am Deister<br />
       Deutschland
     </p>
 
     <p><span class="label">Gerichtsstand:</span> Hannover</p>
 
     <p>
-      <span class="label">E-Mail:</span> info@lumani.net
-    </p>
-
-    <p>
       <span class="label">Unternehmen:</span> Lumani UG (haftungsbeschränkt)
     </p>
 
     <p>
-      <span class="label">USt.-ID / IBAN:</span> DE33 2545 0110 0031 0599 26
+      <span class="label">E-Mail:</span> info@lumani.net
+    </p>
+
+    <h2>Hinweis gemäß Online-Streitbeilegungs-Verordnung</h2>
+    <p>
+      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die du hier findest:
+      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
+        https://ec.europa.eu/consumers/odr
+      </a>.
+    </p>
+    <p>
+      Wir sind weder verpflichtet noch bereit, an einem Streitbeilegungsverfahren vor einer
+      Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
+      Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Verpflichtungen zur Entfernung oder Sperrung der
+      Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+    </p>
+
+    <h2>Haftung für Links</h2>
+    <p>
+      Unsere Seite enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+      Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten
+      ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
     </p>
 
     <a class="back-link" href="index.html">
       ← <span>Zurück zur Startseite</span>
     </a>
-  </div>
+  </main>
+
+  <div class="bottom-bar"></div>
 </body>
 </html>

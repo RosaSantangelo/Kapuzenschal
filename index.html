@@ -17,6 +17,8 @@
       --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.06);
       --radius-card: 22px;
       --radius-pill: 999px;
+      --price-old: #c44242;
+      --price-new: #23402a;
     }
 
     * {
@@ -76,8 +78,10 @@
     }
 
     .logo-circle img {
-      width: 88%;
-      height: 88%;
+      width: 130px;
+      height: 130px;
+      max-width: 92%;
+      max-height: 92%;
       object-fit: contain;
     }
 
@@ -173,18 +177,44 @@
     }
 
     .hero-price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
       font-size: 11px;
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: var(--radius-pill);
       background: #ffffff;
       border: 1px solid var(--border-soft);
       font-weight: 600;
     }
 
+    .price-old {
+      text-decoration: line-through;
+      color: var(--price-old);
+      font-weight: 600;
+    }
+
+    .price-new {
+      color: var(--price-new);
+      font-weight: 700;
+    }
+
+    .price-note {
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .launch-note {
+      font-size: 11px;
+      color: var(--accent-dark);
+      margin-top: 6px;
+    }
+
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 10px;
       margin-bottom: 10px;
     }
 
@@ -261,6 +291,12 @@
       font-size: 13px;
       color: var(--text-muted);
       max-width: 520px;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle-2 {
+      font-size: 12px;
+      color: var(--accent-dark);
       margin-bottom: 18px;
     }
 
@@ -300,10 +336,11 @@
       margin-bottom: 4px;
     }
 
-    .product-price {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 2px;
+    .product-price-row {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      margin-bottom: 4px;
     }
 
     .product-meta {
@@ -369,7 +406,7 @@
     }
 
     .quote-box {
-      background: #d9b9a3; /* ein warmer, matter Naturton – kein Verlauf mehr */
+      background: #d9b9a3;
       color: #fff;
       border-radius: 18px;
       padding: 14px 18px;
@@ -393,7 +430,7 @@
       margin-top: 14px;
       display: grid;
       grid-template-columns: 2.1fr 1.3fr;
-      grid-auto-rows: 230px; /* macht die rechten Bilder deutlich größer */
+      grid-auto-rows: 230px;
       gap: 18px;
     }
 
@@ -401,7 +438,7 @@
       position: relative;
       background: var(--bg-soft);
       overflow: hidden;
-      border-radius: 0; /* eckige Kacheln */
+      border-radius: 0;
       cursor: pointer;
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
     }
@@ -563,7 +600,7 @@
       font-weight: 600;
       border: none;
       cursor: pointer;
-      background: var(--accent);  /* kein Gelb mehr – gleiche Farbe wie Hauptbutton */
+      background: var(--accent);
       color: #ffffff;
     }
 
@@ -787,6 +824,11 @@
         height: 130px;
       }
 
+      .logo-circle img {
+        width: 110px;
+        height: 110px;
+      }
+
       .brand-text {
         font-size: 16px;
         letter-spacing: 0.16em;
@@ -820,7 +862,7 @@
     <main>
       <section id="produkt" class="hero">
         <div>
-          <div class="hero-kicker">Handgemacht · Warm · Zeitlos</div>
+          <div class="hero-kicker">WARM · ZEITLOS · STYLISH</div>
           <h1>Der Kapuzenschal für deinen Alltag.</h1>
           <p>
             Ein Schal und eine Kapuze in einem – weicher Strick, warm und bequem.
@@ -831,7 +873,15 @@
             <span class="tag">Einheitsgröße</span>
             <span class="tag">4 Farben</span>
             <span class="tag">Limitierte Stückzahl</span>
-            <span class="hero-price-tag">24,95 € · inkl. Versand (DE)</span>
+            <span class="hero-price-tag">
+              <span class="price-old">29,95&nbsp;€</span>
+              <span class="price-new">27,95&nbsp;€</span>
+              <span class="price-note">inkl. Versand (DE)</span>
+            </span>
+          </div>
+
+          <div class="launch-note">
+            Launch-Angebot: Für die ersten 100 Bestellungen nur 27,95&nbsp;€ statt 29,95&nbsp;€.
           </div>
 
           <div class="hero-buttons">
@@ -864,6 +914,10 @@
         <p class="section-subtitle">
           Über den Button legst du den Schal in deinen Warenkorb.
         </p>
+        <p class="section-subtitle-2">
+          Einführungspreis: 27,95&nbsp;€ inkl. Versand (DE) – regulär 29,95&nbsp;€.
+          Gültig für die ersten 100 Bestellungen.
+        </p>
 
         <div class="products-grid">
           <!-- Sand -->
@@ -876,7 +930,10 @@
             />
             <div class="product-body">
               <div class="product-name">Sand</div>
-              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+              <div class="product-price-row">
+                <span class="price-old">29,95&nbsp;€</span>
+                <span class="price-new">27,95&nbsp;€ · inkl. Versand (DE)</span>
+              </div>
               <div class="product-meta">Art.-Nr.: 2025123459</div>
               <div class="product-desc">
                 Heller Sandton – ruhig, soft, zeitlos. Kapuzenschal aus weichem Strick.
@@ -888,7 +945,7 @@
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn-primary" onclick="addToCart('Sand', '2025123459', 24.95, this)">
+                <button class="btn-primary" onclick="addToCart('Sand', '2025123459', 27.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -905,7 +962,10 @@
             />
             <div class="product-body">
               <div class="product-name">Beige</div>
-              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+              <div class="product-price-row">
+                <span class="price-old">29,95&nbsp;€</span>
+                <span class="price-new">27,95&nbsp;€ · inkl. Versand (DE)</span>
+              </div>
               <div class="product-meta">Art.-Nr.: 2025123458</div>
               <div class="product-desc">
                 Warmer Beigeton, passt zu vielen Outfits. Kapuzenschal aus weichem Strick.
@@ -917,7 +977,7 @@
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn-primary" onclick="addToCart('Beige', '2025123458', 24.95, this)">
+                <button class="btn-primary" onclick="addToCart('Beige', '2025123458', 27.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -934,7 +994,10 @@
             />
             <div class="product-body">
               <div class="product-name">Braun</div>
-              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+              <div class="product-price-row">
+                <span class="price-old">29,95&nbsp;€</span>
+                <span class="price-new">27,95&nbsp;€ · inkl. Versand (DE)</span>
+              </div>
               <div class="product-meta">Art.-Nr.: 2025123457</div>
               <div class="product-desc">
                 Tiefes Dunkelbraun – klar, ruhig, bewusst. Kapuzenschal aus weichem Strick.
@@ -946,7 +1009,7 @@
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn-primary" onclick="addToCart('Braun', '2025123457', 24.95, this)">
+                <button class="btn-primary" onclick="addToCart('Braun', '2025123457', 27.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -963,7 +1026,10 @@
             />
             <div class="product-body">
               <div class="product-name">Grau</div>
-              <div class="product-price">24,95 € · inkl. Versand (DE)</div>
+              <div class="product-price-row">
+                <span class="price-old">29,95&nbsp;€</span>
+                <span class="price-new">27,95&nbsp;€ · inkl. Versand (DE)</span>
+              </div>
               <div class="product-meta">Art.-Nr.: 2025123456</div>
               <div class="product-desc">
                 Neutrales Grau – minimalistisch und kombinierbar. Kapuzenschal aus weichem Strick.
@@ -975,7 +1041,7 @@
                   <option value="3">3 Stück</option>
                   <option value="4">4 Stück</option>
                 </select>
-                <button class="btn-primary" onclick="addToCart('Grau', '2025123456', 24.95, this)">
+                <button class="btn-primary" onclick="addToCart('Grau', '2025123456', 27.95, this)">
                   In den Warenkorb
                 </button>
               </div>
@@ -1073,6 +1139,9 @@
           Lege deine Wunschfarben in den Warenkorb und trage deine Daten ein. Danach kannst du bequem per PayPal oder
           Überweisung bezahlen.
         </p>
+        <p class="section-subtitle-2">
+          Aktueller Einführungspreis: 27,95&nbsp;€ inkl. Versand (DE) statt 29,95&nbsp;€ – für die ersten 100 Bestellungen.
+        </p>
 
         <div class="cart-layout">
           <div class="cart-box">
@@ -1095,7 +1164,8 @@
             </table>
 
             <div class="cart-summary">
-              Preis: 24,95 € pro Kapuzenschal, inkl. Versand innerhalb Deutschlands.
+              Einführungspreis: 27,95&nbsp;€ pro Kapuzenschal, inkl. Versand innerhalb Deutschlands.
+              Regulärer Preis: 29,95&nbsp;€.
               <div class="cart-total" id="cart-total">Gesamt: 0,00 €</div>
               <div id="order-number-display" style="font-size: 12px; margin-top: 4px;"></div>
             </div>

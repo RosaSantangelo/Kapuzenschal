@@ -1408,7 +1408,7 @@
       return current;
     }
 
-    // --- PayPal Integration ---
+    // --- PayPal Integration (überarbeitet) ---
     function payWithPaypal() {
       if (cart.length === 0) {
         alert("Bitte lege zuerst mindestens einen Kapuzenschal in den Warenkorb.");
@@ -1419,6 +1419,7 @@
       const address = document.getElementById("order-address").value.trim();
       const zipCity = document.getElementById("order-zip-city").value.trim();
       const email = document.getElementById("order-email").value.trim();
+      const notes = document.getElementById("order-notes").value.trim();
 
       if (!name || !address || !zipCity || !email) {
         alert(
@@ -1430,6 +1431,7 @@
       // Bestellnummer sicherstellen
       const orderNumber = ensureOrderNumber();
 
+      // Warenkorbinfos aufbereiten
       let total = 0;
       const itemsText = cart
         .map((item) => {
@@ -1438,6 +1440,41 @@
         })
         .join(", ");
 
+      // 1) Interne Bestell-Mail an euch vorbereiten
+      const internalSubject = "Bestellung Kapuzenschal (PayPal) " + orderNumber;
+
+      const internalBodyLines = [
+        "Neue Bestellung Kapuzenschal (Zahlungsart: PayPal)",
+        "",
+        "Bestellnummer: " + orderNumber,
+        "",
+        "Kundendaten:",
+        "Name: " + name,
+        "Adresse: " + address,
+        "PLZ/Ort: " + zipCity,
+        "E-Mail: " + email,
+        "",
+        "Bestellte Artikel:",
+        ...cart.map((item) => {
+          return item.qty + "× " + item.name + " – " + formatPrice(item.price);
+        }),
+        "",
+        "Gesamtbetrag: " + formatPrice(total),
+        "",
+        "Hinweise des Kunden:",
+        notes || "-",
+      ];
+
+      const internalMailto =
+        "mailto:info@lumani.net?subject=" +
+        encodeURIComponent(internalSubject) +
+        "&body=" +
+        encodeURIComponent(internalBodyLines.join("\n"));
+
+      // Mailentwurf für euch öffnen (neuer Tab / neues Fenster)
+      window.open(internalMailto, "_blank");
+
+      // 2) Weiterleitung zu PayPal mit Farben & Mengen im item_name
       const business = "info@lumani.net";
       const baseUrl = "https://www.paypal.com/cgi-bin/webscr";
 
@@ -1446,24 +1483,21 @@
         business: business,
         currency_code: "EUR",
         amount: total.toFixed(2),
-        item_name: "Kapuzenschal Bestellung " + orderNumber,
+        // Farben & Mengen sichtbar in PayPal-Mail
+        item_name: "Kapuzenschal: " + itemsText,
         invoice: orderNumber,
+        // für euch intern in PayPal sichtbar
         custom:
-          itemsText +
-          " | " +
-          name +
-          " | " +
-          address +
-          " | " +
-          zipCity +
-          " | " +
-          email,
+          "Bestellnr: " + orderNumber +
+          " | Artikel: " + itemsText +
+          " | Kunde: " + name +
+          " | Adresse: " + address + ", " + zipCity +
+          " | E-Mail: " + email
       });
 
       const paypalUrl = baseUrl + "?" + params.toString();
 
       statusMessage("Weiterleitung zu PayPal …", "success");
-      // WICHTIG: direkt auf die PayPal-URL navigieren – kein about:blank
       window.location.href = paypalUrl;
     }
 

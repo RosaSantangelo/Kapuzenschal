@@ -537,7 +537,7 @@
 
         <div class="hero-badges">
           <div class="badge-soft">Einheitsgröße</div>
-          <div class="badge-soft">4 Farben</div>
+          <div class="badge-soft">Farbe: Braun</div>
           <div class="badge-soft">Limitierte Stückzahl</div>
           <div class="badge-soft">Versand innerhalb Deutschlands inkl.</div>
         </div>
@@ -559,7 +559,7 @@
           </button>
         </div>
         <div class="hero-footnote">
-          Aktuell ein Modell in vier Farbtönen: Braun, Grau, Beige und Sand.
+          Aktuell verfügbar: <strong>Braun</strong>. Beige, Grau und Sand sind derzeit <strong>ausverkauft</strong>.
         </div>
       </div>
       <div class="hero-image-card">
@@ -574,7 +574,7 @@
         Wähle deine Farbe. Über den Button legst du den Schal in deinen Warenkorb.
         <br />
         <span style="font-size:12px; color:var(--muted);">
-          Hinweis: Lageranzeige ist live auf der Seite sichtbar (Ausverkauft wird automatisch deaktiviert).
+          Hinweis: Ausverkaufte Farben sind deaktiviert.
         </span>
       </div>
 
@@ -921,10 +921,10 @@
       }
     }
 
-    // --- Lagerbestand (Startwerte: wie von dir vorgegeben) ---
+    // --- Lagerbestand (nur Braun verfügbar; Beige/Grau/Sand ausverkauft) ---
     const initialStock = {
-      sand: 5,
-      beige: 9,
+      sand: 0,
+      beige: 0,
       braun: 100,
       grau: 0,
     };
@@ -993,7 +993,6 @@
         qtySelect.disabled = false;
         note.classList.remove("badge-out");
       } else {
-        // Immer sichtbare Zahl (professioneller, damit niemand raten muss)
         note.textContent = remaining + " Stück verfügbar.";
         button.disabled = false;
         qtySelect.disabled = false;
